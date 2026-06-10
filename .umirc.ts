@@ -19,6 +19,9 @@ export default defineConfig({
   npmClient: "pnpm",
   title: "Learn Java · 文档",
   // 关闭 umi 内置的 mfsu 以外的复杂特性，保持框架清爽
+  // 关键修改：设置静态资源的基础路径
+  base: "/learn-java-docs/",
+  publicPath: "/learn-java-docs/", // 告诉 Umi 所有 JS/CSS 都从这个路径加载
   routes: [
     // 顶层：根路径重定向到默认文档
     { path: "/", redirect: DEFAULT_DOC_PATH },
