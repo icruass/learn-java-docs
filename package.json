@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "文档知识网站 - 基于 Umi 4 + React + TypeScript",
+  "homepage": "https://icruass.github.io/learn-java-docs",
   "scripts": {
     "dev": "umi dev",
     "build": "umi build",
