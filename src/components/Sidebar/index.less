@@ -3,12 +3,12 @@
   flex-direction: column;
   width: var(--sidebar-width);
   height: 100vh;
-  position: sticky;
-  top: 0;
+  position: relative;
   flex-shrink: 0;
   background: var(--color-sidebar-bg);
   border-right: 1px solid var(--color-border);
-  transition: background-color var(--transition-base), border-color var(--transition-base);
+  transition: background-color var(--transition-base),
+    border-color var(--transition-base);
 }
 
 /* ---- 品牌 / Logo ---- */
@@ -16,11 +16,11 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 20px 20px 16px;
+  padding: 20px 20px 8px;
 }
 
 .brandText {
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 700;
   color: var(--color-text-primary);
   letter-spacing: -0.01em;
@@ -30,7 +30,9 @@
 .nav {
   flex: 1;
   overflow-y: auto;
-  padding: 8px 12px 24px;
+  /* reserve scrollbar lane at all times so content width never shifts */
+  scrollbar-gutter: stable;
+  padding: 0 2px 24px 12px;
   display: flex;
   flex-direction: column;
   gap: 2px;
@@ -50,7 +52,8 @@
 
 .level3 {
   font-size: 12px;
-  color: var(--color-text-muted);
+  /* 三级及更深，颜色与二级一致 */
+  color: var(--color-text-secondary);
 }
 
 /* ---- 叶子菜单项 ---- */
@@ -62,7 +65,8 @@
   border-radius: var(--radius-sm);
   font-weight: 500;
   cursor: pointer;
-  transition: color var(--transition-fast), background-color var(--transition-fast);
+  transition: color var(--transition-fast),
+    background-color var(--transition-fast);
 }
 
 /* hover / active 用更高特异性（.item.xxx）确保盖过层级颜色 */
@@ -91,7 +95,7 @@
 
 /* ---- 分组 ---- */
 .group {
-  margin-top: 10px;
+  margin-top: 0;
 }
 
 .groupHeader {
@@ -100,15 +104,16 @@
   gap: 8px;
   width: 100%;
   padding: 7px 12px;
-  /* 滚动时把分组标题吸附在侧边栏顶部 */
+  /* 滚动时把分组标题吸附在侧边栏顶部（-4 略微上探，确保盖住下方内容） */
   position: sticky;
-  top: 0;
+  top: 0px;
   z-index: 2;
   background: var(--color-sidebar-bg);
   border-radius: var(--radius-sm);
   cursor: pointer;
   color: var(--color-text-secondary);
-  transition: color var(--transition-fast), background-color var(--transition-fast);
+  transition: color var(--transition-fast),
+    background-color var(--transition-fast);
 }
 
 .groupHeader:hover {
@@ -116,13 +121,34 @@
   background: var(--color-hover-bg);
 }
 
-/* 已展开的分组：自动高亮（同 hover 思路，但稍重一些） */
+/* 已展开的分组：自动高亮（不透明背景，吸顶时遮住下方内容）。
+   背景按层级递减：一级最重，二级淡一些，三级更淡（但仍不透明，不透字）。 */
 .groupHeaderOpen {
-  background: color-mix(in srgb, var(--color-text-primary) 9%, transparent);
+  background: var(--color-group-open-bg);
+}
+.groupHeaderOpen:hover {
+  background: var(--color-group-open-bg-hover);
 }
 
-.groupHeaderOpen:hover {
-  background: color-mix(in srgb, var(--color-text-primary) 13%, transparent);
+.groupHeader_1.groupHeaderOpen {
+  background: var(--color-group-open-bg);
+}
+.groupHeader_1.groupHeaderOpen:hover {
+  background: var(--color-group-open-bg-hover);
+}
+
+.groupHeader_2.groupHeaderOpen {
+  background: var(--color-group-open-bg-2);
+}
+.groupHeader_2.groupHeaderOpen:hover {
+  background: var(--color-group-open-bg-2-hover);
+}
+
+.groupHeader_3.groupHeaderOpen {
+  background: var(--color-group-open-bg-3);
+}
+.groupHeader_3.groupHeaderOpen:hover {
+  background: var(--color-group-open-bg-3-hover);
 }
 
 .groupHeaderOpen .groupTitle {
@@ -131,12 +157,12 @@
 
 /* 嵌套分组：吸顶时停在父级分组标题下方，避免相互遮挡 */
 .groupBody .groupHeader {
-  top: 38px;
+  top: 36px;
   z-index: 1;
 }
 
 .groupBody .groupBody .groupHeader {
-  top: 76px;
+  top: 64px;
 }
 
 .groupTitle {
@@ -176,4 +202,50 @@
   padding-left: 6px;
   margin-left: 10px;
   border-left: 1px solid var(--color-border);
+}
+
+/* ── Close button (mobile drawer only, hidden on desktop) ──── */
+.closeBtn {
+  display: none;
+  margin-left: auto;
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 16px;
+  line-height: 1;
+  transition: color var(--transition-fast), background var(--transition-fast);
+}
+
+.closeBtn:hover {
+  color: var(--color-text-primary);
+  background: var(--color-hover-bg);
+}
+
+/* ── Mobile drawer ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* Take sidebar out of flex flow; slide in from the left */
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    z-index: 1000;
+    transform: translateX(-100%);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+  }
+
+  .drawerOpen {
+    transform: translateX(0);
+    box-shadow: var(--shadow-md);
+  }
+
+  .closeBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }

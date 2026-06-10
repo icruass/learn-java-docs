@@ -31,6 +31,14 @@
   --color-hover-bg: rgba(0, 0, 0, 0.045);
   --color-active-bg: rgba(124, 58, 237, 0.1);
 
+  // 展开分组的高亮背景（不透明，吸顶时可遮住下方内容）；按层级递减：一级最重，二三级渐淡
+  --color-group-open-bg: color-mix(in srgb, var(--color-accent) 18%, var(--color-sidebar-bg));
+  --color-group-open-bg-hover: color-mix(in srgb, var(--color-accent) 26%, var(--color-sidebar-bg));
+  --color-group-open-bg-2: color-mix(in srgb, var(--color-accent) 11%, var(--color-sidebar-bg));
+  --color-group-open-bg-2-hover: color-mix(in srgb, var(--color-accent) 18%, var(--color-sidebar-bg));
+  --color-group-open-bg-3: color-mix(in srgb, var(--color-accent) 7%, var(--color-sidebar-bg));
+  --color-group-open-bg-3-hover: color-mix(in srgb, var(--color-accent) 13%, var(--color-sidebar-bg));
+
   // 强调色（accent）
   --color-accent: #7c3aed;
   --color-accent-strong: #6d28d9;
@@ -73,6 +81,14 @@
 
   --color-hover-bg: rgba(255, 255, 255, 0.09);
   --color-active-bg: rgba(167, 139, 250, 0.26);
+
+  // 暗色下展开分组改用高饱和青色，醒目且不透明；按层级递减
+  --color-group-open-bg: color-mix(in srgb, #22d3ee 32%, var(--color-sidebar-bg));
+  --color-group-open-bg-hover: color-mix(in srgb, #22d3ee 44%, var(--color-sidebar-bg));
+  --color-group-open-bg-2: color-mix(in srgb, #22d3ee 21%, var(--color-sidebar-bg));
+  --color-group-open-bg-2-hover: color-mix(in srgb, #22d3ee 32%, var(--color-sidebar-bg));
+  --color-group-open-bg-3: color-mix(in srgb, #22d3ee 13%, var(--color-sidebar-bg));
+  --color-group-open-bg-3-hover: color-mix(in srgb, #22d3ee 24%, var(--color-sidebar-bg));
 
   --color-accent: #a78bfa;
   --color-accent-strong: #c4b5fd;

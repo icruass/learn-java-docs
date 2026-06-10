@@ -1,6 +1,6 @@
-import React from 'react';
-import { useTheme } from '@/hooks/useTheme';
-import styles from './index.less';
+import React from "react";
+import { useTheme } from "@/hooks/useTheme";
+import styles from "./index.less";
 
 export interface ThemeSwitchProps {
   /**
@@ -48,7 +48,7 @@ export interface ThemeSwitchProps {
 const ThemeSwitch: React.FC<ThemeSwitchProps> = ({
   checked,
   onChange,
-  size,
+  size = "10px",
   lightBg,
   nightBg,
   sunColor,
@@ -64,7 +64,7 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = ({
   const { theme, toggleTheme } = useTheme();
 
   // 未传 checked 时，受控于全局主题
-  const isChecked = checked ?? theme === 'dark';
+  const isChecked = checked ?? theme === "dark";
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (onChange) onChange(e.target.checked);
@@ -73,24 +73,26 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = ({
 
   // 仅把传入的 prop 写成 CSS 变量，未传则沿用 less 中的默认值
   const cssVars: React.CSSProperties = {
-    ...(size ? { ['--toggle-size' as any]: size } : null),
-    ...(lightBg ? { ['--container-light-bg' as any]: lightBg } : null),
-    ...(nightBg ? { ['--container-night-bg' as any]: nightBg } : null),
-    ...(sunColor ? { ['--sun-bg' as any]: sunColor } : null),
-    ...(moonColor ? { ['--moon-bg' as any]: moonColor } : null),
-    ...(spotColor ? { ['--spot-color' as any]: spotColor } : null),
-    ...(starsColor ? { ['--stars-color' as any]: starsColor } : null),
-    ...(cloudsColor ? { ['--clouds-color' as any]: cloudsColor } : null),
-    ...(radius ? { ['--container-radius' as any]: radius } : null),
+    ...(size ? { ["--toggle-size" as any]: size } : null),
+    ...(lightBg ? { ["--container-light-bg" as any]: lightBg } : null),
+    ...(nightBg ? { ["--container-night-bg" as any]: nightBg } : null),
+    ...(sunColor ? { ["--sun-bg" as any]: sunColor } : null),
+    ...(moonColor ? { ["--moon-bg" as any]: moonColor } : null),
+    ...(spotColor ? { ["--spot-color" as any]: spotColor } : null),
+    ...(starsColor ? { ["--stars-color" as any]: starsColor } : null),
+    ...(cloudsColor ? { ["--clouds-color" as any]: cloudsColor } : null),
+    ...(radius ? { ["--container-radius" as any]: radius } : null),
     ...style,
   };
 
   return (
     <label
-      className={`${styles.themeSwitch} ${className ?? ''}`}
+      className={`${styles.themeSwitch} ${className ?? ""}`}
       style={cssVars}
-      aria-label={ariaLabel ?? (isChecked ? '切换到亮色主题' : '切换到暗色主题')}
-      title={isChecked ? '切换到亮色主题' : '切换到暗色主题'}
+      aria-label={
+        ariaLabel ?? (isChecked ? "切换到亮色主题" : "切换到暗色主题")
+      }
+      title={isChecked ? "切换到亮色主题" : "切换到暗色主题"}
     >
       <input
         type="checkbox"
