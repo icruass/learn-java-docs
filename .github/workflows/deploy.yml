@@ -36,7 +36,8 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist # 告诉 GitHub 去 dist 文件夹里找网页文件
-
+      - name: 配置 SPA 路由回退
+        run: cp ./dist/index.html ./dist/404.html # 复制一份作为 404 回退页
   deploy:
     environment:
       name: github-pages
