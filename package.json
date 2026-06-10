@@ -1,0 +1,26 @@
+{
+  "name": "learn-java-docs",
+  "version": "1.0.0",
+  "private": true,
+  "description": "文档知识网站 - 基于 Umi 4 + React + TypeScript",
+  "scripts": {
+    "dev": "umi dev",
+    "build": "umi build",
+    "postinstall": "umi setup",
+    "setup": "umi setup",
+    "start": "npm run dev",
+    "tsc": "tsc --noEmit"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-syntax-highlighter": "^15.6.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@types/react-syntax-highlighter": "^15.5.13",
+    "typescript": "^5.6.3",
+    "umi": "^4.4.0"
+  }
+}

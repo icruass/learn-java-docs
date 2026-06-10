@@ -1,0 +1,402 @@
+import React from 'react';
+import {
+  Title,
+  Subtitle,
+  Heading3,
+  Paragraph,
+  Text,
+  InlineCode,
+  CodeBlock,
+  Table,
+  Callout,
+  UnorderedList,
+  OrderedList,
+  ListItem,
+  Divider,
+} from '@/components/doc';
+
+const index: React.FC = () => (
+  <article>
+    <Title>事务：概念、提交方式、ACID 四大特性与隔离级别</Title>
+
+    <Callout type="note" title="本章导读">
+      <Paragraph>
+        到目前为止，我们执行的每条 SQL 都是「单打独斗」的。但真实业务里，一件事往往要
+        <Text bold>好几条 SQL 一起完成才算数</Text>
+        ：转账要「A 账户减钱」+「B 账户加钱」两步；下单要「插入订单」+「扣减库存」+「生成支付单」三步。这些步骤必须
+        <Text bold>要么全部成功，要么全部失败</Text>——绝不能钱扣了却没到账。
+      </Paragraph>
+      <Paragraph>
+        保证这种「打包执行、共进退」的机制，就是<Text bold>事务（Transaction）</Text>。本章讲透：
+      </Paragraph>
+      <OrderedList>
+        <ListItem>
+          事务是什么，用转账例子直观感受 <InlineCode>COMMIT</InlineCode> /{' '}
+          <InlineCode>ROLLBACK</InlineCode>；
+        </ListItem>
+        <ListItem>MySQL 的自动提交与手动提交；</ListItem>
+        <ListItem>
+          事务的四大特性 <Text bold>ACID</Text>；
+        </ListItem>
+        <ListItem>多个事务并发时会出的三类问题（脏读、不可重复读、幻读）；</ListItem>
+        <ListItem>
+          四种<Text bold>隔离级别</Text>如何分别防住这些问题，并用两个会话实际演示。
+        </ListItem>
+      </OrderedList>
+      <Paragraph>
+        事务是 MySQL 和后端面试的<Text bold>绝对核心</Text>，也是第 17 章「JDBC
+        事务管理」的理论基础。本章沿用 <InlineCode>db_learn</InlineCode>，新建一张账户表演示。
+      </Paragraph>
+    </Callout>
+
+    <Divider />
+
+    <Subtitle>〇、准备示例数据</Subtitle>
+    <CodeBlock
+      language="sql"
+      code={`CREATE TABLE account (
+  id    INT PRIMARY KEY AUTO_INCREMENT,
+  name  VARCHAR(20),
+  money DOUBLE              -- 余额
+);
+INSERT INTO account (name, money) VALUES ('张三', 1000), ('李四', 1000);`}
+    />
+
+    <Divider />
+
+    <Subtitle>一、事务是什么——从一次转账说起</Subtitle>
+    <Paragraph>
+      <Text bold>需求</Text>：张三给李四转账 500 元。在数据库里就是两条 SQL：
+    </Paragraph>
+    <CodeBlock
+      language="sql"
+      code={`UPDATE account SET money = money - 500 WHERE name = '张三';   -- 张三 -500
+UPDATE account SET money = money + 500 WHERE name = '李四';   -- 李四 +500`}
+    />
+    <Paragraph>
+      正常情况两条都成功，没问题。但
+      <Text bold>如果第一条执行完，服务器突然宕机/断电，第二条没执行</Text>呢？结果就是：
+      <Text bold>张三少了 500，李四却没收到——凭空蒸发了 500 元！</Text>
+    </Paragraph>
+    <Paragraph>
+      事务就是来解决这个问题的：把这两条 SQL <Text bold>打包成一个不可分割的整体</Text>
+      。要么两条都生效，要么一条都不生效，绝不允许「只成功一半」。
+    </Paragraph>
+
+    <Divider />
+
+    <Subtitle>二、事务的基本操作：开启、提交、回滚</Subtitle>
+    <Table
+      head={['操作', '语句', '含义']}
+      rows={[
+        ['开启事务', 'START TRANSACTION; 或 BEGIN;', '从此刻起的 SQL 进入「临时缓冲」，未真正写入'],
+        ['提交事务', 'COMMIT;', '确认无误，把所有改动永久写入数据库'],
+        ['回滚事务', 'ROLLBACK;', '出错了，撤销本次事务的所有改动，回到开启前'],
+      ]}
+    />
+
+    <Heading3>2.1 成功提交的演示</Heading3>
+    <CodeBlock
+      language="sql"
+      code={`START TRANSACTION;                                            -- 开启事务
+UPDATE account SET money = money - 500 WHERE name = '张三';
+UPDATE account SET money = money + 500 WHERE name = '李四';
+COMMIT;                                                        -- 两条都OK，提交
+-- 结果：张三 500，李四 1500，永久生效`}
+    />
+
+    <Heading3>2.2 出错回滚的演示</Heading3>
+    <CodeBlock
+      language="sql"
+      code={`START TRANSACTION;
+UPDATE account SET money = money - 500 WHERE name = '张三';
+-- 假设此时发现李四账户异常，或第二条 SQL 出错了
+ROLLBACK;                                                      -- 撤销！
+-- 结果：张三仍然 1000，李四仍然 1000，就像什么都没发生过`}
+    />
+    <Callout type="tip">
+      <Text bold>回滚的威力</Text>：哪怕你已经执行了 <InlineCode>UPDATE</InlineCode>、
+      <InlineCode>DELETE</InlineCode>、<InlineCode>INSERT</InlineCode>，只要还没{' '}
+      <InlineCode>COMMIT</InlineCode>，一句 <InlineCode>ROLLBACK</InlineCode>
+      就能全部撤销。这是事务的「后悔药」。
+    </Callout>
+
+    <Divider />
+
+    <Subtitle>三、自动提交 vs 手动提交</Subtitle>
+    <Paragraph>
+      上面用 <InlineCode>START TRANSACTION</InlineCode> 是<Text bold>手动管理事务</Text>
+      。那平时我们直接执行一条 <InlineCode>UPDATE</InlineCode> 没写{' '}
+      <InlineCode>COMMIT</InlineCode>，为什么也生效了？
+    </Paragraph>
+    <Paragraph>
+      因为 <Text bold>MySQL 默认开启了「自动提交」</Text>：每执行一条 DML
+      语句，就自动当作一个事务立即提交。
+    </Paragraph>
+
+    <Heading3>3.1 查看与修改自动提交开关</Heading3>
+    <CodeBlock
+      language="sql"
+      code={`-- 查看自动提交状态：1 表示开启（默认），0 表示关闭
+SHOW VARIABLES LIKE 'autocommit';
+
+-- 关闭自动提交（改成手动）
+SET autocommit = 0;`}
+    />
+    <Paragraph>
+      关闭后，你的每条 DML 都需要手动 <InlineCode>COMMIT</InlineCode> 才生效，否则{' '}
+      <InlineCode>ROLLBACK</InlineCode> 或断开连接就丢失。
+    </Paragraph>
+
+    <Heading3>3.2 两种管理事务的方式</Heading3>
+    <Table
+      head={['方式', '做法', '适用']}
+      rows={[
+        ['显式事务', '用 START TRANSACTION … COMMIT/ROLLBACK 临时打包一组语句', '偶尔需要打包的场景（最常用）'],
+        ['关闭自动提交', 'SET autocommit=0，之后所有语句都要手动提交', '整个会话都要手动控制'],
+      ]}
+    />
+    <Callout type="tip">
+      <Text bold>MySQL 与 Oracle 的差异</Text>：MySQL <Text bold>默认自动提交</Text>
+      ；Oracle <Text bold>默认不自动提交</Text>（必须手动 <InlineCode>COMMIT</InlineCode>
+      ）。从 Oracle 转过来的同学要特别注意这点。
+    </Callout>
+    <Callout type="warning">
+      注意：<InlineCode>DDL</InlineCode>（如 <InlineCode>CREATE/DROP/ALTER</InlineCode>
+      ）在 MySQL 里会触发<Text bold>隐式提交</Text>，无法回滚。事务通常只对 DML 有意义。
+    </Callout>
+
+    <Divider />
+
+    <Subtitle>四、事务的四大特性 ACID</Subtitle>
+    <Paragraph>
+      事务必须满足四个特性，取首字母合称 <Text bold>ACID</Text>，是面试必背：
+    </Paragraph>
+    <Table
+      head={['特性', '英文', '含义', '对应转账例子']}
+      rows={[
+        ['原子性', 'Atomicity', '事务是不可分割的最小单位，要么全成功要么全失败', '转账两条 SQL 是一个整体，不能只扣不加'],
+        ['一致性', 'Consistency', '事务前后，数据的总量/约束保持合法一致', '转账前后，两人钱的总和恒为 2000'],
+        ['隔离性', 'Isolation', '多个事务并发执行时互不干扰', '张三转账时，别人看不到他「扣了一半」的中间状态'],
+        ['持久性', 'Durability', '一旦 COMMIT，改动永久保存，即使宕机也不丢', '转账成功后断电，重启数据依然是对的'],
+      ]}
+    />
+    <Callout type="tip">
+      四者关系：<Text bold>原子性是手段</Text>（保证不会执行一半），
+      <Text bold>一致性是目的</Text>（最终数据合法），<Text bold>隔离性</Text>
+      处理并发干扰，<Text bold>持久性</Text>靠日志（redo log）保证落盘不丢。其中
+      <Text bold>隔离性是最复杂、最值得展开的</Text>，下面重点讲。
+    </Callout>
+
+    <Divider />
+
+    <Subtitle>五、并发事务带来的三大问题</Subtitle>
+    <Paragraph>
+      当多个事务<Text bold>同时</Text>
+      操作同一份数据时，如果隔离做得不好，会出现三类经典问题。理解它们是理解隔离级别的前提。
+    </Paragraph>
+    <Paragraph>假设有事务 A、事务 B 同时运行：</Paragraph>
+
+    <Heading3>5.1 脏读（Dirty Read）</Heading3>
+    <Callout type="note">
+      <Text bold>一个事务读到了另一个事务「还没提交」的数据。</Text>
+    </Callout>
+    <CodeBlock
+      language="text"
+      code={`事务B：UPDATE account SET money=money-500 WHERE name='张三';  -- 改了但没提交
+事务A：SELECT money FROM account WHERE name='张三';            -- 读到 500（脏数据！）
+事务B：ROLLBACK;                                               -- B 回滚了，张三其实还是1000
+-- 事务A 拿着一个"根本不存在"的500去做决策，错了`}
+    />
+    <Paragraph>危害最大——读到的可能是会被撤销的「幻象数据」。</Paragraph>
+
+    <Heading3>5.2 不可重复读（Non-Repeatable Read）</Heading3>
+    <Callout type="note">
+      <Text bold>同一个事务内，两次读同一行，结果却不一样</Text>（因为中间别的事务
+      <Text bold>改并提交</Text>了）。
+    </Callout>
+    <CodeBlock
+      language="text"
+      code={`事务A：SELECT money FROM account WHERE name='张三';  -- 读到 1000
+事务B：UPDATE account SET money=2000 WHERE name='张三'; COMMIT;
+事务A：SELECT money FROM account WHERE name='张三';  -- 又读，变成 2000 了！
+-- 同一事务里两次读不一致，针对的是"行内容被 UPDATE"`}
+    />
+
+    <Heading3>5.3 幻读（Phantom Read）</Heading3>
+    <Callout type="note">
+      <Text bold>同一个事务内，两次按同一条件查询，行数却变了</Text>（因为别的事务
+      <Text bold>插入/删除</Text>并提交了）。
+    </Callout>
+    <CodeBlock
+      language="text"
+      code={`事务A：SELECT COUNT(*) FROM account WHERE money>500;  -- 读到 2 行
+事务B：INSERT INTO account VALUES (3,'王五',8000); COMMIT;
+事务A：SELECT COUNT(*) FROM account WHERE money>500;  -- 变成 3 行，多出一条"幻影"
+-- 针对的是"行数被 INSERT/DELETE"`}
+    />
+    <Callout type="tip">
+      <Text bold>三者区别一句话</Text>：
+      <UnorderedList>
+        <ListItem>
+          脏读 = 读到<Text bold>未提交</Text>的改动；
+        </ListItem>
+        <ListItem>
+          不可重复读 = 读到<Text bold>已提交的 UPDATE</Text>（同一行内容变了）；
+        </ListItem>
+        <ListItem>
+          幻读 = 读到<Text bold>已提交的 INSERT/DELETE</Text>（行数变了）。
+        </ListItem>
+      </UnorderedList>
+    </Callout>
+
+    <Divider />
+
+    <Subtitle>六、四种隔离级别</Subtitle>
+    <Paragraph>
+      为了在「数据安全」和「并发性能」之间取舍，SQL 标准定义了<Text bold>四种隔离级别</Text>
+      ，级别越高越安全但越慢。
+    </Paragraph>
+    <Table
+      head={['级别', '名称', '脏读', '不可重复读', '幻读', '性能']}
+      rows={[
+        ['1', '读未提交 READ UNCOMMITTED', '❌会发生', '❌会', '❌会', '最快'],
+        ['2', '读已提交 READ COMMITTED', '✅避免', '❌会', '❌会', '较快（Oracle默认）'],
+        ['3', '可重复读 REPEATABLE READ', '✅避免', '✅避免', '⚠️理论会(MySQL靠MVCC基本避免)', '中（MySQL默认）'],
+        ['4', '串行化 SERIALIZABLE', '✅避免', '✅避免', '✅避免', '最慢（事务排队执行）'],
+      ]}
+    />
+    <UnorderedList>
+      <ListItem>
+        <Text bold>级别越高，越能防住更多问题，但并发性能越差。</Text>
+      </ListItem>
+      <ListItem>
+        <Text bold>MySQL（InnoDB）默认是「可重复读 REPEATABLE READ」</Text>，且通过 MVCC
+        机制在很大程度上连幻读也避免了，是兼顾安全与性能的折中。
+      </ListItem>
+      <ListItem>
+        <Text bold>Oracle 默认是「读已提交 READ COMMITTED」</Text>。
+      </ListItem>
+    </UnorderedList>
+
+    <Heading3>6.1 查看与设置隔离级别</Heading3>
+    <CodeBlock
+      language="sql"
+      code={`-- 查看当前隔离级别（MySQL 8）
+SELECT @@transaction_isolation;       -- MySQL 5.x 用 @@tx_isolation
+
+-- 设置隔离级别（SESSION 当前会话 / GLOBAL 全局）
+SET SESSION TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
+SET GLOBAL  TRANSACTION ISOLATION LEVEL REPEATABLE READ;`}
+    />
+
+    <Divider />
+
+    <Subtitle>七、隔离级别实操演示（两个会话）</Subtitle>
+    <Paragraph>
+      要演示并发，需要<Text bold>开两个 mysql 客户端窗口</Text>（或 SQLyog
+      两个查询标签），分别模拟事务 A 和事务 B。
+    </Paragraph>
+
+    <Heading3>7.1 演示一：在「读未提交」下复现脏读</Heading3>
+    <CodeBlock
+      language="sql"
+      code={`-- ① 两个窗口都先设为读未提交
+SET SESSION TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;`}
+    />
+    <CodeBlock
+      language="sql"
+      code={`-- ② 窗口B（转账方）：开启事务，扣钱但先不提交
+START TRANSACTION;
+UPDATE account SET money = money - 500 WHERE name = '张三';
+-- 暂停，不要 COMMIT`}
+    />
+    <CodeBlock
+      language="sql"
+      code={`-- ③ 窗口A（查询方）：开启事务去查
+START TRANSACTION;
+SELECT money FROM account WHERE name = '张三';   -- 竟然读到了 500（脏读！B还没提交）`}
+    />
+    <CodeBlock
+      language="sql"
+      code={`-- ④ 窗口B：回滚
+ROLLBACK;     -- 张三其实仍是 1000，但窗口A刚才读到的500是假的 → 脏读发生`}
+    />
+
+    <Heading3>7.2 演示二：升到「读已提交」，脏读消失</Heading3>
+    <CodeBlock
+      language="sql"
+      code={`-- ① 两窗口都改为读已提交
+SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED;`}
+    />
+    <Paragraph>
+      重复上面 ②③ 的步骤：这次窗口 A 的查询<Text bold>只会读到 1000</Text>（B
+      未提交的改动看不到），脏读被解决。但如果 B 提交后 A
+      再查，会读到新值——这就暴露了「不可重复读」，需要再升到{' '}
+      <InlineCode>REPEATABLE READ</InlineCode> 才能避免。
+    </Paragraph>
+    <Callout type="tip">
+      <Text bold>演示的规律</Text>：把隔离级别从低往高调，能逐个观察到「脏读消失 →
+      不可重复读消失 → 幻读消失」的过程，亲手跑一遍比背表深刻得多。
+    </Callout>
+
+    <Divider />
+
+    <Subtitle>八、本章小结</Subtitle>
+    <UnorderedList>
+      <ListItem>
+        <Text bold>事务</Text>：把多条 SQL 打包成「要么全成功、要么全失败」的整体，靠{' '}
+        <InlineCode>COMMIT</InlineCode>（提交）/<InlineCode>ROLLBACK</InlineCode>
+        （回滚）控制。
+      </ListItem>
+      <ListItem>
+        <Text bold>开启方式</Text>：<InlineCode>START TRANSACTION;</InlineCode> …{' '}
+        <InlineCode>COMMIT;</InlineCode>/<InlineCode>ROLLBACK;</InlineCode>；MySQL 默认{' '}
+        <Text bold>自动提交</Text>（<InlineCode>autocommit=1</InlineCode>），可{' '}
+        <InlineCode>SET autocommit=0</InlineCode> 改手动。
+      </ListItem>
+      <ListItem>
+        <Text bold>ACID</Text>
+        ：原子性（不可分割）、一致性（数据合法）、隔离性（并发不干扰）、持久性（提交永久）。
+      </ListItem>
+      <ListItem>
+        <Text bold>并发三问题</Text>：脏读（读未提交）、不可重复读（读到已提交的
+        UPDATE）、幻读（读到已提交的 INSERT/DELETE）。
+      </ListItem>
+      <ListItem>
+        <Text bold>四隔离级别</Text>（由低到高）：读未提交 &lt; 读已提交 &lt;{' '}
+        <Text bold>可重复读（MySQL 默认）</Text> &lt; 串行化；级别越高越安全越慢。
+      </ListItem>
+      <ListItem>
+        <Text bold>查看/设置</Text>：<InlineCode>SELECT @@transaction_isolation;</InlineCode>
+        、<InlineCode>SET SESSION TRANSACTION ISOLATION LEVEL ...</InlineCode>。
+      </ListItem>
+    </UnorderedList>
+
+    <Heading3>常见易错问答</Heading3>
+    <OrderedList>
+      <ListItem>
+        <Text bold>问：MySQL 默认隔离级别是什么？能防幻读吗？</Text>
+        <Paragraph>
+          答：默认 <Text bold>REPEATABLE READ（可重复读）</Text>
+          。理论上该级别允许幻读，但 InnoDB 借助 MVCC + 间隙锁在绝大多数场景下也避免了幻读。
+        </Paragraph>
+      </ListItem>
+      <ListItem>
+        <Text bold>问：DDL 能回滚吗？</Text>
+        <Paragraph>
+          答：不能。<InlineCode>CREATE/ALTER/DROP</InlineCode> 在 MySQL
+          中会隐式提交，事务回滚只对 DML 有效。
+        </Paragraph>
+      </ListItem>
+      <ListItem>
+        <Text bold>问：为什么不直接都用最高的 SERIALIZABLE？</Text>
+        <Paragraph>
+          答：串行化让事务排队执行，并发性能极差。实际是按业务对一致性的要求，选最低够用的级别。
+        </Paragraph>
+      </ListItem>
+    </OrderedList>
+  </article>
+);
+
+export default index;

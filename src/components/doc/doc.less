@@ -1,0 +1,232 @@
+/* ---- 文档排版组件样式 ---- */
+
+.title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+  margin: 0 0 8px;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  color: var(--color-text-primary);
+  margin: 40px 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.heading3 {
+  font-size: 1.18rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--color-text-primary);
+  margin: 28px 0 10px;
+}
+
+.heading4 {
+  font-size: 1.02rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--color-text-primary);
+  margin: 22px 0 8px;
+}
+
+.paragraph {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--color-text-primary);
+  margin: 0 0 16px;
+}
+
+.secondary {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  margin: 0 0 16px;
+}
+
+/* ---- Tag 着重标签 ---- */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 1px 8px;
+  font-size: 0.82em;
+  font-weight: 600;
+  line-height: 1.6;
+  border-radius: var(--radius-sm);
+  color: var(--color-tag-text);
+  background: var(--color-tag-bg);
+  white-space: nowrap;
+}
+
+.tagSolid {
+  color: var(--color-text-inverse);
+  background: var(--color-accent);
+}
+
+.tagOutline {
+  color: var(--color-accent);
+  background: transparent;
+  border: 1px solid var(--color-accent);
+}
+
+/* ---- 行内代码 ---- */
+.inlineCode {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  padding: 2px 6px;
+  border-radius: 5px;
+  color: var(--color-code-inline-text);
+  background: var(--color-code-inline-bg);
+}
+
+/* ---- 列表 ---- */
+.ul,
+.ol {
+  margin: 0 0 16px;
+  padding-left: 1.5em;
+  color: var(--color-text-primary);
+  line-height: 1.8;
+}
+
+.ul {
+  list-style: disc;
+}
+
+.ol {
+  list-style: decimal;
+}
+
+.li {
+  margin: 4px 0;
+}
+
+/* 嵌套列表去掉多余下边距 */
+.li > .ul,
+.li > .ol {
+  margin: 4px 0 4px;
+}
+
+/* ---- 分隔线 ---- */
+.divider {
+  height: 1px;
+  border: none;
+  background: var(--color-border);
+  margin: 32px 0;
+}
+
+/* ---- 表格 ---- */
+.tableWrap {
+  margin: 20px 0;
+  overflow-x: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.table th,
+.table td {
+  padding: 9px 14px;
+  border-bottom: 1px solid var(--color-border);
+  border-right: 1px solid var(--color-border);
+  vertical-align: top;
+}
+
+.table th:last-child,
+.table td:last-child {
+  border-right: none;
+}
+
+.table thead th {
+  background: var(--color-bg-elevated);
+  color: var(--color-text-primary);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.table tbody tr:hover td {
+  background: var(--color-hover-bg);
+}
+
+.table td {
+  color: var(--color-text-secondary);
+}
+
+/* 表格内的行内代码稍微紧凑些 */
+.table code {
+  white-space: nowrap;
+}
+
+/* ---- 提示框 / 引用块 Callout ---- */
+.callout {
+  margin: 18px 0;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--color-border-strong);
+  background: var(--color-bg-elevated);
+}
+
+.calloutTitle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  font-size: 0.92rem;
+  margin-bottom: 4px;
+  color: var(--color-text-primary);
+}
+
+.calloutIcon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.calloutBody {
+  color: var(--color-text-secondary);
+  line-height: 1.75;
+}
+
+.calloutBody > :last-child {
+  margin-bottom: 0;
+}
+
+/* 各类型配色（用半透明强调色，自动适配主题） */
+.calloutTip {
+  border-left-color: #3b82f6;
+  background: color-mix(in srgb, #3b82f6 10%, var(--color-bg-elevated));
+}
+
+.calloutWarning {
+  border-left-color: #f59e0b;
+  background: color-mix(in srgb, #f59e0b 12%, var(--color-bg-elevated));
+}
+
+.calloutDanger {
+  border-left-color: #ef4444;
+  background: color-mix(in srgb, #ef4444 12%, var(--color-bg-elevated));
+}
+
+.calloutSuccess {
+  border-left-color: #22c55e;
+  background: color-mix(in srgb, #22c55e 12%, var(--color-bg-elevated));
+}
+
+.calloutNote {
+  border-left-color: var(--color-accent);
+  background: var(--color-accent-soft);
+}
