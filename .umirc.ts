@@ -26,7 +26,6 @@ export default defineConfig({
     type: "hash",
   },
   routes: [
-    // 顶层：根路径重定向到默认文档
     { path: "/", redirect: DEFAULT_DOC_PATH },
     // 文档主框架：左侧侧边栏 + 右侧内容，所有文档页都是它的子路由
     {
