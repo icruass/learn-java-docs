@@ -22,9 +22,6 @@ export default defineConfig({
   // 关键修改：设置静态资源的基础路径
   base: "/learn-java-docs/",
   publicPath: "/learn-java-docs/", // 告诉 Umi 所有 JS/CSS 都从这个路径加载
-  history: {
-    type: "hash",
-  },
   routes: [
     { path: "/", redirect: DEFAULT_DOC_PATH },
     // 文档主框架：左侧侧边栏 + 右侧内容，所有文档页都是它的子路由
