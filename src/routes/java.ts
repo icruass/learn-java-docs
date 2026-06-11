@@ -598,6 +598,88 @@ export default [
           },
         ],
       },
+      {
+        path: "/java/26",
+        name: "Java的数据结构",
+        routes: [
+          {
+            path: "/java/26/01",
+            name: "数据结构概述",
+            component: "@/pages/java/26-Java的数据结构/01-数据结构概述",
+          },
+          {
+            path: "/java/26/02",
+            name: "数组结构",
+            component: "@/pages/java/26-Java的数据结构/02-数组结构",
+          },
+          {
+            path: "/java/26/03",
+            name: "链表结构",
+            component: "@/pages/java/26-Java的数据结构/03-链表结构",
+          },
+          {
+            path: "/java/26/04",
+            name: "栈结构",
+            component: "@/pages/java/26-Java的数据结构/04-栈结构",
+          },
+          {
+            path: "/java/26/05",
+            name: "队列结构",
+            component: "@/pages/java/26-Java的数据结构/05-队列结构",
+          },
+          {
+            path: "/java/26/06",
+            name: "树与二叉树",
+            component: "@/pages/java/26-Java的数据结构/06-树与二叉树",
+          },
+          {
+            path: "/java/26/07",
+            name: "二叉查找树",
+            component: "@/pages/java/26-Java的数据结构/07-二叉查找树",
+          },
+          {
+            path: "/java/26/08",
+            name: "平衡二叉树与红黑树",
+            component: "@/pages/java/26-Java的数据结构/08-平衡二叉树与红黑树",
+          },
+          {
+            path: "/java/26/09",
+            name: "哈希表",
+            component: "@/pages/java/26-Java的数据结构/09-哈希表",
+          },
+          {
+            path: "/java/26/10",
+            name: "堆与优先队列",
+            component: "@/pages/java/26-Java的数据结构/10-堆与优先队列",
+          },
+        ],
+      },
+      {
+        path: "/java/27",
+        name: "Java的Collection集合类",
+        routes: [
+          {
+            path: "/java/27/01",
+            name: "集合框架概述",
+            component: "@/pages/java/27-Java的Collection集合类/01-集合框架概述",
+          },
+          {
+            path: "/java/27/04",
+            name: "List接口与ArrayList",
+            component: "@/pages/java/27-Java的Collection集合类/04-List接口与ArrayList",
+          },
+          {
+            path: "/java/27/06",
+            name: "Set接口与HashSet",
+            component: "@/pages/java/27-Java的Collection集合类/06-Set接口与HashSet",
+          },
+          {
+            path: "/java/27/08",
+            name: "Map接口与HashMap",
+            component: "@/pages/java/27-Java的Collection集合类/08-Map接口与HashMap",
+          },
+        ],
+      },
     ],
   },
 ];

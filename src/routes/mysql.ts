@@ -40,20 +40,17 @@ export default [
           {
             path: "/mysql/01/06",
             name: "关系型与非关系型对比",
-            component:
-              "@/pages/mysql/01-数据库基本概念/06-关系型与非关系型对比",
+            component: "@/pages/mysql/01-数据库基本概念/06-关系型与非关系型对比",
           },
           {
             path: "/mysql/01/07",
             name: "常见关系型数据库软件",
-            component:
-              "@/pages/mysql/01-数据库基本概念/07-常见关系型数据库软件",
+            component: "@/pages/mysql/01-数据库基本概念/07-常见关系型数据库软件",
           },
           {
             path: "/mysql/01/08",
             name: "常见NoSQL-Redis与MongoDB",
-            component:
-              "@/pages/mysql/01-数据库基本概念/08-常见NoSQL-Redis与MongoDB",
+            component: "@/pages/mysql/01-数据库基本概念/08-常见NoSQL-Redis与MongoDB",
           },
           {
             path: "/mysql/01/09",
@@ -74,38 +71,32 @@ export default [
           {
             path: "/mysql/02/01",
             name: "本章导读与基本概念",
-            component:
-              "@/pages/mysql/02-MySQL安装卸载与服务管理/01-本章导读与基本概念",
+            component: "@/pages/mysql/02-MySQL安装卸载与服务管理/01-本章导读与基本概念",
           },
           {
             path: "/mysql/02/02",
             name: "Windows安装MySQL",
-            component:
-              "@/pages/mysql/02-MySQL安装卸载与服务管理/02-Windows安装MySQL",
+            component: "@/pages/mysql/02-MySQL安装卸载与服务管理/02-Windows安装MySQL",
           },
           {
             path: "/mysql/02/03",
             name: "安装验证与服务启停",
-            component:
-              "@/pages/mysql/02-MySQL安装卸载与服务管理/03-安装验证与服务启停",
+            component: "@/pages/mysql/02-MySQL安装卸载与服务管理/03-安装验证与服务启停",
           },
           {
             path: "/mysql/02/04",
             name: "登录与退出MySQL",
-            component:
-              "@/pages/mysql/02-MySQL安装卸载与服务管理/04-登录与退出MySQL",
+            component: "@/pages/mysql/02-MySQL安装卸载与服务管理/04-登录与退出MySQL",
           },
           {
             path: "/mysql/02/05",
             name: "彻底卸载MySQL",
-            component:
-              "@/pages/mysql/02-MySQL安装卸载与服务管理/05-彻底卸载MySQL",
+            component: "@/pages/mysql/02-MySQL安装卸载与服务管理/05-彻底卸载MySQL",
           },
           {
             path: "/mysql/02/06",
             name: "目录结构配置文件与小结",
-            component:
-              "@/pages/mysql/02-MySQL安装卸载与服务管理/06-目录结构配置文件与小结",
+            component: "@/pages/mysql/02-MySQL安装卸载与服务管理/06-目录结构配置文件与小结",
           },
         ],
       },
@@ -116,8 +107,7 @@ export default [
           {
             path: "/mysql/03/01",
             name: "SQL是什么与标准方言",
-            component:
-              "@/pages/mysql/03-SQL概述与通用语法/01-SQL是什么与标准方言",
+            component: "@/pages/mysql/03-SQL概述与通用语法/01-SQL是什么与标准方言",
           },
           {
             path: "/mysql/03/02",
@@ -132,14 +122,12 @@ export default [
           {
             path: "/mysql/03/04",
             name: "四大分类DDL-DML-DQL-DCL",
-            component:
-              "@/pages/mysql/03-SQL概述与通用语法/04-四大分类DDL-DML-DQL-DCL",
+            component: "@/pages/mysql/03-SQL概述与通用语法/04-四大分类DDL-DML-DQL-DCL",
           },
           {
             path: "/mysql/03/05",
             name: "本章小结与面试问答",
-            component:
-              "@/pages/mysql/03-SQL概述与通用语法/05-本章小结与面试问答",
+            component: "@/pages/mysql/03-SQL概述与通用语法/05-本章小结与面试问答",
           },
         ],
       },
@@ -150,8 +138,7 @@ export default [
           {
             path: "/mysql/04/01",
             name: "预备知识与CREATE-DATABASE",
-            component:
-              "@/pages/mysql/04-DDL-操作数据库/01-预备知识与CREATE-DATABASE",
+            component: "@/pages/mysql/04-DDL-操作数据库/01-预备知识与CREATE-DATABASE",
           },
           {
             path: "/mysql/04/02",
@@ -177,20 +164,17 @@ export default [
           {
             path: "/mysql/05/01",
             name: "准备工作与查询表",
-            component:
-              "@/pages/mysql/05-DDL-操作表与图形化工具/01-准备工作与查询表",
+            component: "@/pages/mysql/05-DDL-操作表与图形化工具/01-准备工作与查询表",
           },
           {
             path: "/mysql/05/02",
             name: "CREATE-TABLE与数据类型",
-            component:
-              "@/pages/mysql/05-DDL-操作表与图形化工具/02-CREATE-TABLE与数据类型",
+            component: "@/pages/mysql/05-DDL-操作表与图形化工具/02-CREATE-TABLE与数据类型",
           },
           {
             path: "/mysql/05/03",
             name: "修改删除复制表",
-            component:
-              "@/pages/mysql/05-DDL-操作表与图形化工具/03-修改删除复制表",
+            component: "@/pages/mysql/05-DDL-操作表与图形化工具/03-修改删除复制表",
           },
           {
             path: "/mysql/05/04",
@@ -216,8 +200,7 @@ export default [
           {
             path: "/mysql/06/03",
             name: "DELETE删除数据与小结",
-            component:
-              "@/pages/mysql/06-DML-数据增删改/03-DELETE删除数据与小结",
+            component: "@/pages/mysql/06-DML-数据增删改/03-DELETE删除数据与小结",
           },
         ],
       },
@@ -228,26 +211,22 @@ export default [
           {
             path: "/mysql/07/01",
             name: "SELECT基础语法与基础查询",
-            component:
-              "@/pages/mysql/07-DQL-基础查询与条件查询/01-SELECT基础语法与基础查询",
+            component: "@/pages/mysql/07-DQL-基础查询与条件查询/01-SELECT基础语法与基础查询",
           },
           {
             path: "/mysql/07/02",
             name: "去重计算列与NULL处理",
-            component:
-              "@/pages/mysql/07-DQL-基础查询与条件查询/02-去重计算列与NULL处理",
+            component: "@/pages/mysql/07-DQL-基础查询与条件查询/02-去重计算列与NULL处理",
           },
           {
             path: "/mysql/07/03",
             name: "条件查询WHERE",
-            component:
-              "@/pages/mysql/07-DQL-基础查询与条件查询/03-条件查询WHERE",
+            component: "@/pages/mysql/07-DQL-基础查询与条件查询/03-条件查询WHERE",
           },
           {
             path: "/mysql/07/04",
             name: "模糊查询LIKE与小结",
-            component:
-              "@/pages/mysql/07-DQL-基础查询与条件查询/04-模糊查询LIKE与小结",
+            component: "@/pages/mysql/07-DQL-基础查询与条件查询/04-模糊查询LIKE与小结",
           },
         ],
       },
@@ -258,26 +237,22 @@ export default [
           {
             path: "/mysql/08/01",
             name: "排序查询ORDER-BY",
-            component:
-              "@/pages/mysql/08-DQL-排序-聚合-分组-分页/01-排序查询ORDER-BY",
+            component: "@/pages/mysql/08-DQL-排序-聚合-分组-分页/01-排序查询ORDER-BY",
           },
           {
             path: "/mysql/08/02",
             name: "聚合函数与NULL处理",
-            component:
-              "@/pages/mysql/08-DQL-排序-聚合-分组-分页/02-聚合函数与NULL处理",
+            component: "@/pages/mysql/08-DQL-排序-聚合-分组-分页/02-聚合函数与NULL处理",
           },
           {
             path: "/mysql/08/03",
             name: "分组查询GROUP-BY与HAVING",
-            component:
-              "@/pages/mysql/08-DQL-排序-聚合-分组-分页/03-分组查询GROUP-BY与HAVING",
+            component: "@/pages/mysql/08-DQL-排序-聚合-分组-分页/03-分组查询GROUP-BY与HAVING",
           },
           {
             path: "/mysql/08/04",
             name: "分页查询LIMIT与小结",
-            component:
-              "@/pages/mysql/08-DQL-排序-聚合-分组-分页/04-分页查询LIMIT与小结",
+            component: "@/pages/mysql/08-DQL-排序-聚合-分组-分页/04-分页查询LIMIT与小结",
           },
         ],
       },
@@ -309,8 +284,7 @@ export default [
           {
             path: "/mysql/10/01",
             name: "多表设计的必要性与一对多",
-            component:
-              "@/pages/mysql/10-多表关系设计/01-多表设计的必要性与一对多",
+            component: "@/pages/mysql/10-多表关系设计/01-多表设计的必要性与一对多",
           },
           {
             path: "/mysql/10/02",
@@ -352,8 +326,7 @@ export default [
           {
             path: "/mysql/12/01",
             name: "mysqldump备份与还原",
-            component:
-              "@/pages/mysql/12-数据库备份与还原/01-mysqldump备份与还原",
+            component: "@/pages/mysql/12-数据库备份与还原/01-mysqldump备份与还原",
           },
           {
             path: "/mysql/12/02",
@@ -406,8 +379,7 @@ export default [
           {
             path: "/mysql/15/01",
             name: "用户管理与密码修改",
-            component:
-              "@/pages/mysql/15-DCL-用户与权限管理/01-用户管理与密码修改",
+            component: "@/pages/mysql/15-DCL-用户与权限管理/01-用户管理与密码修改",
           },
           {
             path: "/mysql/15/02",
@@ -428,14 +400,12 @@ export default [
           {
             path: "/mysql/16/02",
             name: "DriverManager-Connection-Statement",
-            component:
-              "@/pages/mysql/16-JDBC核心详解/02-DriverManager-Connection-Statement",
+            component: "@/pages/mysql/16-JDBC核心详解/02-DriverManager-Connection-Statement",
           },
           {
             path: "/mysql/16/03",
             name: "SQL注入与PreparedStatement",
-            component:
-              "@/pages/mysql/16-JDBC核心详解/03-SQL注入与PreparedStatement",
+            component: "@/pages/mysql/16-JDBC核心详解/03-SQL注入与PreparedStatement",
           },
           {
             path: "/mysql/16/04",
@@ -472,8 +442,7 @@ export default [
           {
             path: "/mysql/18/01",
             name: "连接池概念与DataSource规范",
-            component:
-              "@/pages/mysql/18-数据库连接池/01-连接池概念与DataSource规范",
+            component: "@/pages/mysql/18-数据库连接池/01-连接池概念与DataSource规范",
           },
           {
             path: "/mysql/18/02",
@@ -494,8 +463,7 @@ export default [
           {
             path: "/mysql/19/01",
             name: "JDBCTemplate介绍与快速入门",
-            component:
-              "@/pages/mysql/19-JDBCTemplate/01-JDBCTemplate介绍与快速入门",
+            component: "@/pages/mysql/19-JDBCTemplate/01-JDBCTemplate介绍与快速入门",
           },
           {
             path: "/mysql/19/02",
