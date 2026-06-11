@@ -8,7 +8,7 @@ import { useTheme } from '@/hooks/useTheme';
 import styles from './CodeBlock.less';
 
 export interface CodeBlockProps {
-  /** 代码内容 */
+  /** 代码内容（问答模式下为“问题”的代码） */
   code: string;
   /** 语言，默认 java */
   language?: string;
@@ -18,6 +18,10 @@ export interface CodeBlockProps {
   showLineNumbers?: boolean;
   /** 代码块标题（如文件名） */
   title?: string;
+  /** 是否开启问答模式：右侧出现切换按钮，先看问题、切换后看答案 */
+  qa?: boolean;
+  /** 问答模式下“答案”的代码；缺省时切换后仍展示 code */
+  answerCode?: string;
 }
 
 /**
@@ -26,6 +30,7 @@ export interface CodeBlockProps {
  *  - 超出 maxHeight 自动出现滚动条
  *  - 支持全屏展示
  *  - 支持一键复制
+ *  - 支持问答模式（qa）：默认展示问题代码，点击右侧按钮切换查看答案
  */
 const CodeBlock: React.FC<CodeBlockProps> = ({
   code,
@@ -33,22 +38,28 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
   maxHeight = 420,
   showLineNumbers = true,
   title,
+  qa = false,
+  answerCode,
 }) => {
   const { theme } = useTheme();
   const [fullscreen, setFullscreen] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [showAnswer, setShowAnswer] = useState(false);
 
   const prismStyle = theme === 'dark' ? oneDark : oneLight;
 
+  // 问答模式下，切换到答案时展示 answerCode（缺省则回退到 code）
+  const displayedCode = qa && showAnswer ? answerCode ?? code : code;
+
   const handleCopy = useCallback(async () => {
     try {
-      await navigator.clipboard.writeText(code);
+      await navigator.clipboard.writeText(displayedCode);
       setCopied(true);
       window.setTimeout(() => setCopied(false), 1600);
     } catch {
       /* 忽略复制失败（如非安全上下文） */
     }
-  }, [code]);
+  }, [displayedCode]);
 
   // 全屏时按 ESC 退出，并锁定背景滚动
   useEffect(() => {
@@ -70,8 +81,30 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
       className={`${styles.wrapper} ${fullscreen ? styles.fullscreen : ''}`}
     >
       <div className={styles.toolbar}>
-        <span className={styles.lang}>{title ?? language}</span>
+        <div className={styles.meta}>
+          <span className={styles.lang}>{title ?? language}</span>
+          {qa && (
+            <span
+              className={`${styles.qaBadge} ${
+                showAnswer ? styles.qaBadgeAnswer : ''
+              }`}
+            >
+              {showAnswer ? '答案' : '问题'}
+            </span>
+          )}
+        </div>
         <div className={styles.actions}>
+          {qa && (
+            <button
+              type="button"
+              className={`${styles.action} ${styles.qaToggle} ${
+                showAnswer ? styles.qaToggleActive : ''
+              }`}
+              onClick={() => setShowAnswer((v) => !v)}
+            >
+              {showAnswer ? '← 看问题' : '看答案 →'}
+            </button>
+          )}
           <button
             type="button"
             className={styles.action}
@@ -109,7 +142,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
             style: { fontFamily: 'var(--font-mono)' },
           }}
         >
-          {code}
+          {displayedCode}
         </SyntaxHighlighter>
       </div>
     </div>

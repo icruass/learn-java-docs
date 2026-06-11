@@ -59,6 +59,55 @@
   background: var(--color-hover-bg);
 }
 
+/* 问答模式：左侧 meta 容器，承载 lang 与状态徽标 */
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* 问答模式：当前处于“问题/答案”的状态徽标 */
+.qaBadge {
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1;
+  padding: 3px 8px;
+  border-radius: 999px;
+  color: var(--color-accent);
+  background: var(--color-accent-soft);
+  border: 1px solid color-mix(in srgb, var(--color-accent) 30%, transparent);
+}
+
+.qaBadgeAnswer {
+  color: #fff;
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+/* 问答模式：查看答案 / 查看问题 切换按钮（强调色，与复制/全屏区分） */
+.qaToggle {
+  color: var(--color-accent);
+  background: var(--color-accent-soft);
+  border-color: color-mix(in srgb, var(--color-accent) 40%, transparent);
+}
+
+.qaToggle:hover {
+  color: #fff;
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.qaToggleActive {
+  color: #fff;
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.qaToggleActive:hover {
+  background: var(--color-accent-strong);
+  border-color: var(--color-accent-strong);
+}
+
 .scroll {
   overflow: auto;
 }
