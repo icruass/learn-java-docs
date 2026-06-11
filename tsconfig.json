@@ -25,5 +25,6 @@
     "src/.umi/**/*",
     ".umirc.ts",
     "typings.d.ts"
-  ]
+  ],
+  "exclude": ["node_modules", "src/routes/scripts/**"]
 }

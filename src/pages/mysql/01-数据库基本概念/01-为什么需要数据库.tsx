@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   Title,
   Heading3,
@@ -11,7 +11,7 @@ import {
   Callout,
   UnorderedList,
   ListItem,
-} from '@/components/doc';
+} from "@/components/doc";
 
 const index: React.FC = () => (
   <article>
@@ -21,8 +21,9 @@ const index: React.FC = () => (
       <Paragraph>
         这是整套 MySQL 教程的第一章。在敲第一条 SQL 之前，我们先把“地基”打好：
         <Text bold>
-          数据库到底解决了什么问题？为什么不用 txt、Excel 直接存数据？DB / DBMS /
-          SQL 三者是什么关系？市面上那么多数据库（Oracle、MySQL、Redis、MongoDB……）该怎么分类、怎么选？
+          数据库到底解决了什么问题？为什么不用 txt、Excel 直接存数据？DB / DBMS
+          / SQL
+          三者是什么关系？市面上那么多数据库（Oracle、MySQL、Redis、MongoDB……）该怎么分类、怎么选？
         </Text>
       </Paragraph>
       <Paragraph>
@@ -37,15 +38,17 @@ const index: React.FC = () => (
       </Paragraph>
     </Callout>
 
-    <Paragraph>学任何技术，先问“它解决了什么痛点”，比直接背定义有用得多。</Paragraph>
+    <Paragraph>
+      学任何技术，先问“它解决了什么痛点”，比直接背定义有用得多。
+    </Paragraph>
     <Paragraph>假设你在做一个公司的“员工管理系统”，要存这样的数据：</Paragraph>
 
     <Table
-      head={['员工编号', '姓名', '性别', '工资', '入职日期', '部门']}
+      head={["员工编号", "姓名", "性别", "工资", "入职日期", "部门"]}
       rows={[
-        ['1', '张三', '男', '8000', '2020-01-10', '研发部'],
-        ['2', '李四', '男', '12000', '2019-03-15', '研发部'],
-        ['3', '王五', '女', '9500', '2021-06-01', '市场部'],
+        ["1", "张三", "男", "8000", "2020-01-10", "研发部"],
+        ["2", "李四", "男", "12000", "2019-03-15", "研发部"],
+        ["3", "王五", "女", "9500", "2021-06-01", "市场部"],
       ]}
     />
 
@@ -70,8 +73,9 @@ const index: React.FC = () => (
     <Heading4>痛点 1：查找慢（没有索引）</Heading4>
     <Paragraph>需求：“找出工资大于 9000 的员工”。</Paragraph>
     <Paragraph>
-      用文件存，你只能写代码<Text bold>从头到尾一行行扫描</Text>（全文件遍历）。100
-      行还好，<Text bold>100 万行</Text>呢？每查一次都要把整个文件读一遍，慢得让人崩溃。
+      用文件存，你只能写代码<Text bold>从头到尾一行行扫描</Text>
+      （全文件遍历）。100 行还好，<Text bold>100 万行</Text>
+      呢？每查一次都要把整个文件读一遍，慢得让人崩溃。
     </Paragraph>
     <Paragraph>
       而数据库可以建<Text bold>索引</Text>（类比“书的目录 /
@@ -97,7 +101,8 @@ const index: React.FC = () => (
 
     <Heading4>痛点 3：数据冗余 + 不一致（无规范化）</Heading4>
     <Paragraph>
-      注意上表里“研发部”出现了两次。如果研发部改名叫“技术部”，你得把<Text bold>每一行</Text>
+      注意上表里“研发部”出现了两次。如果研发部改名叫“技术部”，你得把
+      <Text bold>每一行</Text>
       都改一遍。一旦漏改一行，数据库里就同时存在“研发部”和“技术部”，到底哪个对？这就是
       <Text bold>冗余导致的不一致</Text>。
     </Paragraph>
@@ -135,13 +140,13 @@ const index: React.FC = () => (
 
     <Heading3>1.2 小结：文件 vs 数据库</Heading3>
     <Table
-      head={['能力', '普通文件（txt/Excel）', '数据库']}
+      head={["能力", "普通文件（txt/Excel）", "数据库"]}
       rows={[
-        ['海量数据查找', '慢，全文件扫描', '快，可建索引'],
-        ['并发读写', '容易冲突、损坏', '锁 + 事务保证安全'],
-        ['数据冗余/一致性', '难控制，易不一致', '可拆表、加约束'],
-        ['数据校验', '无', '丰富的约束'],
-        ['共享/权限/备份', '困难', '天生支持，方案成熟'],
+        ["海量数据查找", "慢，全文件扫描", "快，可建索引"],
+        ["并发读写", "容易冲突、损坏", "锁 + 事务保证安全"],
+        ["数据冗余/一致性", "难控制，易不一致", "可拆表、加约束"],
+        ["数据校验", "无", "丰富的约束"],
+        ["共享/权限/备份", "困难", "天生支持，方案成熟"],
       ]}
     />
     <Callout type="success" title="一句话总结">

@@ -51,7 +51,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 30
+        "register": 28
       },
       "enableBy": "register"
     },
@@ -68,7 +68,7 @@
             0
           ]
         },
-        "register": 5
+        "register": 4
       },
       "enableBy": "register"
     },
@@ -82,10 +82,10 @@
       "time": {
         "hooks": {
           "onStart": [
-            2
+            3
           ]
         },
-        "register": 3
+        "register": 4
       },
       "enableBy": "register"
     },
@@ -102,60 +102,10 @@
             0,
             0,
             0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            1,
-            0,
-            1,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
             0
           ]
         },
-        "register": 0
+        "register": 1
       },
       "enableBy": "register"
     },
@@ -169,71 +119,22 @@
       "time": {
         "hooks": {
           "onDevCompileDone": [
-            46,
-            9,
+            44,
             6,
             5,
-            9,
-            6,
+            5,
             8,
-            6,
-            7,
-            7,
-            7,
-            9,
-            3,
-            7,
-            7,
-            4,
-            3,
-            7,
-            8,
-            6,
-            4,
-            3,
-            7,
-            3,
-            4,
-            8,
-            4,
-            6,
-            5,
-            6,
-            4,
-            4,
-            7,
-            3,
-            6,
-            5,
             5,
             4,
             5,
             5,
             4,
-            5,
-            4,
-            8,
-            6,
             6,
             4,
-            7,
-            6,
-            5,
-            3,
-            5,
-            5,
-            4,
-            6,
-            8,
-            4,
-            5,
-            6,
-            6,
-            5,
-            7
+            22
           ]
         },
-        "register": 2
+        "register": 1
       },
       "enableBy": "register"
     },
@@ -247,66 +148,16 @@
       "time": {
         "hooks": {
           "modifyAppData": [
-            160
+            156
           ],
           "onGenerateFiles": [
-            8,
-            19,
-            26,
-            33,
-            26,
-            22,
-            24,
-            39,
-            26,
-            29,
-            31,
-            23,
-            22,
-            23,
-            26,
-            23,
-            29,
-            23,
-            25,
-            23,
-            24,
-            26,
-            33,
+            12,
+            36,
             30,
-            28,
-            27,
-            32,
-            32,
-            37,
-            34,
-            25,
-            25,
-            28,
-            26,
-            28,
-            26,
-            26,
-            39,
-            33,
-            29,
-            33,
-            34,
-            30,
-            33,
-            28,
-            32,
-            34,
-            48,
-            41,
-            55,
-            44,
-            42,
-            41,
-            40
+            28
           ]
         },
-        "register": 29
+        "register": 32
       },
       "enableBy": "register"
     },
@@ -320,56 +171,6 @@
       "time": {
         "hooks": {
           "addEntryCode": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
             0,
             0,
             0,
@@ -390,6 +191,11 @@
       "time": {
         "hooks": {
           "onCheckConfig": [
+            0,
+            0,
+            0,
+            0,
+            0,
             0
           ],
           "onCheck": [
@@ -404,115 +210,9 @@
             0,
             0,
             0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            1,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
             0
           ],
           "onCheckCode": [
-            0,
-            0,
-            0,
-            0,
-            1,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            1,
-            0,
-            0,
-            0,
-            0,
             0,
             0,
             0,
@@ -544,7 +244,7 @@
             0
           ]
         },
-        "register": 1
+        "register": 2
       },
       "enableBy": "register"
     },
@@ -561,7 +261,7 @@
             0
           ]
         },
-        "register": 1
+        "register": 0
       },
       "enableBy": "register"
     },
@@ -574,7 +274,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 2
+        "register": 1
       },
       "enableBy": "config"
     },
@@ -588,10 +288,15 @@
       "time": {
         "hooks": {
           "modifyConfig": [
+            0,
+            0,
+            0,
+            0,
+            0,
             0
           ]
         },
-        "register": 15
+        "register": 12
       },
       "enableBy": "register"
     },
@@ -1457,7 +1162,7 @@
       "time": {
         "hooks": {
           "onStart": [
-            1
+            0
           ]
         },
         "register": 2
@@ -1503,7 +1208,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 57
+        "register": 51
       },
       "enableBy": "config"
     },
@@ -1541,9 +1246,6 @@
             0,
             0,
             0,
-            1,
-            0,
-            0,
             0,
             0
           ]
@@ -1565,109 +1267,9 @@
             2,
             1,
             1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            2,
-            0,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            0,
-            1,
-            1,
-            0,
-            2,
-            0,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            0,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            0,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
             1
           ],
           "addRuntimePlugin": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
             0,
             0,
             0,
@@ -1701,13 +1303,13 @@
       "time": {
         "hooks": {
           "onStart": [
-            1
+            2
           ],
           "addBeforeMiddlewares": [
-            3
+            2
           ]
         },
-        "register": 38
+        "register": 37
       }
     },
     "./node_modules/@umijs/preset-umi/dist/features/mpa/mpa": {
@@ -1719,7 +1321,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 1
+        "register": 2
       },
       "enableBy": "config"
     },
@@ -1748,159 +1350,9 @@
             0,
             0,
             0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
             0
           ],
           "addEntryImports": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
             0,
             0,
             0,
@@ -1938,165 +1390,20 @@
       "time": {
         "hooks": {
           "modifyConfig": [
+            1,
+            0,
+            0,
+            0,
+            0,
             1
           ],
           "onGenerateFiles": [
-            83,
-            15,
-            21,
-            11,
-            15,
-            11,
-            20,
-            21,
-            15,
-            20,
-            25,
-            14,
-            14,
-            11,
-            13,
-            11,
-            15,
-            10,
-            14,
-            11,
-            8,
-            12,
-            13,
-            13,
-            17,
-            10,
-            10,
-            9,
-            16,
-            12,
-            13,
-            11,
-            9,
-            13,
-            10,
-            12,
-            14,
-            20,
-            16,
-            11,
-            8,
-            13,
-            17,
-            10,
-            9,
-            9,
-            14,
-            20,
-            11,
-            15,
-            16,
-            21,
-            15,
-            15
+            79,
+            18,
+            18,
+            11
           ],
           "addPolyfillImports": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            1,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            1,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
             0,
             0,
             0,
@@ -2127,110 +1434,10 @@
             0,
             0,
             0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
             0
           ]
         },
-        "register": 1
+        "register": 0
       },
       "enableBy": "register"
     },
@@ -2244,63 +1451,13 @@
       "time": {
         "hooks": {
           "onGenerateFiles": [
-            388,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
+            374,
             0,
             0,
             0
           ]
         },
-        "register": 2
+        "register": 3
       },
       "enableBy": "register"
     },
@@ -2313,7 +1470,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 1
+        "register": 0
       },
       "enableBy": "config"
     },
@@ -2326,7 +1483,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 0
+        "register": 1
       },
       "enableBy": "config"
     },
@@ -2340,60 +1497,10 @@
       "time": {
         "hooks": {
           "onGenerateFiles": [
-            0,
-            0,
-            1,
-            0,
-            1,
-            0,
-            1,
-            1,
-            1,
-            1,
             1,
             0,
             0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            1,
-            0,
-            1,
-            1,
-            1,
-            0,
-            0,
-            1,
-            0,
-            0,
-            1,
-            0,
-            0,
-            1,
-            0,
-            0,
-            1,
-            1,
-            0,
-            0,
-            0,
-            1,
-            0,
-            0,
-            1,
-            1,
-            0,
-            0,
-            0,
-            0,
-            0,
-            1,
-            0,
-            1,
-            1,
-            0
+            1
           ],
           "addBeforeMiddlewares": [
             0
@@ -2413,113 +1520,13 @@
       "time": {
         "hooks": {
           "onGenerateFiles": [
-            35,
-            5,
-            141,
-            2,
-            155,
-            2,
-            155,
+            32,
+            6,
+            148,
             1,
-            187,
-            1,
-            145,
-            2,
-            177,
-            3,
-            220,
-            4,
-            151,
-            1,
-            158,
-            2,
-            205,
-            2,
-            136,
-            1,
-            139,
-            2,
-            142,
-            1,
-            134,
-            1,
-            135,
-            2,
-            168,
-            1,
-            135,
-            2,
-            139,
-            2,
-            138,
+            147,
             2,
             134,
-            1,
-            146,
-            1,
-            154,
-            2,
-            145,
-            2,
-            156,
-            2,
-            138,
-            1,
-            149,
-            2,
-            141,
-            1,
-            223,
-            2,
-            158,
-            1,
-            132,
-            1,
-            132,
-            2,
-            133,
-            2,
-            137,
-            2,
-            136,
-            1,
-            128,
-            2,
-            135,
-            2,
-            165,
-            1,
-            166,
-            2,
-            141,
-            1,
-            137,
-            2,
-            136,
-            2,
-            170,
-            2,
-            137,
-            1,
-            136,
-            1,
-            149,
-            1,
-            150,
-            2,
-            217,
-            2,
-            209,
-            1,
-            219,
-            3,
-            203,
-            2,
-            185,
-            2,
-            182,
-            3,
-            187,
             2
           ]
         },
@@ -2536,7 +1543,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 2
+        "register": 1
       },
       "enableBy": "config"
     },
@@ -2561,7 +1568,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 4
+        "register": 5
       },
       "enableBy": "config"
     },
@@ -2575,63 +1582,13 @@
       "time": {
         "hooks": {
           "onGenerateFiles": [
-            475,
-            18,
-            18,
-            10,
-            10,
-            10,
-            20,
-            13,
-            12,
-            24,
+            435,
             17,
-            8,
-            8,
-            8,
-            8,
-            8,
-            9,
-            8,
-            9,
-            8,
-            7,
-            10,
-            10,
-            10,
-            14,
-            8,
-            8,
-            8,
-            11,
-            9,
-            10,
-            8,
-            8,
-            9,
-            8,
-            11,
-            8,
-            15,
-            10,
-            10,
-            8,
-            7,
-            10,
-            11,
-            7,
-            11,
-            9,
-            18,
-            10,
-            15,
-            12,
-            15,
-            12,
-            12
+            17,
+            13
           ]
         },
-        "register": 4
+        "register": 3
       },
       "enableBy": "register"
     },
@@ -2661,7 +1618,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 3
+        "register": 4
       },
       "enableBy": "config"
     },
@@ -2687,7 +1644,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 8
+        "register": 10
       }
     },
     "./node_modules/@umijs/preset-umi/dist/features/monorepo/redirect": {
@@ -2699,7 +1656,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 25
+        "register": 26
       },
       "enableBy": "config"
     },
@@ -2714,56 +1671,6 @@
         "hooks": {
           "onGenerateFiles": [
             8,
-            1,
-            1,
-            1,
-            2,
-            1,
-            1,
-            2,
-            2,
-            1,
-            2,
-            1,
-            1,
-            1,
-            1,
-            1,
-            2,
-            0,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            2,
-            2,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            0,
-            1,
-            2,
-            1,
-            2,
-            1,
-            1,
-            0,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            2,
-            2,
-            1,
-            1,
             1,
             1,
             1
@@ -2874,7 +1781,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 1
+        "register": 2
       }
     },
     "./node_modules/@umijs/preset-umi/dist/features/hmrGuardian/hmrGuardian": {
@@ -2899,15 +1806,12 @@
       "time": {
         "hooks": {
           "addHTMLHeadScripts": [
+            40,
             0,
             0,
             0,
             0,
-            0,
-            0,
-            0,
-            0,
-            0,
+            1,
             0
           ]
         },
@@ -2923,7 +1827,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 2
+        "register": 1
       },
       "enableBy": "config"
     },
@@ -2937,10 +1841,10 @@
       "time": {
         "hooks": {
           "modifyUniBundler": [
-            734
+            687
           ]
         },
-        "register": 2
+        "register": 3
       },
       "enableBy": "register"
     },
@@ -2953,7 +1857,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 13
+        "register": 14
       },
       "enableBy": "register"
     },
@@ -2966,7 +1870,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 40
+        "register": 42
       },
       "enableBy": "register"
     },
@@ -2980,10 +1884,10 @@
       "time": {
         "hooks": {
           "modifyAppData": [
-            16
+            14
           ]
         },
-        "register": 48
+        "register": 54
       }
     },
     "./node_modules/@umijs/preset-umi/dist/commands/help": {
@@ -2995,7 +1899,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 1
+        "register": 0
       },
       "enableBy": "register"
     },
@@ -3008,7 +1912,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 0
+        "register": 1
       },
       "enableBy": "register"
     },
@@ -3086,7 +1990,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 0
+        "register": 1
       },
       "enableBy": "register"
     },
@@ -3099,7 +2003,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 1
+        "register": 0
       },
       "enableBy": "register"
     },
@@ -3125,7 +2029,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 0
+        "register": 1
       },
       "enableBy": "register"
     },
@@ -3138,7 +2042,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 1
+        "register": 0
       },
       "enableBy": "register"
     },
@@ -3151,7 +2055,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 0
+        "register": 1
       },
       "enableBy": "register"
     },
@@ -3177,7 +2081,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 1
+        "register": 0
       },
       "enableBy": "register"
     },
@@ -3190,7 +2094,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 0
+        "register": 1
       },
       "enableBy": "register"
     },
@@ -3229,7 +2133,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 27
+        "register": 28
       },
       "enableBy": "register"
     },
@@ -3242,7 +2146,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 1
+        "register": 2
       },
       "enableBy": "register"
     },
@@ -3268,7 +2172,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 0
+        "register": 1
       },
       "enableBy": "register"
     }
@@ -3743,7 +2647,7 @@
           },
           {
             "path": "/mysql/01/02",
-            "name": "DB、DBMS、SQL",
+            "name": "DB-DBMS-SQL",
             "component": "@/pages/mysql/01-数据库基本概念/02-DB-DBMS-SQL"
           },
           {
@@ -3753,12 +2657,12 @@
           },
           {
             "path": "/mysql/01/04",
-            "name": "关系型数据库 RDBMS",
+            "name": "关系型数据库RDBMS",
             "component": "@/pages/mysql/01-数据库基本概念/04-关系型数据库RDBMS"
           },
           {
             "path": "/mysql/01/05",
-            "name": "非关系型数据库 NoSQL",
+            "name": "非关系型数据库NoSQL",
             "component": "@/pages/mysql/01-数据库基本概念/05-非关系型数据库NoSQL"
           },
           {
@@ -3773,12 +2677,12 @@
           },
           {
             "path": "/mysql/01/08",
-            "name": "常见 NoSQL：Redis 与 MongoDB",
+            "name": "常见NoSQL-Redis与MongoDB",
             "component": "@/pages/mysql/01-数据库基本概念/08-常见NoSQL-Redis与MongoDB"
           },
           {
             "path": "/mysql/01/09",
-            "name": "MySQL 的历史与特点",
+            "name": "MySQL的历史与特点",
             "component": "@/pages/mysql/01-数据库基本概念/09-MySQL的历史与特点"
           },
           {
@@ -3793,7 +2697,7 @@
           },
           {
             "path": "/mysql/02/02",
-            "name": "Windows 安装 MySQL",
+            "name": "Windows安装MySQL",
             "component": "@/pages/mysql/02-MySQL安装卸载与服务管理/02-Windows安装MySQL"
           },
           {
@@ -3803,22 +2707,22 @@
           },
           {
             "path": "/mysql/02/04",
-            "name": "登录与退出 MySQL",
+            "name": "登录与退出MySQL",
             "component": "@/pages/mysql/02-MySQL安装卸载与服务管理/04-登录与退出MySQL"
           },
           {
             "path": "/mysql/02/05",
-            "name": "彻底卸载 MySQL",
+            "name": "彻底卸载MySQL",
             "component": "@/pages/mysql/02-MySQL安装卸载与服务管理/05-彻底卸载MySQL"
           },
           {
             "path": "/mysql/02/06",
-            "name": "目录结构、配置文件与小结",
+            "name": "目录结构配置文件与小结",
             "component": "@/pages/mysql/02-MySQL安装卸载与服务管理/06-目录结构配置文件与小结"
           },
           {
             "path": "/mysql/03/01",
-            "name": "SQL 是什么与标准方言",
+            "name": "SQL是什么与标准方言",
             "component": "@/pages/mysql/03-SQL概述与通用语法/01-SQL是什么与标准方言"
           },
           {
@@ -3833,7 +2737,7 @@
           },
           {
             "path": "/mysql/03/04",
-            "name": "四大分类 DDL / DML / DQL / DCL",
+            "name": "四大分类DDL-DML-DQL-DCL",
             "component": "@/pages/mysql/03-SQL概述与通用语法/04-四大分类DDL-DML-DQL-DCL"
           },
           {
@@ -3843,7 +2747,7 @@
           },
           {
             "path": "/mysql/04/01",
-            "name": "预备知识与 CREATE DATABASE",
+            "name": "预备知识与CREATE-DATABASE",
             "component": "@/pages/mysql/04-DDL-操作数据库/01-预备知识与CREATE-DATABASE"
           },
           {
@@ -3853,12 +2757,12 @@
           },
           {
             "path": "/mysql/04/03",
-            "name": "修改、删除与切换数据库",
+            "name": "修改删除切换数据库",
             "component": "@/pages/mysql/04-DDL-操作数据库/03-修改删除切换数据库"
           },
           {
             "path": "/mysql/04/04",
-            "name": "完整演示与本章小结",
+            "name": "完整演示与小结",
             "component": "@/pages/mysql/04-DDL-操作数据库/04-完整演示与小结"
           },
           {
@@ -3868,12 +2772,12 @@
           },
           {
             "path": "/mysql/05/02",
-            "name": "CREATE TABLE 与数据类型",
+            "name": "CREATE-TABLE与数据类型",
             "component": "@/pages/mysql/05-DDL-操作表与图形化工具/02-CREATE-TABLE与数据类型"
           },
           {
             "path": "/mysql/05/03",
-            "name": "修改、删除与复制表",
+            "name": "修改删除复制表",
             "component": "@/pages/mysql/05-DDL-操作表与图形化工具/03-修改删除复制表"
           },
           {
@@ -3883,72 +2787,72 @@
           },
           {
             "path": "/mysql/06/01",
-            "name": "INSERT 添加数据",
+            "name": "INSERT添加数据",
             "component": "@/pages/mysql/06-DML-数据增删改/01-INSERT添加数据"
           },
           {
             "path": "/mysql/06/02",
-            "name": "UPDATE 修改数据",
+            "name": "UPDATE修改数据",
             "component": "@/pages/mysql/06-DML-数据增删改/02-UPDATE修改数据"
           },
           {
             "path": "/mysql/06/03",
-            "name": "DELETE、TRUNCATE 与本章小结",
+            "name": "DELETE删除数据与小结",
             "component": "@/pages/mysql/06-DML-数据增删改/03-DELETE删除数据与小结"
           },
           {
             "path": "/mysql/07/01",
-            "name": "SELECT 基础语法与基础查询",
+            "name": "SELECT基础语法与基础查询",
             "component": "@/pages/mysql/07-DQL-基础查询与条件查询/01-SELECT基础语法与基础查询"
           },
           {
             "path": "/mysql/07/02",
-            "name": "去重、计算列与 NULL 处理",
+            "name": "去重计算列与NULL处理",
             "component": "@/pages/mysql/07-DQL-基础查询与条件查询/02-去重计算列与NULL处理"
           },
           {
             "path": "/mysql/07/03",
-            "name": "条件查询 WHERE",
+            "name": "条件查询WHERE",
             "component": "@/pages/mysql/07-DQL-基础查询与条件查询/03-条件查询WHERE"
           },
           {
             "path": "/mysql/07/04",
-            "name": "模糊查询 LIKE 与本章小结",
+            "name": "模糊查询LIKE与小结",
             "component": "@/pages/mysql/07-DQL-基础查询与条件查询/04-模糊查询LIKE与小结"
           },
           {
             "path": "/mysql/08/01",
-            "name": "排序查询 ORDER BY",
+            "name": "排序查询ORDER-BY",
             "component": "@/pages/mysql/08-DQL-排序-聚合-分组-分页/01-排序查询ORDER-BY"
           },
           {
             "path": "/mysql/08/02",
-            "name": "聚合函数与 NULL 处理",
+            "name": "聚合函数与NULL处理",
             "component": "@/pages/mysql/08-DQL-排序-聚合-分组-分页/02-聚合函数与NULL处理"
           },
           {
             "path": "/mysql/08/03",
-            "name": "分组查询 GROUP BY 与 HAVING",
+            "name": "分组查询GROUP-BY与HAVING",
             "component": "@/pages/mysql/08-DQL-排序-聚合-分组-分页/03-分组查询GROUP-BY与HAVING"
           },
           {
             "path": "/mysql/08/04",
-            "name": "分页查询 LIMIT 与本章小结",
+            "name": "分页查询LIMIT与小结",
             "component": "@/pages/mysql/08-DQL-排序-聚合-分组-分页/04-分页查询LIMIT与小结"
           },
           {
             "path": "/mysql/09/01",
-            "name": "约束概述与非空约束 NOT NULL",
+            "name": "约束概述与NOT-NULL",
             "component": "@/pages/mysql/09-约束/01-约束概述与NOT-NULL"
           },
           {
             "path": "/mysql/09/02",
-            "name": "UNIQUE、主键与自动增长",
+            "name": "UNIQUE主键与AUTO-INCREMENT",
             "component": "@/pages/mysql/09-约束/02-UNIQUE主键与AUTO-INCREMENT"
           },
           {
             "path": "/mysql/09/03",
-            "name": "外键、级联与本章小结",
+            "name": "外键级联与小结",
             "component": "@/pages/mysql/09-约束/03-外键级联与小结"
           },
           {
@@ -3963,7 +2867,7 @@
           },
           {
             "path": "/mysql/10/03",
-            "name": "综合案例与本章小结",
+            "name": "综合案例与小结",
             "component": "@/pages/mysql/10-多表关系设计/03-综合案例与小结"
           },
           {
@@ -3973,22 +2877,22 @@
           },
           {
             "path": "/mysql/11/02",
-            "name": "第一范式 1NF 与第二范式 2NF",
+            "name": "1NF与2NF",
             "component": "@/pages/mysql/11-数据库三大范式/02-1NF与2NF"
           },
           {
             "path": "/mysql/11/03",
-            "name": "第三范式 3NF、反范式与小结",
+            "name": "3NF反范式与小结",
             "component": "@/pages/mysql/11-数据库三大范式/03-3NF反范式与小结"
           },
           {
             "path": "/mysql/12/01",
-            "name": "mysqldump 备份与命令行还原",
+            "name": "mysqldump备份与还原",
             "component": "@/pages/mysql/12-数据库备份与还原/01-mysqldump备份与还原"
           },
           {
             "path": "/mysql/12/02",
-            "name": "图形化工具与本章小结",
+            "name": "图形化工具与小结",
             "component": "@/pages/mysql/12-数据库备份与还原/02-图形化工具与小结"
           },
           {
@@ -4003,17 +2907,17 @@
           },
           {
             "path": "/mysql/13/03",
-            "name": "综合练习与本章小结",
+            "name": "综合练习与小结",
             "component": "@/pages/mysql/13-多表查询/03-综合练习与小结"
           },
           {
             "path": "/mysql/14/01",
-            "name": "事务基础与 ACID 特性",
+            "name": "事务基础与ACID",
             "component": "@/pages/mysql/14-事务/01-事务基础与ACID"
           },
           {
             "path": "/mysql/14/02",
-            "name": "并发问题、隔离级别与本章小结",
+            "name": "并发隔离级别与小结",
             "component": "@/pages/mysql/14-事务/02-并发隔离级别与小结"
           },
           {
@@ -4023,72 +2927,72 @@
           },
           {
             "path": "/mysql/15/02",
-            "name": "权限管理与本章小结",
+            "name": "权限管理与小结",
             "component": "@/pages/mysql/15-DCL-用户与权限管理/02-权限管理与小结"
           },
           {
             "path": "/mysql/16/01",
-            "name": "JDBC 介绍与快速入门",
+            "name": "JDBC介绍与快速入门",
             "component": "@/pages/mysql/16-JDBC核心详解/01-JDBC介绍与快速入门"
           },
           {
             "path": "/mysql/16/02",
-            "name": "DriverManager、Connection 与 Statement",
+            "name": "DriverManager-Connection-Statement",
             "component": "@/pages/mysql/16-JDBC核心详解/02-DriverManager-Connection-Statement"
           },
           {
             "path": "/mysql/16/03",
-            "name": "SQL 注入与 PreparedStatement",
+            "name": "SQL注入与PreparedStatement",
             "component": "@/pages/mysql/16-JDBC核心详解/03-SQL注入与PreparedStatement"
           },
           {
             "path": "/mysql/16/04",
-            "name": "ResultSet 与 JDBC 工具类",
+            "name": "ResultSet与JDBC工具类",
             "component": "@/pages/mysql/16-JDBC核心详解/04-ResultSet与JDBC工具类"
           },
           {
             "path": "/mysql/16/05",
-            "name": "综合实战与本章小结",
+            "name": "综合实战与小结",
             "component": "@/pages/mysql/16-JDBC核心详解/05-综合实战与小结"
           },
           {
             "path": "/mysql/17/01",
-            "name": "JDBC 事务控制基础",
+            "name": "JDBC事务控制基础",
             "component": "@/pages/mysql/17-JDBC事务管理/01-JDBC事务控制基础"
           },
           {
             "path": "/mysql/17/02",
-            "name": "标准写法、对比验证与本章小结",
+            "name": "标准写法对比与小结",
             "component": "@/pages/mysql/17-JDBC事务管理/02-标准写法对比与小结"
           },
           {
             "path": "/mysql/18/01",
-            "name": "连接池概念与 DataSource 规范",
+            "name": "连接池概念与DataSource规范",
             "component": "@/pages/mysql/18-数据库连接池/01-连接池概念与DataSource规范"
           },
           {
             "path": "/mysql/18/02",
-            "name": "C3P0 与 Druid 使用",
+            "name": "C3P0与Druid使用",
             "component": "@/pages/mysql/18-数据库连接池/02-C3P0与Druid使用"
           },
           {
             "path": "/mysql/18/03",
-            "name": "Druid 工具类封装与本章小结",
+            "name": "Druid工具类与小结",
             "component": "@/pages/mysql/18-数据库连接池/03-Druid工具类与小结"
           },
           {
             "path": "/mysql/19/01",
-            "name": "JDBCTemplate 介绍与快速入门",
+            "name": "JDBCTemplate介绍与快速入门",
             "component": "@/pages/mysql/19-JDBCTemplate/01-JDBCTemplate介绍与快速入门"
           },
           {
             "path": "/mysql/19/02",
-            "name": "DML 与 DQL 查询方法",
+            "name": "DML与DQL查询方法",
             "component": "@/pages/mysql/19-JDBCTemplate/02-DML与DQL查询方法"
           },
           {
             "path": "/mysql/19/03",
-            "name": "综合示例与本章小结",
+            "name": "综合示例与小结",
             "component": "@/pages/mysql/19-JDBCTemplate/03-综合示例与小结"
           }
         ]
@@ -4589,7 +3493,7 @@
           },
           {
             "path": "/mysql/01/02",
-            "name": "DB、DBMS、SQL",
+            "name": "DB-DBMS-SQL",
             "component": "@/pages/mysql/01-数据库基本概念/02-DB-DBMS-SQL"
           },
           {
@@ -4599,12 +3503,12 @@
           },
           {
             "path": "/mysql/01/04",
-            "name": "关系型数据库 RDBMS",
+            "name": "关系型数据库RDBMS",
             "component": "@/pages/mysql/01-数据库基本概念/04-关系型数据库RDBMS"
           },
           {
             "path": "/mysql/01/05",
-            "name": "非关系型数据库 NoSQL",
+            "name": "非关系型数据库NoSQL",
             "component": "@/pages/mysql/01-数据库基本概念/05-非关系型数据库NoSQL"
           },
           {
@@ -4619,12 +3523,12 @@
           },
           {
             "path": "/mysql/01/08",
-            "name": "常见 NoSQL：Redis 与 MongoDB",
+            "name": "常见NoSQL-Redis与MongoDB",
             "component": "@/pages/mysql/01-数据库基本概念/08-常见NoSQL-Redis与MongoDB"
           },
           {
             "path": "/mysql/01/09",
-            "name": "MySQL 的历史与特点",
+            "name": "MySQL的历史与特点",
             "component": "@/pages/mysql/01-数据库基本概念/09-MySQL的历史与特点"
           },
           {
@@ -4639,7 +3543,7 @@
           },
           {
             "path": "/mysql/02/02",
-            "name": "Windows 安装 MySQL",
+            "name": "Windows安装MySQL",
             "component": "@/pages/mysql/02-MySQL安装卸载与服务管理/02-Windows安装MySQL"
           },
           {
@@ -4649,22 +3553,22 @@
           },
           {
             "path": "/mysql/02/04",
-            "name": "登录与退出 MySQL",
+            "name": "登录与退出MySQL",
             "component": "@/pages/mysql/02-MySQL安装卸载与服务管理/04-登录与退出MySQL"
           },
           {
             "path": "/mysql/02/05",
-            "name": "彻底卸载 MySQL",
+            "name": "彻底卸载MySQL",
             "component": "@/pages/mysql/02-MySQL安装卸载与服务管理/05-彻底卸载MySQL"
           },
           {
             "path": "/mysql/02/06",
-            "name": "目录结构、配置文件与小结",
+            "name": "目录结构配置文件与小结",
             "component": "@/pages/mysql/02-MySQL安装卸载与服务管理/06-目录结构配置文件与小结"
           },
           {
             "path": "/mysql/03/01",
-            "name": "SQL 是什么与标准方言",
+            "name": "SQL是什么与标准方言",
             "component": "@/pages/mysql/03-SQL概述与通用语法/01-SQL是什么与标准方言"
           },
           {
@@ -4679,7 +3583,7 @@
           },
           {
             "path": "/mysql/03/04",
-            "name": "四大分类 DDL / DML / DQL / DCL",
+            "name": "四大分类DDL-DML-DQL-DCL",
             "component": "@/pages/mysql/03-SQL概述与通用语法/04-四大分类DDL-DML-DQL-DCL"
           },
           {
@@ -4689,7 +3593,7 @@
           },
           {
             "path": "/mysql/04/01",
-            "name": "预备知识与 CREATE DATABASE",
+            "name": "预备知识与CREATE-DATABASE",
             "component": "@/pages/mysql/04-DDL-操作数据库/01-预备知识与CREATE-DATABASE"
           },
           {
@@ -4699,12 +3603,12 @@
           },
           {
             "path": "/mysql/04/03",
-            "name": "修改、删除与切换数据库",
+            "name": "修改删除切换数据库",
             "component": "@/pages/mysql/04-DDL-操作数据库/03-修改删除切换数据库"
           },
           {
             "path": "/mysql/04/04",
-            "name": "完整演示与本章小结",
+            "name": "完整演示与小结",
             "component": "@/pages/mysql/04-DDL-操作数据库/04-完整演示与小结"
           },
           {
@@ -4714,12 +3618,12 @@
           },
           {
             "path": "/mysql/05/02",
-            "name": "CREATE TABLE 与数据类型",
+            "name": "CREATE-TABLE与数据类型",
             "component": "@/pages/mysql/05-DDL-操作表与图形化工具/02-CREATE-TABLE与数据类型"
           },
           {
             "path": "/mysql/05/03",
-            "name": "修改、删除与复制表",
+            "name": "修改删除复制表",
             "component": "@/pages/mysql/05-DDL-操作表与图形化工具/03-修改删除复制表"
           },
           {
@@ -4729,72 +3633,72 @@
           },
           {
             "path": "/mysql/06/01",
-            "name": "INSERT 添加数据",
+            "name": "INSERT添加数据",
             "component": "@/pages/mysql/06-DML-数据增删改/01-INSERT添加数据"
           },
           {
             "path": "/mysql/06/02",
-            "name": "UPDATE 修改数据",
+            "name": "UPDATE修改数据",
             "component": "@/pages/mysql/06-DML-数据增删改/02-UPDATE修改数据"
           },
           {
             "path": "/mysql/06/03",
-            "name": "DELETE、TRUNCATE 与本章小结",
+            "name": "DELETE删除数据与小结",
             "component": "@/pages/mysql/06-DML-数据增删改/03-DELETE删除数据与小结"
           },
           {
             "path": "/mysql/07/01",
-            "name": "SELECT 基础语法与基础查询",
+            "name": "SELECT基础语法与基础查询",
             "component": "@/pages/mysql/07-DQL-基础查询与条件查询/01-SELECT基础语法与基础查询"
           },
           {
             "path": "/mysql/07/02",
-            "name": "去重、计算列与 NULL 处理",
+            "name": "去重计算列与NULL处理",
             "component": "@/pages/mysql/07-DQL-基础查询与条件查询/02-去重计算列与NULL处理"
           },
           {
             "path": "/mysql/07/03",
-            "name": "条件查询 WHERE",
+            "name": "条件查询WHERE",
             "component": "@/pages/mysql/07-DQL-基础查询与条件查询/03-条件查询WHERE"
           },
           {
             "path": "/mysql/07/04",
-            "name": "模糊查询 LIKE 与本章小结",
+            "name": "模糊查询LIKE与小结",
             "component": "@/pages/mysql/07-DQL-基础查询与条件查询/04-模糊查询LIKE与小结"
           },
           {
             "path": "/mysql/08/01",
-            "name": "排序查询 ORDER BY",
+            "name": "排序查询ORDER-BY",
             "component": "@/pages/mysql/08-DQL-排序-聚合-分组-分页/01-排序查询ORDER-BY"
           },
           {
             "path": "/mysql/08/02",
-            "name": "聚合函数与 NULL 处理",
+            "name": "聚合函数与NULL处理",
             "component": "@/pages/mysql/08-DQL-排序-聚合-分组-分页/02-聚合函数与NULL处理"
           },
           {
             "path": "/mysql/08/03",
-            "name": "分组查询 GROUP BY 与 HAVING",
+            "name": "分组查询GROUP-BY与HAVING",
             "component": "@/pages/mysql/08-DQL-排序-聚合-分组-分页/03-分组查询GROUP-BY与HAVING"
           },
           {
             "path": "/mysql/08/04",
-            "name": "分页查询 LIMIT 与本章小结",
+            "name": "分页查询LIMIT与小结",
             "component": "@/pages/mysql/08-DQL-排序-聚合-分组-分页/04-分页查询LIMIT与小结"
           },
           {
             "path": "/mysql/09/01",
-            "name": "约束概述与非空约束 NOT NULL",
+            "name": "约束概述与NOT-NULL",
             "component": "@/pages/mysql/09-约束/01-约束概述与NOT-NULL"
           },
           {
             "path": "/mysql/09/02",
-            "name": "UNIQUE、主键与自动增长",
+            "name": "UNIQUE主键与AUTO-INCREMENT",
             "component": "@/pages/mysql/09-约束/02-UNIQUE主键与AUTO-INCREMENT"
           },
           {
             "path": "/mysql/09/03",
-            "name": "外键、级联与本章小结",
+            "name": "外键级联与小结",
             "component": "@/pages/mysql/09-约束/03-外键级联与小结"
           },
           {
@@ -4809,7 +3713,7 @@
           },
           {
             "path": "/mysql/10/03",
-            "name": "综合案例与本章小结",
+            "name": "综合案例与小结",
             "component": "@/pages/mysql/10-多表关系设计/03-综合案例与小结"
           },
           {
@@ -4819,22 +3723,22 @@
           },
           {
             "path": "/mysql/11/02",
-            "name": "第一范式 1NF 与第二范式 2NF",
+            "name": "1NF与2NF",
             "component": "@/pages/mysql/11-数据库三大范式/02-1NF与2NF"
           },
           {
             "path": "/mysql/11/03",
-            "name": "第三范式 3NF、反范式与小结",
+            "name": "3NF反范式与小结",
             "component": "@/pages/mysql/11-数据库三大范式/03-3NF反范式与小结"
           },
           {
             "path": "/mysql/12/01",
-            "name": "mysqldump 备份与命令行还原",
+            "name": "mysqldump备份与还原",
             "component": "@/pages/mysql/12-数据库备份与还原/01-mysqldump备份与还原"
           },
           {
             "path": "/mysql/12/02",
-            "name": "图形化工具与本章小结",
+            "name": "图形化工具与小结",
             "component": "@/pages/mysql/12-数据库备份与还原/02-图形化工具与小结"
           },
           {
@@ -4849,17 +3753,17 @@
           },
           {
             "path": "/mysql/13/03",
-            "name": "综合练习与本章小结",
+            "name": "综合练习与小结",
             "component": "@/pages/mysql/13-多表查询/03-综合练习与小结"
           },
           {
             "path": "/mysql/14/01",
-            "name": "事务基础与 ACID 特性",
+            "name": "事务基础与ACID",
             "component": "@/pages/mysql/14-事务/01-事务基础与ACID"
           },
           {
             "path": "/mysql/14/02",
-            "name": "并发问题、隔离级别与本章小结",
+            "name": "并发隔离级别与小结",
             "component": "@/pages/mysql/14-事务/02-并发隔离级别与小结"
           },
           {
@@ -4869,72 +3773,72 @@
           },
           {
             "path": "/mysql/15/02",
-            "name": "权限管理与本章小结",
+            "name": "权限管理与小结",
             "component": "@/pages/mysql/15-DCL-用户与权限管理/02-权限管理与小结"
           },
           {
             "path": "/mysql/16/01",
-            "name": "JDBC 介绍与快速入门",
+            "name": "JDBC介绍与快速入门",
             "component": "@/pages/mysql/16-JDBC核心详解/01-JDBC介绍与快速入门"
           },
           {
             "path": "/mysql/16/02",
-            "name": "DriverManager、Connection 与 Statement",
+            "name": "DriverManager-Connection-Statement",
             "component": "@/pages/mysql/16-JDBC核心详解/02-DriverManager-Connection-Statement"
           },
           {
             "path": "/mysql/16/03",
-            "name": "SQL 注入与 PreparedStatement",
+            "name": "SQL注入与PreparedStatement",
             "component": "@/pages/mysql/16-JDBC核心详解/03-SQL注入与PreparedStatement"
           },
           {
             "path": "/mysql/16/04",
-            "name": "ResultSet 与 JDBC 工具类",
+            "name": "ResultSet与JDBC工具类",
             "component": "@/pages/mysql/16-JDBC核心详解/04-ResultSet与JDBC工具类"
           },
           {
             "path": "/mysql/16/05",
-            "name": "综合实战与本章小结",
+            "name": "综合实战与小结",
             "component": "@/pages/mysql/16-JDBC核心详解/05-综合实战与小结"
           },
           {
             "path": "/mysql/17/01",
-            "name": "JDBC 事务控制基础",
+            "name": "JDBC事务控制基础",
             "component": "@/pages/mysql/17-JDBC事务管理/01-JDBC事务控制基础"
           },
           {
             "path": "/mysql/17/02",
-            "name": "标准写法、对比验证与本章小结",
+            "name": "标准写法对比与小结",
             "component": "@/pages/mysql/17-JDBC事务管理/02-标准写法对比与小结"
           },
           {
             "path": "/mysql/18/01",
-            "name": "连接池概念与 DataSource 规范",
+            "name": "连接池概念与DataSource规范",
             "component": "@/pages/mysql/18-数据库连接池/01-连接池概念与DataSource规范"
           },
           {
             "path": "/mysql/18/02",
-            "name": "C3P0 与 Druid 使用",
+            "name": "C3P0与Druid使用",
             "component": "@/pages/mysql/18-数据库连接池/02-C3P0与Druid使用"
           },
           {
             "path": "/mysql/18/03",
-            "name": "Druid 工具类封装与本章小结",
+            "name": "Druid工具类与小结",
             "component": "@/pages/mysql/18-数据库连接池/03-Druid工具类与小结"
           },
           {
             "path": "/mysql/19/01",
-            "name": "JDBCTemplate 介绍与快速入门",
+            "name": "JDBCTemplate介绍与快速入门",
             "component": "@/pages/mysql/19-JDBCTemplate/01-JDBCTemplate介绍与快速入门"
           },
           {
             "path": "/mysql/19/02",
-            "name": "DML 与 DQL 查询方法",
+            "name": "DML与DQL查询方法",
             "component": "@/pages/mysql/19-JDBCTemplate/02-DML与DQL查询方法"
           },
           {
             "path": "/mysql/19/03",
-            "name": "综合示例与本章小结",
+            "name": "综合示例与小结",
             "component": "@/pages/mysql/19-JDBCTemplate/03-综合示例与小结"
           }
         ]
@@ -5935,7 +4839,7 @@
       "parentId": "2",
       "id": "91",
       "absPath": "/java/25/04",
-      "__content": "import React from 'react';\nimport { Title, Paragraph } from '@/components/doc';\n\nconst index: React.FC = () => (\n  <article>\n    <Title>类和接口作为成员与参数</Title>\n    <Paragraph>内容待完善。</Paragraph>\n  </article>\n);\n\nexport default index;\n",
+      "__content": "import React from 'react';\nimport {\n  Title,\n  Heading3,\n  Heading4,\n  Paragraph,\n  Text,\n  InlineCode,\n  CodeBlock,\n  Table,\n  Callout,\n  UnorderedList,\n  OrderedList,\n  ListItem,\n} from '@/components/doc';\n\nconst index: React.FC = () => (\n  <article>\n    <Title>类和接口作为成员与参数</Title>\n\n    <Callout type=\"note\" title=\"本节导读\">\n      <Paragraph>\n        本节是内部类章节的综合应用，也是对前面多态、抽象类、接口知识的整合。\n        核心主题：<Text bold>类（普通类/抽象类/接口）作为方法的参数类型和返回值类型</Text>，\n        以及作为类的成员变量类型。\n        这是 Java 面向对象编程的核心技巧——\n        参数/返回值类型越抽象（接口或抽象类），代码的灵活性和扩展性就越强；\n        结合匿名内部类，可以做到极致简洁。\n      </Paragraph>\n    </Callout>\n\n    <Heading3>1. 三种情形总览</Heading3>\n    <Table\n      head={['情形', '参数/返回值类型', '调用时传入/返回什么', '典型搭配']}\n      rows={[\n        ['普通类作为参数/返回值', '具体类 Dog', '该类的对象（或子类对象）', '直接 new Dog() 传入'],\n        ['抽象类作为参数/返回值', '抽象类 Animal', '子类对象（多态）', 'new Cat()、new Dog()，或匿名内部类'],\n        ['接口作为参数/返回值', '接口 Swim', '实现类对象（多态）', '实现类对象，或匿名内部类'],\n      ]}\n    />\n    <Paragraph>\n      三种情形的核心规律是一样的：<Text bold>参数/返回值类型写父类型（接口/抽象类/具体类），\n      实际传入/返回的是子类型的对象</Text>。这正是多态的本质。\n      类型越抽象，调用者就越自由——只要符合接口/抽象类的契约，任何实现都可以传入。\n    </Paragraph>\n\n    <Heading3>2. 普通类作为参数与返回值</Heading3>\n    <Paragraph>\n      最简单的情形：参数类型是一个具体类，传入的就是该类（或其子类）的对象。\n      Java 传的是对象的<Text bold>引用（地址）</Text>，方法内部通过引用操作对象的成员。\n    </Paragraph>\n    <CodeBlock\n      title=\"Dog.java\"\n      code={`public class Dog {\n    private String name;\n    private int age;\n\n    public Dog(String name, int age) {\n        this.name = name;\n        this.age  = age;\n    }\n\n    public void bark() {\n        System.out.println(name + \"（\" + age + \"岁）：汪汪汪！\");\n    }\n\n    public String getName() { return name; }\n    public int getAge()     { return age;  }\n}`}\n    />\n    <CodeBlock\n      title=\"DogService.java\"\n      code={`public class DogService {\n\n    // 普通类作为参数\n    public static void trainDog(Dog dog) {\n        System.out.println(\"开始训练：\" + dog.getName());\n        dog.bark();\n        System.out.println(\"训练完成！\");\n    }\n\n    // 普通类作为返回值\n    public static Dog createDog(String name, int age) {\n        System.out.println(\"工厂：创建 Dog 对象 -> \" + name);\n        return new Dog(name, age);   // 返回 Dog 类型的对象\n    }\n\n    public static void main(String[] args) {\n        // 普通类作为参数：直接传入对象\n        Dog d1 = new Dog(\"小黑\", 3);\n        trainDog(d1);\n\n        System.out.println();\n\n        // 普通类作为返回值：接收返回的对象\n        Dog d2 = createDog(\"小白\", 2);\n        trainDog(d2);\n    }\n}`}\n    />\n    <CodeBlock language=\"text\" title=\"控制台输出\" code={`开始训练：小黑\n小黑（3岁）：汪汪汪！\n训练完成！\n\n工厂：创建 Dog 对象 -> 小白\n开始训练：小白\n小白（2岁）：汪汪汪！\n训练完成！`} />\n\n    <Heading3>3. 抽象类作为参数与返回值</Heading3>\n    <Paragraph>\n      参数类型是抽象类时，调用方可以传入该抽象类的<Text bold>任意子类对象</Text>。\n      方法内部通过抽象类引用调用方法，走多态，实际执行子类的重写版本。\n      常见传入方式：① 预先定义的子类对象 ② 匿名内部类对象（临时一次性使用）。\n    </Paragraph>\n    <CodeBlock\n      title=\"Shape.java\"\n      code={`public abstract class Shape {\n    private String color;\n\n    public Shape(String color) {\n        this.color = color;\n    }\n\n    public String getColor() { return color; }\n\n    // 抽象方法：计算面积\n    public abstract double area();\n\n    // 抽象方法：描述自己\n    public abstract void describe();\n}`}\n    />\n    <CodeBlock\n      title=\"Circle.java\"\n      code={`public class Circle extends Shape {\n    private double radius;\n\n    public Circle(String color, double radius) {\n        super(color);\n        this.radius = radius;\n    }\n\n    @Override\n    public double area() {\n        return Math.PI * radius * radius;\n    }\n\n    @Override\n    public void describe() {\n        System.out.println(\"圆形（\" + getColor() + \"），半径=\" + radius + \"，面积=\" + String.format(\"%.2f\", area()));\n    }\n}`}\n    />\n    <CodeBlock\n      title=\"ShapeService.java\"\n      code={`public class ShapeService {\n\n    // 抽象类作为参数：接收任意 Shape 子类对象\n    public static void printShapeInfo(Shape shape) {\n        System.out.println(\"颜色：\" + shape.getColor());\n        System.out.printf(\"面积：%.2f%n\", shape.area());\n        shape.describe();\n    }\n\n    // 抽象类作为返回值：根据类型名称创建不同的子类对象\n    public static Shape createShape(String type) {\n        if (\"circle\".equals(type)) {\n            return new Circle(\"红色\", 5.0);     // 返回子类对象，向上转型\n        }\n        // 也可以返回匿名内部类对象（临时定义新子类）\n        return new Shape(\"灰色\") {\n            @Override\n            public double area() { return 0; }\n\n            @Override\n            public void describe() {\n                System.out.println(\"未知形状（\" + getColor() + \"），面积未知\");\n            }\n        };\n    }\n\n    public static void main(String[] args) {\n        System.out.println(\"=== 传入具体子类对象 ===\");\n        Circle c = new Circle(\"蓝色\", 3.0);\n        printShapeInfo(c);\n\n        System.out.println();\n        System.out.println(\"=== 传入匿名内部类对象 ===\");\n        // 直接用匿名内部类作为参数，不定义任何具体子类\n        printShapeInfo(new Shape(\"绿色\") {\n            @Override\n            public double area() {\n                return 4.0 * 6.0;  // 假设是 4x6 的矩形\n            }\n\n            @Override\n            public void describe() {\n                System.out.println(\"矩形（\" + getColor() + \"），4×6，面积=\" + area());\n            }\n        });\n\n        System.out.println();\n        System.out.println(\"=== 抽象类作为返回值 ===\");\n        Shape s = createShape(\"circle\");\n        printShapeInfo(s);\n\n        System.out.println();\n        Shape unknown = createShape(\"other\");\n        printShapeInfo(unknown);\n    }\n}`}\n    />\n    <CodeBlock language=\"text\" title=\"控制台输出\" code={`=== 传入具体子类对象 ===\n颜色：蓝色\n面积：28.27\n圆形（蓝色），半径=3.0，面积=28.27\n\n=== 传入匿名内部类对象 ===\n颜色：绿色\n面积：24.00\n矩形（绿色），4×6，面积=24.0\n\n=== 抽象类作为返回值 ===\n颜色：红色\n面积：78.54\n圆形（红色），半径=5.0，面积=78.54\n\n=== 未知形状 ===\n颜色：灰色\n面积：0.00\n未知形状（灰色），面积未知`} />\n    <Paragraph>\n      关键点：<InlineCode>printShapeInfo(Shape shape)</InlineCode> 的参数类型是抽象类\n      <InlineCode>Shape</InlineCode>，它接受的可以是任何子类对象，也可以是匿名内部类对象。\n      方法内部的 <InlineCode>shape.area()</InlineCode> 和 <InlineCode>shape.describe()</InlineCode>\n      都通过多态机制找到实际类型的重写版本来执行。\n    </Paragraph>\n\n    <Heading3>4. 接口作为参数与返回值</Heading3>\n    <Paragraph>\n      接口作为参数/返回值是实际开发中<Text bold>最常见、最灵活</Text>的设计方式。\n      参数类型是接口时，传入的是实现了该接口的任意类的对象（包括匿名内部类）。\n      接口是\"纯契约\"，不包含任何状态，耦合度最低，扩展性最强。\n    </Paragraph>\n    <CodeBlock\n      title=\"Swim.java\"\n      code={`public interface Swim {\n    void swim();         // 游泳\n    void breathe();      // 呼吸方式\n}`}\n    />\n    <CodeBlock\n      title=\"Fish.java\"\n      code={`// 有名实现类：供需要复用时使用\npublic class Fish implements Swim {\n    private String species;\n\n    public Fish(String species) {\n        this.species = species;\n    }\n\n    @Override\n    public void swim() {\n        System.out.println(species + \"：摆动鱼鳍前进\");\n    }\n\n    @Override\n    public void breathe() {\n        System.out.println(species + \"：用鱼鳃从水中吸取氧气\");\n    }\n}`}\n    />\n    <CodeBlock\n      title=\"SwimPool.java\"\n      code={`public class SwimPool {\n\n    // 接口作为参数：接受任何实现了 Swim 的对象\n    public static void enterPool(Swim swimmer) {\n        System.out.println(\"--- 入场 ---\");\n        swimmer.breathe();\n        swimmer.swim();\n    }\n\n    // 接口作为返回值：返回一个 Swim 实现\n    public static Swim getDefaultSwimmer() {\n        // 返回匿名内部类对象（默认游泳者）\n        return new Swim() {\n            @Override\n            public void swim() {\n                System.out.println(\"默认游泳者：平稳蛙泳\");\n            }\n\n            @Override\n            public void breathe() {\n                System.out.println(\"默认游泳者：每两划换一次气\");\n            }\n        };\n    }\n\n    public static void main(String[] args) {\n        System.out.println(\"=== 传入有名实现类对象 ===\");\n        Fish fish = new Fish(\"锦鲤\");\n        enterPool(fish);\n\n        System.out.println();\n        System.out.println(\"=== 传入匿名内部类对象（人类游泳） ===\");\n        enterPool(new Swim() {\n            @Override\n            public void swim() {\n                System.out.println(\"人类：自由泳，双臂轮流划水\");\n            }\n\n            @Override\n            public void breathe() {\n                System.out.println(\"人类：侧头换气\");\n            }\n        });\n\n        System.out.println();\n        System.out.println(\"=== 接口作为返回值 ===\");\n        Swim defaultSwimmer = getDefaultSwimmer();\n        enterPool(defaultSwimmer);\n    }\n}`}\n    />\n    <CodeBlock language=\"text\" title=\"控制台输出\" code={`=== 传入有名实现类对象 ===\n--- 入场 ---\n锦鲤：用鱼鳃从水中吸取氧气\n锦鲤：摆动鱼鳍前进\n\n=== 传入匿名内部类对象（人类游泳） ===\n--- 入场 ---\n人类：侧头换气\n人类：自由泳，双臂轮流划水\n\n=== 接口作为返回值 ===\n--- 入场 ---\n默认游泳者：每两划换一次气\n默认游泳者：平稳蛙泳`} />\n    <Paragraph>\n      <InlineCode>enterPool(Swim swimmer)</InlineCode> 对参数类型只有一个要求：\n      必须实现 <InlineCode>Swim</InlineCode> 接口。\n      不管是有名的 <InlineCode>Fish</InlineCode> 类，还是临时写的匿名内部类，都能传入。\n      这就是「面向接口编程」的威力——方法的调用方和实现方完全解耦。\n    </Paragraph>\n\n    <Heading3>5. 接口作为成员变量</Heading3>\n    <Paragraph>\n      除了参数和返回值，接口（或抽象类）还常常作为<Text bold>类的成员变量</Text>。\n      成员变量的类型是接口，意味着可以在运行时动态替换具体的实现——这是\n      <Text bold>策略模式（Strategy Pattern）</Text>的基本形态。\n    </Paragraph>\n    <CodeBlock\n      title=\"Logger.java + LogStrategy.java\"\n      code={`// 日志策略接口\npublic interface LogStrategy {\n    void log(String message);\n}\n\n// Logger 类持有一个 LogStrategy 类型的成员变量（接口作为成员变量）\npublic class Logger {\n    private LogStrategy strategy;  // 接口类型的成员变量\n\n    public Logger(LogStrategy strategy) {\n        this.strategy = strategy;\n    }\n\n    // 可以在运行时替换策略\n    public void setStrategy(LogStrategy strategy) {\n        this.strategy = strategy;\n    }\n\n    public void info(String msg) {\n        strategy.log(\"[INFO] \" + msg);\n    }\n\n    public void warn(String msg) {\n        strategy.log(\"[WARN] \" + msg);\n    }\n}`}\n    />\n    <CodeBlock\n      title=\"LoggerDemo.java\"\n      code={`public class LoggerDemo {\n    public static void main(String[] args) {\n        // 策略1：打印到控制台（用匿名内部类）\n        Logger logger = new Logger(new LogStrategy() {\n            @Override\n            public void log(String message) {\n                System.out.println(\"控制台输出：\" + message);\n            }\n        });\n\n        logger.info(\"系统启动\");\n        logger.warn(\"配置文件缺失，使用默认配置\");\n\n        System.out.println();\n\n        // 策略2：加时间戳格式（运行时替换策略）\n        logger.setStrategy(new LogStrategy() {\n            @Override\n            public void log(String message) {\n                System.out.println(\"[2026-06-11 10:00:00] \" + message);\n            }\n        });\n\n        logger.info(\"用户登录：张三\");\n        logger.warn(\"登录尝试次数超过3次\");\n    }\n}`}\n    />\n    <CodeBlock language=\"text\" title=\"控制台输出\" code={`控制台输出：[INFO] 系统启动\n控制台输出：[WARN] 配置文件缺失，使用默认配置\n\n[2026-06-11 10:00:00] [INFO] 用户登录：张三\n[2026-06-11 10:00:00] [WARN] 登录尝试次数超过3次`} />\n    <Paragraph>\n      <InlineCode>Logger</InlineCode> 持有一个 <InlineCode>LogStrategy</InlineCode> 接口类型的成员变量。\n      构造时传入不同的实现，就能改变日志行为；甚至在运行时通过\n      <InlineCode>setStrategy()</InlineCode> 动态切换。\n      这比在 <InlineCode>Logger</InlineCode> 里写死 <InlineCode>if-else</InlineCode> 灵活得多。\n    </Paragraph>\n\n    <Heading3>6. 综合案例：接口贯穿全流程</Heading3>\n    <Heading4>案例：支付系统</Heading4>\n    <Paragraph>\n      用一个小型支付系统综合演示：接口作为成员变量、作为方法参数、作为返回值，并配合匿名内部类使用。\n    </Paragraph>\n    <CodeBlock\n      title=\"PayStrategy.java\"\n      code={`// 支付策略接口\npublic interface PayStrategy {\n    boolean pay(double amount);  // 返回是否支付成功\n    String getName();            // 支付方式名称\n}`}\n    />\n    <CodeBlock\n      title=\"Order.java\"\n      code={`// 订单类：成员变量 PayStrategy（接口作为成员变量）\npublic class Order {\n    private String orderId;\n    private double amount;\n    private PayStrategy payStrategy;  // 接口作为成员变量\n\n    public Order(String orderId, double amount) {\n        this.orderId = orderId;\n        this.amount  = amount;\n    }\n\n    // 接口作为参数：注入支付策略\n    public void setPayStrategy(PayStrategy payStrategy) {\n        this.payStrategy = payStrategy;\n    }\n\n    public void checkout() {\n        if (payStrategy == null) {\n            System.out.println(\"订单 \" + orderId + \" 未设置支付方式！\");\n            return;\n        }\n        System.out.println(\"订单 \" + orderId + \" 金额：\" + amount + \" 元，使用 \" + payStrategy.getName() + \" 支付...\");\n        boolean success = payStrategy.pay(amount);\n        if (success) {\n            System.out.println(\"支付成功！\");\n        } else {\n            System.out.println(\"支付失败，请重试。\");\n        }\n    }\n}`}\n    />\n    <CodeBlock\n      title=\"PayDemo.java\"\n      code={`public class PayDemo {\n\n    // 接口作为返回值：根据用户选择返回对应策略\n    public static PayStrategy getStrategy(String type) {\n        if (\"alipay\".equals(type)) {\n            return new PayStrategy() {\n                @Override\n                public boolean pay(double amount) {\n                    System.out.println(\"  支付宝扣款 \" + amount + \" 元...\");\n                    return true;\n                }\n\n                @Override\n                public String getName() {\n                    return \"支付宝\";\n                }\n            };\n        } else if (\"wechat\".equals(type)) {\n            return new PayStrategy() {\n                @Override\n                public boolean pay(double amount) {\n                    System.out.println(\"  微信支付扣款 \" + amount + \" 元...\");\n                    return true;\n                }\n\n                @Override\n                public String getName() {\n                    return \"微信支付\";\n                }\n            };\n        } else {\n            return new PayStrategy() {\n                @Override\n                public boolean pay(double amount) {\n                    System.out.println(\"  银行卡支付 \" + amount + \" 元...余额不足，失败\");\n                    return false;\n                }\n\n                @Override\n                public String getName() {\n                    return \"银行卡\";\n                }\n            };\n        }\n    }\n\n    public static void main(String[] args) {\n        Order order1 = new Order(\"ORD-001\", 299.0);\n        order1.setPayStrategy(getStrategy(\"alipay\"));  // 接口作为参数传入\n        order1.checkout();\n\n        System.out.println();\n\n        Order order2 = new Order(\"ORD-002\", 599.0);\n        order2.setPayStrategy(getStrategy(\"wechat\"));\n        order2.checkout();\n\n        System.out.println();\n\n        Order order3 = new Order(\"ORD-003\", 1999.0);\n        order3.setPayStrategy(getStrategy(\"bankcard\"));\n        order3.checkout();\n\n        System.out.println();\n\n        // 也可以直接传入匿名内部类（临时策略：现金支付）\n        Order order4 = new Order(\"ORD-004\", 99.0);\n        order4.setPayStrategy(new PayStrategy() {\n            @Override\n            public boolean pay(double amount) {\n                System.out.println(\"  现金支付 \" + amount + \" 元，请点钞...\");\n                return true;\n            }\n\n            @Override\n            public String getName() {\n                return \"现金\";\n            }\n        });\n        order4.checkout();\n    }\n}`}\n    />\n    <CodeBlock language=\"text\" title=\"控制台输出\" code={`订单 ORD-001 金额：299.0 元，使用 支付宝 支付...\n  支付宝扣款 299.0 元...\n支付成功！\n\n订单 ORD-002 金额：599.0 元，使用 微信支付 支付...\n  微信支付扣款 599.0 元...\n支付成功！\n\n订单 ORD-003 金额：1999.0 元，使用 银行卡 支付...\n  银行卡支付 1999.0 元...余额不足，失败\n支付失败，请重试。\n\n订单 ORD-004 金额：99.0 元，使用 现金 支付...\n  现金支付 99.0 元，请点钞...\n支付成功！`} />\n    <Paragraph>\n      这个案例中三种形式都用到了：\n      <InlineCode>Order.payStrategy</InlineCode> 是接口作为成员变量；\n      <InlineCode>setPayStrategy(PayStrategy)</InlineCode> 是接口作为方法参数；\n      <InlineCode>getStrategy(String)</InlineCode> 返回类型是接口——接口作为返回值。\n      每种支付方式都用匿名内部类实现，无需定义 AlipayStrategy、WechatStrategy 等具体类。\n    </Paragraph>\n\n    <Heading3>7. 要点汇总</Heading3>\n    <Table\n      head={['使用方式', '参数/成员/返回值类型', '实际传入或持有的值', '优势']}\n      rows={[\n        ['普通类作为参数', '具体类', '该类或子类的对象', '直观，适合类型固定的场景'],\n        ['抽象类作为参数', '抽象类', '子类对象或匿名内部类对象', '利用多态，屏蔽实现细节'],\n        ['接口作为参数', '接口', '任意实现类对象或匿名内部类对象', '耦合最低，扩展最灵活'],\n        ['接口作为返回值', '接口', '返回实现类对象或匿名内部类对象', '隐藏实现，调用方只依赖接口'],\n        ['接口作为成员变量', '接口', '运行时注入的实现对象', '可动态替换行为（策略模式基础）'],\n      ]}\n    />\n    <Callout type=\"success\" title=\"小结\">\n      <UnorderedList>\n        <ListItem>参数类型写接口/抽象类，传入子类/实现类对象，这是多态的标准用法。</ListItem>\n        <ListItem>匿名内部类让「一次性实现」变得极其简洁，无需预先定义具体实现类。</ListItem>\n        <ListItem>接口作为成员变量，可以在运行时动态替换行为，是策略模式的核心思想。</ListItem>\n        <ListItem>「面向接口编程，而不是面向实现编程」是 Java 设计的重要原则：调用方只依赖接口，实现方可以自由替换。</ListItem>\n      </UnorderedList>\n    </Callout>\n\n    <Heading3>8. 练习题</Heading3>\n    <Paragraph>\n      先自己完成，再点 <Text accent>「看答案 →」</Text> 对照。\n    </Paragraph>\n\n    <CodeBlock\n      qa\n      title=\"练习1：接口作为方法参数，配合匿名内部类\"\n      code={`// 已有接口 Drawable，包含 void draw() 方法。\n// 要求：\n// 1. 定义方法 static void render(Drawable d)，调用 d.draw()。\n// 2. 在 main 中，不定义任何具体实现类，\n//    直接用匿名内部类调用 render：\n//    - 第一次：draw() 打印「画一个红色的圆」\n//    - 第二次：draw() 打印「画一条蓝色的线」\n//    - 第三次：draw() 打印「画一个绿色的矩形」\n\npublic interface Drawable {\n    void draw();\n}\n\nclass DrawDemo {\n    public static void render(Drawable d) {\n        d.draw();\n    }\n\n    public static void main(String[] args) {\n        // 补全：三次调用 render，每次传入匿名内部类\n    }\n}`}\n      answerCode={`public interface Drawable {\n    void draw();\n}\n\nclass DrawDemo {\n    public static void render(Drawable d) {\n        d.draw();\n    }\n\n    public static void main(String[] args) {\n        render(new Drawable() {\n            @Override\n            public void draw() {\n                System.out.println(\"画一个红色的圆\");\n            }\n        });\n\n        render(new Drawable() {\n            @Override\n            public void draw() {\n                System.out.println(\"画一条蓝色的线\");\n            }\n        });\n\n        render(new Drawable() {\n            @Override\n            public void draw() {\n                System.out.println(\"画一个绿色的矩形\");\n            }\n        });\n    }\n}\n\n/* 控制台输出：\n画一个红色的圆\n画一条蓝色的线\n画一个绿色的矩形\n\n解析：render(Drawable d) 参数类型是接口，三次调用分别传入不同的匿名内部类对象，\n      各自重写了 draw() 方法。整个过程没有定义任何有名字的实现类，完全依赖匿名内部类。\n*/`}\n    />\n\n    <CodeBlock\n      qa\n      title=\"练习2：接口作为返回值\"\n      code={`// 已有接口 Validator，包含 boolean validate(String input)。\n// 要求：\n// 定义工厂方法 static Validator getValidator(String type)，\n// 根据 type 返回不同的 Validator 实现（用匿名内部类）：\n//   \"notEmpty\"：input 不为 null 且不为空字符串时返回 true\n//   \"email\"    ：input 包含 \"@\" 时返回 true（简化判断）\n//   其他       ：始终返回 true（默认通过）\n// 在 main 中测试：\n//   getValidator(\"notEmpty\") 测试 \"\" 和 \"hello\"\n//   getValidator(\"email\")    测试 \"abc\" 和 \"abc@qq.com\"\n\npublic interface Validator {\n    boolean validate(String input);\n}\n\nclass ValidatorFactory {\n\n    public static Validator getValidator(String type) {\n        // 补全\n        return null; // 占位，请替换\n    }\n\n    public static void main(String[] args) {\n        // 补全测试代码\n    }\n}`}\n      answerCode={`public interface Validator {\n    boolean validate(String input);\n}\n\nclass ValidatorFactory {\n\n    public static Validator getValidator(String type) {\n        if (\"notEmpty\".equals(type)) {\n            return new Validator() {\n                @Override\n                public boolean validate(String input) {\n                    return input != null && !input.isEmpty();\n                }\n            };\n        } else if (\"email\".equals(type)) {\n            return new Validator() {\n                @Override\n                public boolean validate(String input) {\n                    return input != null && input.contains(\"@\");\n                }\n            };\n        } else {\n            // 默认：始终通过\n            return new Validator() {\n                @Override\n                public boolean validate(String input) {\n                    return true;\n                }\n            };\n        }\n    }\n\n    public static void main(String[] args) {\n        Validator notEmpty = getValidator(\"notEmpty\");\n        System.out.println(\"notEmpty 测试 \\\"\\\"     : \" + notEmpty.validate(\"\"));\n        System.out.println(\"notEmpty 测试 \\\"hello\\\": \" + notEmpty.validate(\"hello\"));\n\n        System.out.println();\n\n        Validator email = getValidator(\"email\");\n        System.out.println(\"email 测试 \\\"abc\\\"       : \" + email.validate(\"abc\"));\n        System.out.println(\"email 测试 \\\"abc@qq.com\\\": \" + email.validate(\"abc@qq.com\"));\n    }\n}\n\n/* 控制台输出：\nnotEmpty 测试 \"\"     : false\nnotEmpty 测试 \"hello\": true\n\nemail 测试 \"abc\"       : false\nemail 测试 \"abc@qq.com\": true\n\n解析：getValidator 的返回类型是接口 Validator，\n      方法内部根据 type 返回不同的匿名内部类对象。\n      调用方只依赖接口，不知道也不关心具体实现是什么类，\n      这正是「接口作为返回值」的最大价值：隐藏实现细节。\n*/`}\n    />\n\n    <CodeBlock\n      qa\n      title=\"练习3：接口作为成员变量（策略模式）\"\n      code={`// 已有接口 SortStrategy，包含 void sort(int[] arr)。\n// 要求：\n// 1. 定义类 Sorter，包含：\n//    - 成员变量 SortStrategy strategy（接口作为成员变量）\n//    - 构造方法 Sorter(SortStrategy strategy)\n//    - 方法 void setStrategy(SortStrategy strategy)\n//    - 方法 void doSort(int[] arr)：调用 strategy.sort(arr)，然后打印数组\n// 2. 在 main 中：\n//    - 创建 Sorter，传入冒泡升序策略（匿名内部类实现）\n//    - 对 {5,1,8,3,2} 调用 doSort\n//    - 运行时切换策略为「倒序输出」（不排序，只从后往前打印，也用匿名内部类）\n//    - 再次对 {5,1,8,3,2} 调用 doSort\n\npublic interface SortStrategy {\n    void sort(int[] arr);\n}\n\nclass Sorter {\n    // 补全成员变量、构造、setStrategy、doSort\n}\n\nclass SorterDemo {\n    public static void main(String[] args) {\n        int[] data1 = {5, 1, 8, 3, 2};\n        int[] data2 = {5, 1, 8, 3, 2};\n        // 补全测试代码\n    }\n}`}\n      answerCode={`public interface SortStrategy {\n    void sort(int[] arr);\n}\n\nclass Sorter {\n    private SortStrategy strategy;  // 接口作为成员变量\n\n    public Sorter(SortStrategy strategy) {\n        this.strategy = strategy;\n    }\n\n    public void setStrategy(SortStrategy strategy) {\n        this.strategy = strategy;\n    }\n\n    public void doSort(int[] arr) {\n        strategy.sort(arr);\n        // 打印数组\n        for (int num : arr) {\n            System.out.print(num + \" \");\n        }\n        System.out.println();\n    }\n}\n\nclass SorterDemo {\n    public static void main(String[] args) {\n        int[] data1 = {5, 1, 8, 3, 2};\n        int[] data2 = {5, 1, 8, 3, 2};\n\n        // 策略1：冒泡升序排序\n        Sorter sorter = new Sorter(new SortStrategy() {\n            @Override\n            public void sort(int[] arr) {\n                for (int i = 0; i < arr.length - 1; i++) {\n                    for (int j = 0; j < arr.length - 1 - i; j++) {\n                        if (arr[j] > arr[j + 1]) {\n                            int temp = arr[j];\n                            arr[j] = arr[j + 1];\n                            arr[j + 1] = temp;\n                        }\n                    }\n                }\n                System.out.print(\"冒泡升序结果：\");\n            }\n        });\n        sorter.doSort(data1);\n\n        // 运行时切换策略2：倒序打印（不修改数组，只改打印顺序）\n        sorter.setStrategy(new SortStrategy() {\n            @Override\n            public void sort(int[] arr) {\n                System.out.print(\"倒序输出结果：\");\n                for (int i = arr.length - 1; i >= 0; i--) {\n                    System.out.print(arr[i] + \" \");\n                }\n                System.out.println();\n                // 此策略不改变数组，doSort 里再打印一次 arr 就是原始顺序\n                // 为避免重复打印，这里直接在 sort 里打印后不做其他操作\n            }\n        });\n        // 注意：data2 原始未被排序，直接倒序打印原始数组\n        // 由于 doSort 在 sort 后还会打印一次，此处用 data2 演示倒序打印\n        // 简化演示：在第二种策略里直接打印完整内容\n        System.out.println(\"---切换策略后---\");\n        sorter.doSort(data2);\n    }\n}\n\n/* 控制台输出：\n冒泡升序结果：1 2 3 5 8\n---切换策略后---\n倒序输出结果：2 3 8 1 5\n2 3 8 1 5\n\n解析：Sorter 持有 SortStrategy 接口类型的成员变量 strategy，\n      构造时注入具体实现，运行时可通过 setStrategy 切换新策略。\n      两种策略都用匿名内部类实现，无需定义 BubbleSortStrategy 等具体类。\n      这就是策略模式（Strategy Pattern）的基本形态：\n      算法（策略）被封装在接口后面，主体类（Sorter）不依赖具体算法，只依赖接口。\n*/`}\n    />\n  </article>\n);\n\nexport default index;\n",
       "__isJSFile": true,
       "__absFile": "D:/learn-java-docs/src/pages/java/25-内部类/04-类和接口作为成员与参数.tsx"
     },
@@ -5946,13 +4850,13 @@
       "parentId": "2",
       "id": "92",
       "absPath": "/mysql/01/01",
-      "__content": "import React from 'react';\nimport {\n  Title,\n  Heading3,\n  Heading4,\n  Paragraph,\n  Text,\n  InlineCode,\n  CodeBlock,\n  Table,\n  Callout,\n  UnorderedList,\n  ListItem,\n} from '@/components/doc';\n\nconst index: React.FC = () => (\n  <article>\n    <Title>为什么需要数据库</Title>\n\n    <Callout type=\"note\" title=\"本章导读\">\n      <Paragraph>\n        这是整套 MySQL 教程的第一章。在敲第一条 SQL 之前，我们先把“地基”打好：\n        <Text bold>\n          数据库到底解决了什么问题？为什么不用 txt、Excel 直接存数据？DB / DBMS /\n          SQL 三者是什么关系？市面上那么多数据库（Oracle、MySQL、Redis、MongoDB……）该怎么分类、怎么选？\n        </Text>\n      </Paragraph>\n      <Paragraph>\n        这些概念听起来“虚”，但它们决定了你后面所有操作的“心智模型”。本章不写很多\n        SQL（毕竟环境还没装），重点是把概念讲透、把脑子里的地图画清楚。等你建立起“DBMS\n        → 数据库 → 表 → 行/列”这套层级模型后，\n        <Text bold>第 2 章安装 MySQL、第 3 章写第一条 SQL</Text> 都会水到渠成。\n      </Paragraph>\n      <Paragraph>\n        读者画像：你已经会写代码（比如 Java），但对数据库不熟。所以本章会\n        <Text bold>大量用 Java 类比</Text>，帮你把已有的知识迁移过来。\n      </Paragraph>\n    </Callout>\n\n    <Paragraph>学任何技术，先问“它解决了什么痛点”，比直接背定义有用得多。</Paragraph>\n    <Paragraph>假设你在做一个公司的“员工管理系统”，要存这样的数据：</Paragraph>\n\n    <Table\n      head={['员工编号', '姓名', '性别', '工资', '入职日期', '部门']}\n      rows={[\n        ['1', '张三', '男', '8000', '2020-01-10', '研发部'],\n        ['2', '李四', '男', '12000', '2019-03-15', '研发部'],\n        ['3', '王五', '女', '9500', '2021-06-01', '市场部'],\n      ]}\n    />\n\n    <Callout type=\"tip\">\n      上面这张表，正是我们整套教程会反复使用的 <InlineCode>emp</InlineCode>\n      （员工）表。先混个眼熟，后面每一章都会见到它。\n    </Callout>\n\n    <Heading3>1.1 方案 A：用普通文件（txt / CSV / Excel）存</Heading3>\n    <Paragraph>最朴素的想法是：把数据写进一个文件。比如用 CSV：</Paragraph>\n    <CodeBlock\n      language=\"text\"\n      code={`1,张三,男,8000,2020-01-10,研发部\n2,李四,男,12000,2019-03-15,研发部\n3,王五,女,9500,2021-06-01,市场部`}\n    />\n    <Paragraph>\n      数据量小（几十行）时确实够用。但只要业务一长大，下面这 5\n      个痛点会接连爆发。\n    </Paragraph>\n\n    <Heading4>痛点 1：查找慢（没有索引）</Heading4>\n    <Paragraph>需求：“找出工资大于 9000 的员工”。</Paragraph>\n    <Paragraph>\n      用文件存，你只能写代码<Text bold>从头到尾一行行扫描</Text>（全文件遍历）。100\n      行还好，<Text bold>100 万行</Text>呢？每查一次都要把整个文件读一遍，慢得让人崩溃。\n    </Paragraph>\n    <Paragraph>\n      而数据库可以建<Text bold>索引</Text>（类比“书的目录 /\n      字典的偏旁部首检字表”）：不用翻完整本书，直接跳到目标位置。后面专门有一章讲索引，这里先记住一句话：\n      <Text bold>数据库天生为“高效查找”而生</Text>。\n    </Paragraph>\n\n    <Heading4>痛点 2：并发访问会出乱子（无并发控制）</Heading4>\n    <Paragraph>需求：A、B 两个人同时给“张三”发工资。</Paragraph>\n    <UnorderedList>\n      <ListItem>A 读到张三工资 8000，准备加 1000；</ListItem>\n      <ListItem>与此同时 B 也读到 8000，准备加 2000；</ListItem>\n      <ListItem>A 写回 9000，B 写回 10000……</ListItem>\n    </UnorderedList>\n    <Paragraph>\n      最终张三的工资取决于“谁后写”，其中一笔加薪<Text bold>凭空消失</Text>\n      了（这叫“丢失更新”）。普通文件没有任何机制阻止这种事，多个程序同时写一个文件，轻则数据错乱，重则文件损坏。\n    </Paragraph>\n    <Paragraph>\n      数据库则提供<Text bold>锁</Text>和<Text bold>事务</Text>\n      来保证并发安全（这是数据库的核心价值之一，后面有专章讲事务）。\n    </Paragraph>\n\n    <Heading4>痛点 3：数据冗余 + 不一致（无规范化）</Heading4>\n    <Paragraph>\n      注意上表里“研发部”出现了两次。如果研发部改名叫“技术部”，你得把<Text bold>每一行</Text>\n      都改一遍。一旦漏改一行，数据库里就同时存在“研发部”和“技术部”，到底哪个对？这就是\n      <Text bold>冗余导致的不一致</Text>。\n    </Paragraph>\n    <Paragraph>\n      数据库可以把“部门”单独拆成一张 <InlineCode>dept</InlineCode>\n      表，员工表里只存“部门编号”。改名时只改 <InlineCode>dept</InlineCode>\n      表一处即可——这就是后面要讲的<Text bold>表的关系/范式设计</Text>。\n    </Paragraph>\n\n    <Heading4>痛点 4：没有数据校验（无约束）</Heading4>\n    <Paragraph>\n      文件不会拦你：性别字段你写个“abc”、工资写成负数、入职日期写成“昨天”，文件统统照单全收，等到程序读取时才报错（甚至不报错，直接算出离谱结果）。\n    </Paragraph>\n    <Paragraph>\n      数据库可以加<Text bold>约束（Constraint）</Text>：\n    </Paragraph>\n    <UnorderedList>\n      <ListItem>工资必须是数字、不能为负；</ListItem>\n      <ListItem>性别只能是“男/女”；</ListItem>\n      <ListItem>员工编号不能重复（主键）；</ListItem>\n      <ListItem>部门编号必须真实存在（外键）。</ListItem>\n    </UnorderedList>\n    <Paragraph>\n      不合法的数据，<Text bold>根本插不进去</Text>——数据从源头就被守住了。\n    </Paragraph>\n\n    <Heading4>痛点 5：难共享、难备份、难权限管理</Heading4>\n    <Paragraph>\n      文件存在某台电脑上，别的程序、别的同事想用就得拷来拷去；想做“只能看不能改”的权限控制几乎不可能；想定时备份、想多人通过网络同时访问，更是难上加难。\n    </Paragraph>\n    <Paragraph>\n      数据库是一个<Text bold>独立的服务（Server）</Text>\n      ，所有人通过网络连接它、按权限访问同一份数据，备份、恢复、审计都有成熟方案。\n    </Paragraph>\n\n    <Heading3>1.2 小结：文件 vs 数据库</Heading3>\n    <Table\n      head={['能力', '普通文件（txt/Excel）', '数据库']}\n      rows={[\n        ['海量数据查找', '慢，全文件扫描', '快，可建索引'],\n        ['并发读写', '容易冲突、损坏', '锁 + 事务保证安全'],\n        ['数据冗余/一致性', '难控制，易不一致', '可拆表、加约束'],\n        ['数据校验', '无', '丰富的约束'],\n        ['共享/权限/备份', '困难', '天生支持，方案成熟'],\n      ]}\n    />\n    <Callout type=\"success\" title=\"一句话总结\">\n      当数据量大、要被多人/多程序长期、安全、高效地访问时，就该上数据库。\n    </Callout>\n  </article>\n);\n\nexport default index;\n",
+      "__content": "import React from \"react\";\nimport {\n  Title,\n  Heading3,\n  Heading4,\n  Paragraph,\n  Text,\n  InlineCode,\n  CodeBlock,\n  Table,\n  Callout,\n  UnorderedList,\n  ListItem,\n} from \"@/components/doc\";\n\nconst index: React.FC = () => (\n  <article>\n    <Title>为什么需要数据库</Title>\n\n    <Callout type=\"note\" title=\"本章导读\">\n      <Paragraph>\n        这是整套 MySQL 教程的第一章。在敲第一条 SQL 之前，我们先把“地基”打好：\n        <Text bold>\n          数据库到底解决了什么问题？为什么不用 txt、Excel 直接存数据？DB / DBMS\n          / SQL\n          三者是什么关系？市面上那么多数据库（Oracle、MySQL、Redis、MongoDB……）该怎么分类、怎么选？\n        </Text>\n      </Paragraph>\n      <Paragraph>\n        这些概念听起来“虚”，但它们决定了你后面所有操作的“心智模型”。本章不写很多\n        SQL（毕竟环境还没装），重点是把概念讲透、把脑子里的地图画清楚。等你建立起“DBMS\n        → 数据库 → 表 → 行/列”这套层级模型后，\n        <Text bold>第 2 章安装 MySQL、第 3 章写第一条 SQL</Text> 都会水到渠成。\n      </Paragraph>\n      <Paragraph>\n        读者画像：你已经会写代码（比如 Java），但对数据库不熟。所以本章会\n        <Text bold>大量用 Java 类比</Text>，帮你把已有的知识迁移过来。\n      </Paragraph>\n    </Callout>\n\n    <Paragraph>\n      学任何技术，先问“它解决了什么痛点”，比直接背定义有用得多。\n    </Paragraph>\n    <Paragraph>假设你在做一个公司的“员工管理系统”，要存这样的数据：</Paragraph>\n\n    <Table\n      head={[\"员工编号\", \"姓名\", \"性别\", \"工资\", \"入职日期\", \"部门\"]}\n      rows={[\n        [\"1\", \"张三\", \"男\", \"8000\", \"2020-01-10\", \"研发部\"],\n        [\"2\", \"李四\", \"男\", \"12000\", \"2019-03-15\", \"研发部\"],\n        [\"3\", \"王五\", \"女\", \"9500\", \"2021-06-01\", \"市场部\"],\n      ]}\n    />\n\n    <Callout type=\"tip\">\n      上面这张表，正是我们整套教程会反复使用的 <InlineCode>emp</InlineCode>\n      （员工）表。先混个眼熟，后面每一章都会见到它。\n    </Callout>\n\n    <Heading3>1.1 方案 A：用普通文件（txt / CSV / Excel）存</Heading3>\n    <Paragraph>最朴素的想法是：把数据写进一个文件。比如用 CSV：</Paragraph>\n    <CodeBlock\n      language=\"text\"\n      code={`1,张三,男,8000,2020-01-10,研发部\n2,李四,男,12000,2019-03-15,研发部\n3,王五,女,9500,2021-06-01,市场部`}\n    />\n    <Paragraph>\n      数据量小（几十行）时确实够用。但只要业务一长大，下面这 5\n      个痛点会接连爆发。\n    </Paragraph>\n\n    <Heading4>痛点 1：查找慢（没有索引）</Heading4>\n    <Paragraph>需求：“找出工资大于 9000 的员工”。</Paragraph>\n    <Paragraph>\n      用文件存，你只能写代码<Text bold>从头到尾一行行扫描</Text>\n      （全文件遍历）。100 行还好，<Text bold>100 万行</Text>\n      呢？每查一次都要把整个文件读一遍，慢得让人崩溃。\n    </Paragraph>\n    <Paragraph>\n      而数据库可以建<Text bold>索引</Text>（类比“书的目录 /\n      字典的偏旁部首检字表”）：不用翻完整本书，直接跳到目标位置。后面专门有一章讲索引，这里先记住一句话：\n      <Text bold>数据库天生为“高效查找”而生</Text>。\n    </Paragraph>\n\n    <Heading4>痛点 2：并发访问会出乱子（无并发控制）</Heading4>\n    <Paragraph>需求：A、B 两个人同时给“张三”发工资。</Paragraph>\n    <UnorderedList>\n      <ListItem>A 读到张三工资 8000，准备加 1000；</ListItem>\n      <ListItem>与此同时 B 也读到 8000，准备加 2000；</ListItem>\n      <ListItem>A 写回 9000，B 写回 10000……</ListItem>\n    </UnorderedList>\n    <Paragraph>\n      最终张三的工资取决于“谁后写”，其中一笔加薪<Text bold>凭空消失</Text>\n      了（这叫“丢失更新”）。普通文件没有任何机制阻止这种事，多个程序同时写一个文件，轻则数据错乱，重则文件损坏。\n    </Paragraph>\n    <Paragraph>\n      数据库则提供<Text bold>锁</Text>和<Text bold>事务</Text>\n      来保证并发安全（这是数据库的核心价值之一，后面有专章讲事务）。\n    </Paragraph>\n\n    <Heading4>痛点 3：数据冗余 + 不一致（无规范化）</Heading4>\n    <Paragraph>\n      注意上表里“研发部”出现了两次。如果研发部改名叫“技术部”，你得把\n      <Text bold>每一行</Text>\n      都改一遍。一旦漏改一行，数据库里就同时存在“研发部”和“技术部”，到底哪个对？这就是\n      <Text bold>冗余导致的不一致</Text>。\n    </Paragraph>\n    <Paragraph>\n      数据库可以把“部门”单独拆成一张 <InlineCode>dept</InlineCode>\n      表，员工表里只存“部门编号”。改名时只改 <InlineCode>dept</InlineCode>\n      表一处即可——这就是后面要讲的<Text bold>表的关系/范式设计</Text>。\n    </Paragraph>\n\n    <Heading4>痛点 4：没有数据校验（无约束）</Heading4>\n    <Paragraph>\n      文件不会拦你：性别字段你写个“abc”、工资写成负数、入职日期写成“昨天”，文件统统照单全收，等到程序读取时才报错（甚至不报错，直接算出离谱结果）。\n    </Paragraph>\n    <Paragraph>\n      数据库可以加<Text bold>约束（Constraint）</Text>：\n    </Paragraph>\n    <UnorderedList>\n      <ListItem>工资必须是数字、不能为负；</ListItem>\n      <ListItem>性别只能是“男/女”；</ListItem>\n      <ListItem>员工编号不能重复（主键）；</ListItem>\n      <ListItem>部门编号必须真实存在（外键）。</ListItem>\n    </UnorderedList>\n    <Paragraph>\n      不合法的数据，<Text bold>根本插不进去</Text>——数据从源头就被守住了。\n    </Paragraph>\n\n    <Heading4>痛点 5：难共享、难备份、难权限管理</Heading4>\n    <Paragraph>\n      文件存在某台电脑上，别的程序、别的同事想用就得拷来拷去；想做“只能看不能改”的权限控制几乎不可能；想定时备份、想多人通过网络同时访问，更是难上加难。\n    </Paragraph>\n    <Paragraph>\n      数据库是一个<Text bold>独立的服务（Server）</Text>\n      ，所有人通过网络连接它、按权限访问同一份数据，备份、恢复、审计都有成熟方案。\n    </Paragraph>\n\n    <Heading3>1.2 小结：文件 vs 数据库</Heading3>\n    <Table\n      head={[\"能力\", \"普通文件（txt/Excel）\", \"数据库\"]}\n      rows={[\n        [\"海量数据查找\", \"慢，全文件扫描\", \"快，可建索引\"],\n        [\"并发读写\", \"容易冲突、损坏\", \"锁 + 事务保证安全\"],\n        [\"数据冗余/一致性\", \"难控制，易不一致\", \"可拆表、加约束\"],\n        [\"数据校验\", \"无\", \"丰富的约束\"],\n        [\"共享/权限/备份\", \"困难\", \"天生支持，方案成熟\"],\n      ]}\n    />\n    <Callout type=\"success\" title=\"一句话总结\">\n      当数据量大、要被多人/多程序长期、安全、高效地访问时，就该上数据库。\n    </Callout>\n  </article>\n);\n\nexport default index;\n\nexport const route = {\n  icon: \"database\",\n};\n",
       "__isJSFile": true,
       "__absFile": "D:/learn-java-docs/src/pages/mysql/01-数据库基本概念/01-为什么需要数据库.tsx"
     },
     "93": {
       "path": "/mysql/01/02",
-      "name": "DB、DBMS、SQL",
+      "name": "DB-DBMS-SQL",
       "file": "@/pages/mysql/01-数据库基本概念/02-DB-DBMS-SQL.tsx",
       "parentId": "2",
       "id": "93",
@@ -5974,7 +4878,7 @@
     },
     "95": {
       "path": "/mysql/01/04",
-      "name": "关系型数据库 RDBMS",
+      "name": "关系型数据库RDBMS",
       "file": "@/pages/mysql/01-数据库基本概念/04-关系型数据库RDBMS.tsx",
       "parentId": "2",
       "id": "95",
@@ -5985,7 +4889,7 @@
     },
     "96": {
       "path": "/mysql/01/05",
-      "name": "非关系型数据库 NoSQL",
+      "name": "非关系型数据库NoSQL",
       "file": "@/pages/mysql/01-数据库基本概念/05-非关系型数据库NoSQL.tsx",
       "parentId": "2",
       "id": "96",
@@ -6018,7 +4922,7 @@
     },
     "99": {
       "path": "/mysql/01/08",
-      "name": "常见 NoSQL：Redis 与 MongoDB",
+      "name": "常见NoSQL-Redis与MongoDB",
       "file": "@/pages/mysql/01-数据库基本概念/08-常见NoSQL-Redis与MongoDB.tsx",
       "parentId": "2",
       "id": "99",
@@ -6029,7 +4933,7 @@
     },
     "100": {
       "path": "/mysql/01/09",
-      "name": "MySQL 的历史与特点",
+      "name": "MySQL的历史与特点",
       "file": "@/pages/mysql/01-数据库基本概念/09-MySQL的历史与特点.tsx",
       "parentId": "2",
       "id": "100",
@@ -6062,7 +4966,7 @@
     },
     "103": {
       "path": "/mysql/02/02",
-      "name": "Windows 安装 MySQL",
+      "name": "Windows安装MySQL",
       "file": "@/pages/mysql/02-MySQL安装卸载与服务管理/02-Windows安装MySQL.tsx",
       "parentId": "2",
       "id": "103",
@@ -6084,7 +4988,7 @@
     },
     "105": {
       "path": "/mysql/02/04",
-      "name": "登录与退出 MySQL",
+      "name": "登录与退出MySQL",
       "file": "@/pages/mysql/02-MySQL安装卸载与服务管理/04-登录与退出MySQL.tsx",
       "parentId": "2",
       "id": "105",
@@ -6095,7 +4999,7 @@
     },
     "106": {
       "path": "/mysql/02/05",
-      "name": "彻底卸载 MySQL",
+      "name": "彻底卸载MySQL",
       "file": "@/pages/mysql/02-MySQL安装卸载与服务管理/05-彻底卸载MySQL.tsx",
       "parentId": "2",
       "id": "106",
@@ -6106,7 +5010,7 @@
     },
     "107": {
       "path": "/mysql/02/06",
-      "name": "目录结构、配置文件与小结",
+      "name": "目录结构配置文件与小结",
       "file": "@/pages/mysql/02-MySQL安装卸载与服务管理/06-目录结构配置文件与小结.tsx",
       "parentId": "2",
       "id": "107",
@@ -6117,7 +5021,7 @@
     },
     "108": {
       "path": "/mysql/03/01",
-      "name": "SQL 是什么与标准方言",
+      "name": "SQL是什么与标准方言",
       "file": "@/pages/mysql/03-SQL概述与通用语法/01-SQL是什么与标准方言.tsx",
       "parentId": "2",
       "id": "108",
@@ -6150,7 +5054,7 @@
     },
     "111": {
       "path": "/mysql/03/04",
-      "name": "四大分类 DDL / DML / DQL / DCL",
+      "name": "四大分类DDL-DML-DQL-DCL",
       "file": "@/pages/mysql/03-SQL概述与通用语法/04-四大分类DDL-DML-DQL-DCL.tsx",
       "parentId": "2",
       "id": "111",
@@ -6172,7 +5076,7 @@
     },
     "113": {
       "path": "/mysql/04/01",
-      "name": "预备知识与 CREATE DATABASE",
+      "name": "预备知识与CREATE-DATABASE",
       "file": "@/pages/mysql/04-DDL-操作数据库/01-预备知识与CREATE-DATABASE.tsx",
       "parentId": "2",
       "id": "113",
@@ -6194,7 +5098,7 @@
     },
     "115": {
       "path": "/mysql/04/03",
-      "name": "修改、删除与切换数据库",
+      "name": "修改删除切换数据库",
       "file": "@/pages/mysql/04-DDL-操作数据库/03-修改删除切换数据库.tsx",
       "parentId": "2",
       "id": "115",
@@ -6205,7 +5109,7 @@
     },
     "116": {
       "path": "/mysql/04/04",
-      "name": "完整演示与本章小结",
+      "name": "完整演示与小结",
       "file": "@/pages/mysql/04-DDL-操作数据库/04-完整演示与小结.tsx",
       "parentId": "2",
       "id": "116",
@@ -6227,7 +5131,7 @@
     },
     "118": {
       "path": "/mysql/05/02",
-      "name": "CREATE TABLE 与数据类型",
+      "name": "CREATE-TABLE与数据类型",
       "file": "@/pages/mysql/05-DDL-操作表与图形化工具/02-CREATE-TABLE与数据类型.tsx",
       "parentId": "2",
       "id": "118",
@@ -6238,7 +5142,7 @@
     },
     "119": {
       "path": "/mysql/05/03",
-      "name": "修改、删除与复制表",
+      "name": "修改删除复制表",
       "file": "@/pages/mysql/05-DDL-操作表与图形化工具/03-修改删除复制表.tsx",
       "parentId": "2",
       "id": "119",
@@ -6260,7 +5164,7 @@
     },
     "121": {
       "path": "/mysql/06/01",
-      "name": "INSERT 添加数据",
+      "name": "INSERT添加数据",
       "file": "@/pages/mysql/06-DML-数据增删改/01-INSERT添加数据.tsx",
       "parentId": "2",
       "id": "121",
@@ -6271,7 +5175,7 @@
     },
     "122": {
       "path": "/mysql/06/02",
-      "name": "UPDATE 修改数据",
+      "name": "UPDATE修改数据",
       "file": "@/pages/mysql/06-DML-数据增删改/02-UPDATE修改数据.tsx",
       "parentId": "2",
       "id": "122",
@@ -6282,7 +5186,7 @@
     },
     "123": {
       "path": "/mysql/06/03",
-      "name": "DELETE、TRUNCATE 与本章小结",
+      "name": "DELETE删除数据与小结",
       "file": "@/pages/mysql/06-DML-数据增删改/03-DELETE删除数据与小结.tsx",
       "parentId": "2",
       "id": "123",
@@ -6293,7 +5197,7 @@
     },
     "124": {
       "path": "/mysql/07/01",
-      "name": "SELECT 基础语法与基础查询",
+      "name": "SELECT基础语法与基础查询",
       "file": "@/pages/mysql/07-DQL-基础查询与条件查询/01-SELECT基础语法与基础查询.tsx",
       "parentId": "2",
       "id": "124",
@@ -6304,7 +5208,7 @@
     },
     "125": {
       "path": "/mysql/07/02",
-      "name": "去重、计算列与 NULL 处理",
+      "name": "去重计算列与NULL处理",
       "file": "@/pages/mysql/07-DQL-基础查询与条件查询/02-去重计算列与NULL处理.tsx",
       "parentId": "2",
       "id": "125",
@@ -6315,7 +5219,7 @@
     },
     "126": {
       "path": "/mysql/07/03",
-      "name": "条件查询 WHERE",
+      "name": "条件查询WHERE",
       "file": "@/pages/mysql/07-DQL-基础查询与条件查询/03-条件查询WHERE.tsx",
       "parentId": "2",
       "id": "126",
@@ -6326,7 +5230,7 @@
     },
     "127": {
       "path": "/mysql/07/04",
-      "name": "模糊查询 LIKE 与本章小结",
+      "name": "模糊查询LIKE与小结",
       "file": "@/pages/mysql/07-DQL-基础查询与条件查询/04-模糊查询LIKE与小结.tsx",
       "parentId": "2",
       "id": "127",
@@ -6337,7 +5241,7 @@
     },
     "128": {
       "path": "/mysql/08/01",
-      "name": "排序查询 ORDER BY",
+      "name": "排序查询ORDER-BY",
       "file": "@/pages/mysql/08-DQL-排序-聚合-分组-分页/01-排序查询ORDER-BY.tsx",
       "parentId": "2",
       "id": "128",
@@ -6348,7 +5252,7 @@
     },
     "129": {
       "path": "/mysql/08/02",
-      "name": "聚合函数与 NULL 处理",
+      "name": "聚合函数与NULL处理",
       "file": "@/pages/mysql/08-DQL-排序-聚合-分组-分页/02-聚合函数与NULL处理.tsx",
       "parentId": "2",
       "id": "129",
@@ -6359,7 +5263,7 @@
     },
     "130": {
       "path": "/mysql/08/03",
-      "name": "分组查询 GROUP BY 与 HAVING",
+      "name": "分组查询GROUP-BY与HAVING",
       "file": "@/pages/mysql/08-DQL-排序-聚合-分组-分页/03-分组查询GROUP-BY与HAVING.tsx",
       "parentId": "2",
       "id": "130",
@@ -6370,7 +5274,7 @@
     },
     "131": {
       "path": "/mysql/08/04",
-      "name": "分页查询 LIMIT 与本章小结",
+      "name": "分页查询LIMIT与小结",
       "file": "@/pages/mysql/08-DQL-排序-聚合-分组-分页/04-分页查询LIMIT与小结.tsx",
       "parentId": "2",
       "id": "131",
@@ -6381,7 +5285,7 @@
     },
     "132": {
       "path": "/mysql/09/01",
-      "name": "约束概述与非空约束 NOT NULL",
+      "name": "约束概述与NOT-NULL",
       "file": "@/pages/mysql/09-约束/01-约束概述与NOT-NULL.tsx",
       "parentId": "2",
       "id": "132",
@@ -6392,7 +5296,7 @@
     },
     "133": {
       "path": "/mysql/09/02",
-      "name": "UNIQUE、主键与自动增长",
+      "name": "UNIQUE主键与AUTO-INCREMENT",
       "file": "@/pages/mysql/09-约束/02-UNIQUE主键与AUTO-INCREMENT.tsx",
       "parentId": "2",
       "id": "133",
@@ -6403,7 +5307,7 @@
     },
     "134": {
       "path": "/mysql/09/03",
-      "name": "外键、级联与本章小结",
+      "name": "外键级联与小结",
       "file": "@/pages/mysql/09-约束/03-外键级联与小结.tsx",
       "parentId": "2",
       "id": "134",
@@ -6436,7 +5340,7 @@
     },
     "137": {
       "path": "/mysql/10/03",
-      "name": "综合案例与本章小结",
+      "name": "综合案例与小结",
       "file": "@/pages/mysql/10-多表关系设计/03-综合案例与小结.tsx",
       "parentId": "2",
       "id": "137",
@@ -6458,7 +5362,7 @@
     },
     "139": {
       "path": "/mysql/11/02",
-      "name": "第一范式 1NF 与第二范式 2NF",
+      "name": "1NF与2NF",
       "file": "@/pages/mysql/11-数据库三大范式/02-1NF与2NF.tsx",
       "parentId": "2",
       "id": "139",
@@ -6469,7 +5373,7 @@
     },
     "140": {
       "path": "/mysql/11/03",
-      "name": "第三范式 3NF、反范式与小结",
+      "name": "3NF反范式与小结",
       "file": "@/pages/mysql/11-数据库三大范式/03-3NF反范式与小结.tsx",
       "parentId": "2",
       "id": "140",
@@ -6480,7 +5384,7 @@
     },
     "141": {
       "path": "/mysql/12/01",
-      "name": "mysqldump 备份与命令行还原",
+      "name": "mysqldump备份与还原",
       "file": "@/pages/mysql/12-数据库备份与还原/01-mysqldump备份与还原.tsx",
       "parentId": "2",
       "id": "141",
@@ -6491,7 +5395,7 @@
     },
     "142": {
       "path": "/mysql/12/02",
-      "name": "图形化工具与本章小结",
+      "name": "图形化工具与小结",
       "file": "@/pages/mysql/12-数据库备份与还原/02-图形化工具与小结.tsx",
       "parentId": "2",
       "id": "142",
@@ -6524,7 +5428,7 @@
     },
     "145": {
       "path": "/mysql/13/03",
-      "name": "综合练习与本章小结",
+      "name": "综合练习与小结",
       "file": "@/pages/mysql/13-多表查询/03-综合练习与小结.tsx",
       "parentId": "2",
       "id": "145",
@@ -6535,7 +5439,7 @@
     },
     "146": {
       "path": "/mysql/14/01",
-      "name": "事务基础与 ACID 特性",
+      "name": "事务基础与ACID",
       "file": "@/pages/mysql/14-事务/01-事务基础与ACID.tsx",
       "parentId": "2",
       "id": "146",
@@ -6546,7 +5450,7 @@
     },
     "147": {
       "path": "/mysql/14/02",
-      "name": "并发问题、隔离级别与本章小结",
+      "name": "并发隔离级别与小结",
       "file": "@/pages/mysql/14-事务/02-并发隔离级别与小结.tsx",
       "parentId": "2",
       "id": "147",
@@ -6568,7 +5472,7 @@
     },
     "149": {
       "path": "/mysql/15/02",
-      "name": "权限管理与本章小结",
+      "name": "权限管理与小结",
       "file": "@/pages/mysql/15-DCL-用户与权限管理/02-权限管理与小结.tsx",
       "parentId": "2",
       "id": "149",
@@ -6579,7 +5483,7 @@
     },
     "150": {
       "path": "/mysql/16/01",
-      "name": "JDBC 介绍与快速入门",
+      "name": "JDBC介绍与快速入门",
       "file": "@/pages/mysql/16-JDBC核心详解/01-JDBC介绍与快速入门.tsx",
       "parentId": "2",
       "id": "150",
@@ -6590,7 +5494,7 @@
     },
     "151": {
       "path": "/mysql/16/02",
-      "name": "DriverManager、Connection 与 Statement",
+      "name": "DriverManager-Connection-Statement",
       "file": "@/pages/mysql/16-JDBC核心详解/02-DriverManager-Connection-Statement.tsx",
       "parentId": "2",
       "id": "151",
@@ -6601,7 +5505,7 @@
     },
     "152": {
       "path": "/mysql/16/03",
-      "name": "SQL 注入与 PreparedStatement",
+      "name": "SQL注入与PreparedStatement",
       "file": "@/pages/mysql/16-JDBC核心详解/03-SQL注入与PreparedStatement.tsx",
       "parentId": "2",
       "id": "152",
@@ -6612,7 +5516,7 @@
     },
     "153": {
       "path": "/mysql/16/04",
-      "name": "ResultSet 与 JDBC 工具类",
+      "name": "ResultSet与JDBC工具类",
       "file": "@/pages/mysql/16-JDBC核心详解/04-ResultSet与JDBC工具类.tsx",
       "parentId": "2",
       "id": "153",
@@ -6623,7 +5527,7 @@
     },
     "154": {
       "path": "/mysql/16/05",
-      "name": "综合实战与本章小结",
+      "name": "综合实战与小结",
       "file": "@/pages/mysql/16-JDBC核心详解/05-综合实战与小结.tsx",
       "parentId": "2",
       "id": "154",
@@ -6634,7 +5538,7 @@
     },
     "155": {
       "path": "/mysql/17/01",
-      "name": "JDBC 事务控制基础",
+      "name": "JDBC事务控制基础",
       "file": "@/pages/mysql/17-JDBC事务管理/01-JDBC事务控制基础.tsx",
       "parentId": "2",
       "id": "155",
@@ -6645,7 +5549,7 @@
     },
     "156": {
       "path": "/mysql/17/02",
-      "name": "标准写法、对比验证与本章小结",
+      "name": "标准写法对比与小结",
       "file": "@/pages/mysql/17-JDBC事务管理/02-标准写法对比与小结.tsx",
       "parentId": "2",
       "id": "156",
@@ -6656,7 +5560,7 @@
     },
     "157": {
       "path": "/mysql/18/01",
-      "name": "连接池概念与 DataSource 规范",
+      "name": "连接池概念与DataSource规范",
       "file": "@/pages/mysql/18-数据库连接池/01-连接池概念与DataSource规范.tsx",
       "parentId": "2",
       "id": "157",
@@ -6667,7 +5571,7 @@
     },
     "158": {
       "path": "/mysql/18/02",
-      "name": "C3P0 与 Druid 使用",
+      "name": "C3P0与Druid使用",
       "file": "@/pages/mysql/18-数据库连接池/02-C3P0与Druid使用.tsx",
       "parentId": "2",
       "id": "158",
@@ -6678,7 +5582,7 @@
     },
     "159": {
       "path": "/mysql/18/03",
-      "name": "Druid 工具类封装与本章小结",
+      "name": "Druid工具类与小结",
       "file": "@/pages/mysql/18-数据库连接池/03-Druid工具类与小结.tsx",
       "parentId": "2",
       "id": "159",
@@ -6689,7 +5593,7 @@
     },
     "160": {
       "path": "/mysql/19/01",
-      "name": "JDBCTemplate 介绍与快速入门",
+      "name": "JDBCTemplate介绍与快速入门",
       "file": "@/pages/mysql/19-JDBCTemplate/01-JDBCTemplate介绍与快速入门.tsx",
       "parentId": "2",
       "id": "160",
@@ -6700,7 +5604,7 @@
     },
     "161": {
       "path": "/mysql/19/02",
-      "name": "DML 与 DQL 查询方法",
+      "name": "DML与DQL查询方法",
       "file": "@/pages/mysql/19-JDBCTemplate/02-DML与DQL查询方法.tsx",
       "parentId": "2",
       "id": "161",
@@ -6711,7 +5615,7 @@
     },
     "162": {
       "path": "/mysql/19/03",
-      "name": "综合示例与本章小结",
+      "name": "综合示例与小结",
       "file": "@/pages/mysql/19-JDBCTemplate/03-综合示例与小结.tsx",
       "parentId": "2",
       "id": "162",
@@ -6725,7 +5629,7 @@
       "file": "@/pages/404.tsx",
       "id": "163",
       "absPath": "/*",
-      "__content": "import React from 'react';\nimport { Link } from 'umi';\nimport { Title, Secondary } from '@/components/doc';\nimport { DEFAULT_DOC_PATH } from '@/routes/docRoutes';\n\nconst NotFound: React.FC = () => (\n  <div style={{ maxWidth: 860, margin: '0 auto', padding: '80px 48px' }}>\n    <Title>404</Title>\n    <Secondary>抱歉，你访问的页面不存在。</Secondary>\n    <Link to={DEFAULT_DOC_PATH}>← 返回文档首页</Link>\n  </div>\n);\n\nexport default NotFound;\n",
+      "__content": "import React from \"react\";\nimport { Link } from \"umi\";\nimport { Title, Secondary } from \"@/components/doc\";\nimport { DEFAULT_DOC_PATH } from \"@/routes/docRoutes\";\n\nconst NotFound: React.FC = () => (\n  <div style={{ maxWidth: 860, margin: \"0 auto\", padding: \"80px 48px\" }}>\n    <Title>404</Title>\n    <Secondary>抱歉，你访问的页面不存在。</Secondary>\n    <Link to={DEFAULT_DOC_PATH}>← 返回文档首页</Link>\n  </div>\n);\n\nexport default NotFound;\n",
       "__isJSFile": true,
       "__absFile": "D:/learn-java-docs/src/pages/404.tsx"
     }
@@ -8085,13 +6989,34 @@
             ],
             "format": "esm"
           },
-          "src/routes/docRoutes.ts": {
-            "bytes": 37745,
+          "src/routes/java.ts": {
+            "bytes": 19007,
             "imports": [],
             "format": "esm"
           },
+          "src/routes/mysql.ts": {
+            "bytes": 17006,
+            "imports": [],
+            "format": "esm"
+          },
+          "src/routes/docRoutes.ts": {
+            "bytes": 1053,
+            "imports": [
+              {
+                "path": "src/routes/java.ts",
+                "kind": "import-statement",
+                "original": "./java"
+              },
+              {
+                "path": "src/routes/mysql.ts",
+                "kind": "import-statement",
+                "original": "./mysql"
+              }
+            ],
+            "format": "esm"
+          },
           "src/components/Sidebar/index.tsx": {
-            "bytes": 3511,
+            "bytes": 3563,
             "imports": [
               {
                 "path": "react",
@@ -10324,7 +9249,7 @@
             "format": "esm"
           },
           "src/pages/mysql/01-数据库基本概念/01-为什么需要数据库.tsx": {
-            "bytes": 7358,
+            "bytes": 7395,
             "imports": [
               {
                 "path": "react",
@@ -11846,7 +10771,7 @@
             "format": "esm"
           },
           "src/.umi/core/route.tsx": {
-            "bytes": 43707,
+            "bytes": 43438,
             "imports": [
               {
                 "path": "react",
@@ -14863,11 +13788,17 @@
               "src/.umi/core/EmptyRoute.tsx": {
                 "bytesInOutput": 381
               },
+              "src/routes/java.ts": {
+                "bytesInOutput": 25721
+              },
+              "src/routes/mysql.ts": {
+                "bytesInOutput": 22503
+              },
               "src/routes/docRoutes.ts": {
-                "bytesInOutput": 49176
+                "bytesInOutput": 666
               },
               "src/components/Sidebar/index.tsx": {
-                "bytesInOutput": 3552
+                "bytesInOutput": 3640
               },
               "src/hooks/useTheme.ts": {
                 "bytesInOutput": 329
@@ -15392,7 +14323,7 @@
                 "bytesInOutput": 790
               },
               "src/.umi/core/route.tsx": {
-                "bytesInOutput": 34191
+                "bytesInOutput": 33706
               },
               "src/.umi/core/polyfill.ts": {
                 "bytesInOutput": 18345
@@ -15401,7 +14332,7 @@
                 "bytesInOutput": 1926
               }
             },
-            "bytes": 3677179
+            "bytes": 3676543
           }
         }
       }
@@ -31623,8 +30554,36 @@
           ],
           "start": 1,
           "type": "ImportDeclaration"
+        },
+        {
+          "end": 77,
+          "importKind": "value",
+          "source": "./java",
+          "specifiers": [
+            {
+              "local": "javaDocRoutes",
+              "type": "ImportDefaultSpecifier"
+            }
+          ],
+          "start": 42,
+          "type": "ImportDeclaration"
+        },
+        {
+          "end": 115,
+          "importKind": "value",
+          "source": "./mysql",
+          "specifiers": [
+            {
+              "local": "mysqlDocRoutes",
+              "type": "ImportDefaultSpecifier"
+            }
+          ],
+          "start": 78,
+          "type": "ImportDeclaration"
         }
-      ]
+      ],
+      "D:\\learn-java-docs\\src\\routes\\java.ts": [],
+      "D:\\learn-java-docs\\src\\routes\\mysql.ts": []
     }
   }
 }

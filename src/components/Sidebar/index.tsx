@@ -74,7 +74,14 @@ const RouteNode: React.FC<{
   initiallyOpen?: boolean;
 }> = ({ node, pathname, level, initiallyOpen }) => {
   if (node.routes?.length) {
-    return <GroupItem node={node} pathname={pathname} level={level} initiallyOpen={initiallyOpen} />;
+    return (
+      <GroupItem
+        node={node}
+        pathname={pathname}
+        level={level}
+        initiallyOpen={initiallyOpen}
+      />
+    );
   }
   return <LeafItem node={node} active={pathname === node.path} level={level} />;
 };
