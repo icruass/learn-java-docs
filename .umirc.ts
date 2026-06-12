@@ -23,7 +23,6 @@ export default defineConfig({
   base: "/learn-java-docs/",
   publicPath: "/learn-java-docs/", // 告诉 Umi 所有 JS/CSS 都从这个路径加载
   routes: [
-    // 顶层：根路径重定向到默认文档
     { path: "/", redirect: DEFAULT_DOC_PATH },
     // 文档主框架：左侧侧边栏 + 右侧内容，所有文档页都是它的子路由
     {
