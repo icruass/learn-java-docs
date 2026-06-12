@@ -351,6 +351,11 @@ export default [
             name: "super与this三种用法",
             component: "@/pages/java/10-面向对象 类继承/05-super与this三种用法",
           },
+          {
+            path: "/java/10/06",
+            name: "Object类与equals和hashCode",
+            component: "@/pages/java/10-面向对象 类继承/06-Object类与equals和hashCode",
+          },
         ],
       },
       {
@@ -505,6 +510,26 @@ export default [
             path: "/java/15/09",
             name: "Math工具类",
             component: "@/pages/java/15-常用类实例/09-Math工具类",
+          },
+          {
+            path: "/java/15/10",
+            name: "System类",
+            component: "@/pages/java/15-常用类实例/10-System类",
+          },
+          {
+            path: "/java/15/11",
+            name: "Date与Calendar日期",
+            component: "@/pages/java/15-常用类实例/11-Date与Calendar日期",
+          },
+          {
+            path: "/java/15/12",
+            name: "JDK8日期时间API",
+            component: "@/pages/java/15-常用类实例/12-JDK8日期时间API",
+          },
+          {
+            path: "/java/15/13",
+            name: "BigDecimal与BigInteger",
+            component: "@/pages/java/15-常用类实例/13-BigDecimal与BigInteger",
           },
         ],
       },
@@ -675,6 +700,141 @@ export default [
             component: "@/pages/java/18-Collection集合/11-Queue与Deque接口",
           },
         ],
+      },
+      {
+        path: "/java/19",
+        name: "泛型",
+        routes: [
+          {
+            path: "/java/19/01",
+            name: "泛型概述与泛型类",
+            component: "@/pages/java/19-泛型/01-泛型概述与泛型类",
+          },
+          {
+            path: "/java/19/02",
+            name: "泛型方法与泛型接口",
+            component: "@/pages/java/19-泛型/02-泛型方法与泛型接口",
+          },
+          {
+            path: "/java/19/03",
+            name: "通配符与类型擦除",
+            component: "@/pages/java/19-泛型/03-通配符与类型擦除",
+          },
+        ],
+      },
+      {
+        path: "/java/20",
+        name: "枚举",
+        routes: [
+          {
+            path: "/java/20/01",
+            name: "枚举的定义与使用",
+            component: "@/pages/java/20-枚举/01-枚举的定义与使用",
+          },
+          {
+            path: "/java/20/02",
+            name: "枚举的构造与成员",
+            component: "@/pages/java/20-枚举/02-枚举的构造与成员",
+          },
+          {
+            path: "/java/20/03",
+            name: "枚举常用方法与应用",
+            component: "@/pages/java/20-枚举/03-枚举常用方法与应用",
+          },
+        ],
+      },
+      {
+        path: "/java/21",
+        name: "包装类",
+        routes: [
+          {
+            path: "/java/21/01",
+            name: "包装类与装箱拆箱",
+            component: "@/pages/java/21-包装类/01-包装类与装箱拆箱",
+          },
+          {
+            path: "/java/21/02",
+            name: "缓存与判等陷阱",
+            component: "@/pages/java/21-包装类/02-缓存与判等陷阱",
+          },
+          {
+            path: "/java/21/03",
+            name: "包装类常用方法",
+            component: "@/pages/java/21-包装类/03-包装类常用方法",
+          },
+        ],
+      },
+      {
+        path: "/java/22",
+        name: "Lambda与函数式接口",
+        routes: [
+          {
+            path: "/java/22/01",
+            name: "Lambda表达式入门",
+            component: "@/pages/java/22-Lambda与函数式接口/01-Lambda表达式入门",
+          },
+          {
+            path: "/java/22/02",
+            name: "函数式接口",
+            component: "@/pages/java/22-Lambda与函数式接口/02-函数式接口",
+          },
+          {
+            path: "/java/22/03",
+            name: "常用内置函数式接口",
+            component: "@/pages/java/22-Lambda与函数式接口/03-常用内置函数式接口",
+          },
+          {
+            path: "/java/22/04",
+            name: "方法引用",
+            component: "@/pages/java/22-Lambda与函数式接口/04-方法引用",
+          },
+        ],
+      },
+      {
+        path: "/java/23",
+        name: "Stream流与Optional",
+        routes: [
+          {
+            path: "/java/23/01",
+            name: "Stream概述与创建",
+            component: "@/pages/java/23-Stream流与Optional/01-Stream概述与创建",
+          },
+          {
+            path: "/java/23/02",
+            name: "中间操作",
+            component: "@/pages/java/23-Stream流与Optional/02-中间操作",
+          },
+          {
+            path: "/java/23/03",
+            name: "终结操作",
+            component: "@/pages/java/23-Stream流与Optional/03-终结操作",
+          },
+          {
+            path: "/java/23/04",
+            name: "Optional类",
+            component: "@/pages/java/23-Stream流与Optional/04-Optional类",
+          },
+        ],
+      },
+      {
+        path: "/java/24",
+        name: "IO流",
+        routes: [],
+      },
+      {
+        path: "/java/25",
+        name: "多线程与并发",
+        routes: [],
+      },
+      {
+        path: "/java/26",
+        name: "反射与注解",
+        routes: [],
+      },
+      {
+        path: "/java/27",
+        name: "异常处理",
+        routes: [],
       },
     ],
   },
