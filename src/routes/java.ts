@@ -529,8 +529,33 @@ export default [
           },
           {
             path: "/java/16/04",
+            name: "常用方法补遗",
+            component: "@/pages/java/16-字符串String/04-常用方法补遗",
+          },
+          {
+            path: "/java/16/05",
+            name: "StringBuilder与StringBuffer",
+            component: "@/pages/java/16-字符串String/05-StringBuilder与StringBuffer",
+          },
+          {
+            path: "/java/16/06",
+            name: "字符串拼接原理与性能",
+            component: "@/pages/java/16-字符串String/06-字符串拼接原理与性能",
+          },
+          {
+            path: "/java/16/07",
+            name: "String.format格式化",
+            component: "@/pages/java/16-字符串String/07-String.format格式化",
+          },
+          {
+            path: "/java/16/08",
+            name: "基本类型与字符串互转",
+            component: "@/pages/java/16-字符串String/08-基本类型与字符串互转",
+          },
+          {
+            path: "/java/16/09",
             name: "字符串练习",
-            component: "@/pages/java/16-字符串String/04-字符串练习",
+            component: "@/pages/java/16-字符串String/09-字符串练习",
           },
         ],
       },
