@@ -19,9 +19,12 @@ body,
 
 body {
   margin: 0;
-  font-family: var(--font-sans);
-  font-size: 15px;
-  line-height: 1.7;
+  /* 排版默认值由「界面设置」覆盖：UiSettings 把选择写成 --ui-* 变量挂到 <html>，
+     未设置时回退到下面的默认值。 */
+  font-family: var(--ui-font-family, var(--font-sans));
+  font-size: var(--ui-font-size, 15px);
+  line-height: var(--ui-line-height, 1.7);
+  letter-spacing: var(--ui-letter-spacing, normal);
   color: var(--color-text-primary);
   background-color: var(--color-bg);
   -webkit-font-smoothing: antialiased;

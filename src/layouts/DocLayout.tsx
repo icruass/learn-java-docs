@@ -4,6 +4,7 @@ import Sidebar from "@/components/Sidebar";
 import ThemeSwitch from "@/components/ThemeSwitch";
 import PrevNextNav from "@/components/PrevNextNav";
 import RecentHistory from "@/components/RecentHistory";
+import UiSettings from "@/components/UiSettings";
 import { getDocByPath } from "@/routes/docRoutes";
 import { recordDoc } from "@/utils/recentDocs";
 import styles from "./DocLayout.less";
@@ -47,6 +48,7 @@ const DocLayout: React.FC = () => {
         <span className={styles.brandMobile}>Java Docs</span>
         <div className={styles.topbarActions}>
           <RecentHistory />
+          <UiSettings />
           <ThemeSwitch />
         </div>
       </header>
@@ -67,6 +69,7 @@ const DocLayout: React.FC = () => {
         <header className={styles.topbar}>
           <div className={styles.topbarActions}>
             <RecentHistory />
+            <UiSettings />
             <ThemeSwitch />
           </div>
         </header>

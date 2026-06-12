@@ -1,0 +1,188 @@
+.root {
+  position: relative;
+  display: inline-flex;
+}
+
+/* ── 触发按钮（与 RecentHistory 视觉一致） ──────────────── */
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: color var(--transition-base),
+    border-color var(--transition-base),
+    background-color var(--transition-base);
+}
+
+.trigger:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+  background: var(--color-bg-elevated);
+}
+
+/* ── 弹出层 ─────────────────────────────────────────────── */
+.popover {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 50;
+  width: 300px;
+  max-width: calc(100vw - 32px);
+  padding: 6px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-md);
+  animation: popoverIn 0.14s ease;
+}
+
+@keyframes popoverIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 8px 8px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.title {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+}
+
+.reset {
+  border: none;
+  background: none;
+  padding: 2px 4px;
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-base), opacity var(--transition-base);
+}
+
+.reset:hover:not(:disabled) {
+  color: var(--color-accent);
+}
+
+.reset:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+/* ── 设置项区域（逐行） ─────────────────────────────────── */
+.body {
+  padding: 4px 2px 2px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 8px;
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition-base);
+}
+
+.row:hover {
+  background: var(--color-hover-bg);
+}
+
+.label {
+  flex: 0 0 auto;
+  font-size: 13px;
+  color: var(--color-text-primary);
+}
+
+/* ── 数字步进器（− 值 +） ───────────────────────────────── */
+.stepper {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-elevated);
+  overflow: hidden;
+}
+
+.stepBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--color-text-secondary);
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  transition: color var(--transition-base),
+    background-color var(--transition-base);
+}
+
+.stepBtn:hover:not(:disabled) {
+  color: var(--color-accent);
+  background: var(--color-active-bg);
+}
+
+.stepBtn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.value {
+  min-width: 56px;
+  padding: 0 6px;
+  text-align: center;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text-primary);
+  border-left: 1px solid var(--color-border);
+  border-right: 1px solid var(--color-border);
+  user-select: none;
+}
+
+/* ── 字体下拉 ───────────────────────────────────────────── */
+.select {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 180px;
+  height: 30px;
+  padding: 0 8px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-elevated);
+  color: var(--color-text-primary);
+  font-size: 13px;
+  cursor: pointer;
+  transition: border-color var(--transition-base);
+}
+
+.select:hover,
+.select:focus {
+  border-color: var(--color-accent);
+  outline: none;
+}
