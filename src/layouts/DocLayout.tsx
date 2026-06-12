@@ -2,6 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Outlet, useLocation } from "umi";
 import Sidebar from "@/components/Sidebar";
 import ThemeSwitch from "@/components/ThemeSwitch";
+import PrevNextNav from "@/components/PrevNextNav";
+import RecentHistory from "@/components/RecentHistory";
+import { getDocByPath } from "@/routes/docRoutes";
+import { recordDoc } from "@/utils/recentDocs";
 import styles from "./DocLayout.less";
 
 const DocLayout: React.FC = () => {
@@ -11,6 +15,12 @@ const DocLayout: React.FC = () => {
   // Close drawer whenever the user navigates to a new page
   useEffect(() => {
     setDrawerOpen(false);
+  }, [pathname]);
+
+  // 每篇文档加载后记录到「最近浏览」（按 path 去重由 recordDoc 内部处理）
+  useEffect(() => {
+    const doc = getDocByPath(pathname);
+    if (doc) recordDoc(doc);
   }, [pathname]);
 
   return (
@@ -35,7 +45,10 @@ const DocLayout: React.FC = () => {
           </svg>
         </button>
         <span className={styles.brandMobile}>Java Docs</span>
-        <ThemeSwitch />
+        <div className={styles.topbarActions}>
+          <RecentHistory />
+          <ThemeSwitch />
+        </div>
       </header>
 
       {/* ── Drawer backdrop (mobile only, always rendered for CSS transition) */}
@@ -52,10 +65,14 @@ const DocLayout: React.FC = () => {
       <main className={styles.content}>
         {/* Desktop-only topbar; hidden on mobile (replaced by mobileTopbar) */}
         <header className={styles.topbar}>
-          <ThemeSwitch />
+          <div className={styles.topbarActions}>
+            <RecentHistory />
+            <ThemeSwitch />
+          </div>
         </header>
         <div className={styles.contentInner}>
           <Outlet />
+          <PrevNextNav />
         </div>
       </main>
     </div>

@@ -32,12 +32,13 @@ jobs:
       - name: 构建项目
         run: pnpm run build # 这条命令会生成 dist 文件夹
 
+      - name: 配置 SPA 路由回退
+        run: cp ./dist/index.html ./dist/404.html # 复制一份作为 404 回退页（必须在上传前生成，否则不会进入产物）
+
       - name: 上传构建产物
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist # 告诉 GitHub 去 dist 文件夹里找网页文件
-      - name: 配置 SPA 路由回退
-        run: cp ./dist/index.html ./dist/404.html # 复制一份作为 404 回退页
+          path: ./dist # 告诉 GitHub 去 dist 文件夹里找网页文件（此时已含 404.html）
   deploy:
     environment:
       name: github-pages
