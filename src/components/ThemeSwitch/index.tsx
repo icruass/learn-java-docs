@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useTheme } from "@/hooks/useTheme";
 import styles from "./index.less";
 
@@ -62,13 +62,22 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = ({
   ariaLabel,
 }) => {
   const { theme, toggleTheme } = useTheme();
+  const labelRef = useRef<HTMLLabelElement>(null);
 
   // 未传 checked 时，受控于全局主题
   const isChecked = checked ?? theme === "dark";
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (onChange) onChange(e.target.checked);
-    else toggleTheme();
+    if (onChange) {
+      onChange(e.target.checked);
+      return;
+    }
+    // 以开关中心为圆心做扩散揭示（取自身包围盒，键盘触发也有合理圆心）
+    const rect = labelRef.current?.getBoundingClientRect();
+    const origin = rect
+      ? { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 }
+      : undefined;
+    toggleTheme(origin);
   };
 
   // 仅把传入的 prop 写成 CSS 变量，未传则沿用 less 中的默认值
@@ -87,7 +96,10 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = ({
 
   return (
     <label
-      className={`${styles.themeSwitch} ${className ?? ""}`}
+      ref={labelRef}
+      // theme-switch-root 是稳定（非 CSS Modules 哈希）的标记类，
+      // 供主题切换的全局兜底过渡规则把本开关子树排除在外，保留其专属弹簧动画。
+      className={`theme-switch-root ${styles.themeSwitch} ${className ?? ""}`}
       style={cssVars}
       aria-label={
         ariaLabel ?? (isChecked ? "切换到亮色主题" : "切换到暗色主题")

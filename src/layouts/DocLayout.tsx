@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Outlet, useLocation } from "umi";
 import Sidebar from "@/components/Sidebar";
 import ThemeSwitch from "@/components/ThemeSwitch";
@@ -7,21 +7,31 @@ import RecentHistory from "@/components/RecentHistory";
 import UiSettings from "@/components/UiSettings";
 import { getDocByPath } from "@/routes/docRoutes";
 import { recordDoc } from "@/utils/recentDocs";
+import { setLastDocPath } from "@/utils/lastDoc";
+import { useScrollRestoration } from "@/hooks/useScrollRestoration";
 import styles from "./DocLayout.less";
 
 const DocLayout: React.FC = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
+
+  // 内容区是真正的滚动容器（自身 overflow-y:auto），续看续读位置都基于它读写
+  const contentRef = useRef<HTMLElement>(null);
+  useScrollRestoration(contentRef, pathname, hash);
 
   // Close drawer whenever the user navigates to a new page
   useEffect(() => {
     setDrawerOpen(false);
   }, [pathname]);
 
-  // 每篇文档加载后记录到「最近浏览」（按 path 去重由 recordDoc 内部处理）
+  // 每篇文档加载后记录到「最近浏览」（按 path 去重由 recordDoc 内部处理），
+  // 同时把它存为「上次浏览」续看锚点，供下次从根路径进入时直接跳回（见 @/pages/index）。
   useEffect(() => {
     const doc = getDocByPath(pathname);
-    if (doc) recordDoc(doc);
+    if (doc) {
+      recordDoc(doc);
+      setLastDocPath(doc.path);
+    }
   }, [pathname]);
 
   return (
@@ -64,7 +74,7 @@ const DocLayout: React.FC = () => {
       <Sidebar drawerOpen={drawerOpen} onClose={() => setDrawerOpen(false)} />
 
       {/* ── Main content ─────────────────────────────────────────── */}
-      <main className={styles.content}>
+      <main className={styles.content} ref={contentRef}>
         {/* Desktop-only topbar; hidden on mobile (replaced by mobileTopbar) */}
         <header className={styles.topbar}>
           <div className={styles.topbarActions}>
