@@ -24,8 +24,8 @@ export interface UiSettings {
 export const DEFAULT_UI_SETTINGS: UiSettings = {
   fontSize: 15,
   fontFamily: "",
-  lineHeight: 1.7,
-  letterSpacing: 0,
+  lineHeight: 2.2,
+  letterSpacing: 0.5,
 };
 
 /**
@@ -43,9 +43,33 @@ export interface NumberFieldMeta {
 }
 
 export const NUMBER_FIELDS: NumberFieldMeta[] = [
-  { key: "fontSize", label: "字体大小", min: 12, max: 28, step: 1, unit: "px", decimals: 0 },
-  { key: "lineHeight", label: "行高", min: 1, max: 3, step: 0.1, unit: "", decimals: 1 },
-  { key: "letterSpacing", label: "字间距", min: -2, max: 10, step: 0.5, unit: "px", decimals: 1 },
+  {
+    key: "fontSize",
+    label: "字体大小",
+    min: 12,
+    max: 28,
+    step: 1,
+    unit: "px",
+    decimals: 0,
+  },
+  {
+    key: "lineHeight",
+    label: "行高",
+    min: 1,
+    max: 3,
+    step: 0.1,
+    unit: "",
+    decimals: 1,
+  },
+  {
+    key: "letterSpacing",
+    label: "字间距",
+    min: -2,
+    max: 10,
+    step: 0.5,
+    unit: "px",
+    decimals: 1,
+  },
 ];
 
 /**
@@ -69,7 +93,10 @@ export const FONT_OPTIONS: FontOption[] = [
   { label: "仿宋 FangSong", value: 'FangSong, "STFangsong", serif' },
   { label: "等线 DengXian", value: "DengXian, sans-serif" },
   { label: "华文黑体 STHeiti", value: '"STHeiti", "Heiti SC", sans-serif' },
-  { label: "思源黑体 Source Han Sans", value: '"Source Han Sans SC", "Noto Sans CJK SC", sans-serif' },
+  {
+    label: "思源黑体 Source Han Sans",
+    value: '"Source Han Sans SC", "Noto Sans CJK SC", sans-serif',
+  },
 
   // ── 西文 · 无衬线 ─────────────────────
   { label: "Segoe UI", value: '"Segoe UI", sans-serif' },
@@ -176,7 +203,10 @@ export function getUiSettings(): UiSettings {
 }
 
 /** 更新单个数字项（步进），自动夹取范围与取整。 */
-export function stepNumberSetting(key: NumberFieldMeta["key"], dir: 1 | -1): void {
+export function stepNumberSetting(
+  key: NumberFieldMeta["key"],
+  dir: 1 | -1
+): void {
   const meta = NUMBER_FIELDS.find((m) => m.key === key)!;
   const current = read();
   const nextVal = clampNumber(current[key] + dir * meta.step, meta);

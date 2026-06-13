@@ -819,22 +819,111 @@ export default [
       {
         path: "/java/24",
         name: "IO流",
-        routes: [],
+        routes: [
+          {
+            path: "/java/24/01",
+            name: "IO流概述与分类",
+            component: "@/pages/java/24-IO流/01-IO流概述与分类",
+          },
+          {
+            path: "/java/24/02",
+            name: "字节流",
+            component: "@/pages/java/24-IO流/02-字节流",
+          },
+          {
+            path: "/java/24/03",
+            name: "字符流",
+            component: "@/pages/java/24-IO流/03-字符流",
+          },
+          {
+            path: "/java/24/04",
+            name: "缓冲流与转换流",
+            component: "@/pages/java/24-IO流/04-缓冲流与转换流",
+          },
+          {
+            path: "/java/24/05",
+            name: "序列化与Properties",
+            component: "@/pages/java/24-IO流/05-序列化与Properties",
+          },
+        ],
       },
       {
         path: "/java/25",
         name: "多线程与并发",
-        routes: [],
+        routes: [
+          {
+            path: "/java/25/01",
+            name: "多线程基础概念",
+            component: "@/pages/java/25-多线程与并发/01-多线程基础概念",
+          },
+          {
+            path: "/java/25/02",
+            name: "创建线程的三种方式",
+            component: "@/pages/java/25-多线程与并发/02-创建线程的三种方式",
+          },
+          {
+            path: "/java/25/03",
+            name: "线程安全与synchronized",
+            component: "@/pages/java/25-多线程与并发/03-线程安全与synchronized",
+          },
+          {
+            path: "/java/25/04",
+            name: "线程通信与线程池",
+            component: "@/pages/java/25-多线程与并发/04-线程通信与线程池",
+          },
+        ],
       },
       {
         path: "/java/26",
         name: "反射与注解",
-        routes: [],
+        routes: [
+          {
+            path: "/java/26/01",
+            name: "反射概述与Class类",
+            component: "@/pages/java/26-反射与注解/01-反射概述与Class类",
+          },
+          {
+            path: "/java/26/02",
+            name: "反射操作构造方法字段与方法",
+            component: "@/pages/java/26-反射与注解/02-反射操作构造方法字段与方法",
+          },
+          {
+            path: "/java/26/03",
+            name: "注解概述与自定义注解",
+            component: "@/pages/java/26-反射与注解/03-注解概述与自定义注解",
+          },
+          {
+            path: "/java/26/04",
+            name: "元注解与反射读取注解",
+            component: "@/pages/java/26-反射与注解/04-元注解与反射读取注解",
+          },
+        ],
       },
       {
         path: "/java/27",
         name: "异常处理",
-        routes: [],
+        routes: [
+          {
+            path: "/java/27/01",
+            name: "异常概述与分类",
+            component: "@/pages/java/27-异常处理/01-异常概述与分类",
+          },
+          {
+            path: "/java/27/02",
+            name: "try-catch-finally",
+            component: "@/pages/java/27-异常处理/02-try-catch-finally",
+          },
+          {
+            path: "/java/27/03",
+            name: "throw与throws",
+            component: "@/pages/java/27-异常处理/03-throw与throws",
+          },
+          {
+            path: "/java/27/04",
+            name: "自定义异常与最佳实践",
+            component: "@/pages/java/27-异常处理/04-自定义异常与最佳实践",
+          },
+        ],
       },
     ],
   },
