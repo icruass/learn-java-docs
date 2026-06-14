@@ -699,6 +699,11 @@ export default [
             name: "Queue与Deque接口",
             component: "@/pages/java/18-Collection集合/11-Queue与Deque接口",
           },
+          {
+            path: "/java/18/12",
+            name: "HashMap哈希与索引计算",
+            component: "@/pages/java/18-Collection集合/12-HashMap哈希与索引计算",
+          },
         ],
       },
       {
