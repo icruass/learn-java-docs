@@ -9,7 +9,6 @@ import {
   Callout,
   Table,
   UnorderedList,
-  OrderedList,
   ListItem,
   Divider,
 } from '@/components/doc';

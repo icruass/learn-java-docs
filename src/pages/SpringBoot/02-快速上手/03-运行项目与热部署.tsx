@@ -7,7 +7,6 @@ import {
   InlineCode,
   CodeBlock,
   Callout,
-  Table,
   UnorderedList,
   OrderedList,
   ListItem,

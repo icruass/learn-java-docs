@@ -1,8 +1,9 @@
 import type { DocRoute } from "./types";
 import javaDocRoutes from "./java";
 import mysqlDocRoutes from "./mysql";
+import springBootDocRoutes from "./SpringBoot";
 
-export const docRoutes: DocRoute[] = [...javaDocRoutes, ...mysqlDocRoutes];
+export const docRoutes: DocRoute[] = [...javaDocRoutes, ...mysqlDocRoutes, ...springBootDocRoutes];
 
 /** 站点默认进入的文档页：始终取菜单树里的「第一个可点击 item」，首页重定向到此处 */
 export const DEFAULT_DOC_PATH = flattenDocRoutes(docRoutes)[0]?.path ?? "";
