@@ -5,6 +5,7 @@
 // 新增 section 时，在此追加一行 import "./<section>.mjs" 即可。
 import "./java.mjs";
 import "./mysql.mjs";
+import "./MyBatis.mjs";
 import "./SpringBoot.mjs";
 
 console.log("✓ 全部路由文件已生成。");
