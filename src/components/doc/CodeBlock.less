@@ -3,7 +3,8 @@
   border: 1px solid var(--color-code-border);
   border-radius: var(--radius-md);
   background: var(--color-code-bg);
-  overflow: hidden;
+  /* 注意：不能用 overflow:hidden 裁剪圆角——它会成为工具栏 sticky 的滚动容器，
+     使吸顶失效（见 .toolbar 注释）。改为在子元素上分别做圆角裁剪。 */
   transition: background-color var(--transition-base), border-color var(--transition-base);
 }
 
@@ -26,6 +27,30 @@
   padding: 8px 12px;
   background: var(--color-bg-elevated);
   border-bottom: 1px solid var(--color-code-border);
+  /* 顶部圆角（内嵌于 1px 边框内）——替代原先 .wrapper 的 overflow 裁剪 */
+  border-top-left-radius: calc(var(--radius-md) - 1px);
+  border-top-right-radius: calc(var(--radius-md) - 1px);
+}
+
+/* 吸顶：仅当容器高度 ≥ 视口 50%（由 JS 加 .stickyEnabled）时启用。
+   相对页面滚动容器(.content)粘附在全局顶栏下方；依赖祖先链上无 overflow≠visible。 */
+.stickyEnabled .toolbar {
+  position: sticky;
+  top: var(--doc-topbar-height, 0px);
+  z-index: 5;
+}
+
+/* 折叠态：工具栏成为唯一子元素，补齐底部圆角并去掉分隔线 */
+.toolbarCollapsed {
+  border-bottom: none;
+  border-bottom-left-radius: calc(var(--radius-md) - 1px);
+  border-bottom-right-radius: calc(var(--radius-md) - 1px);
+}
+
+/* 全屏：固定覆盖层自身即顶部，无需吸顶偏移；由 flex 布局保证工具栏在上 */
+.fullscreen .toolbar {
+  position: static;
+  border-radius: 0;
 }
 
 .lang {
@@ -112,12 +137,16 @@
 .code {
   overflow-x: auto;
   overflow-y: hidden;
+  /* 底部圆角裁剪——替代原先 .wrapper 的 overflow:hidden */
+  border-bottom-left-radius: calc(var(--radius-md) - 1px);
+  border-bottom-right-radius: calc(var(--radius-md) - 1px);
 }
 
 /* 全屏时代码区占满剩余空间，此时允许纵向滚动以容纳超长代码 */
 .fullscreen .code {
   flex: 1;
   overflow-y: auto;
+  border-radius: 0;
 }
 
 /* 顶部左侧折叠按钮 */

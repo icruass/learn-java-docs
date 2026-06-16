@@ -30,8 +30,10 @@ const STORAGE_KEY = "doc-theme";
 const TRANSITION_CLASS = "theme-transition";
 /** 兜底过渡时长（ms），略大于 --theme-transition-duration(0.45s) 以确保淡变完成后再移除类 */
 const TRANSITION_MS = 480;
-/** View Transitions 扩散揭示时长（ms） */
-const REVEAL_MS = 500;
+/** View Transitions 扩散揭示时长（ms）：放慢以求柔和 */
+const REVEAL_MS = 900;
+/** 扩散揭示缓动：减速收尾，观感更柔和 */
+const REVEAL_EASE = "cubic-bezier(0.22, 1, 0.36, 1)";
 
 /** 读取初始主题：localStorage > 系统偏好 > 默认暗色 */
 function getInitialTheme(): ThemeMode {
@@ -65,6 +67,8 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
   // 用 ref 持有最新主题，让 setTheme/toggleTheme 保持稳定引用又能读到当前值
   const themeRef = useRef(theme);
   themeRef.current = theme;
+  // 揭示动画进行中标记：用作防抖，动画期间忽略重复切换，避免打断扩散动效
+  const transitioningRef = useRef(false);
 
   useEffect(() => {
     applyTheme(theme);
@@ -75,6 +79,8 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
 
   const setTheme = useCallback((mode: ThemeMode, origin?: TransitionOrigin) => {
     if (mode === themeRef.current) return;
+    // 防抖：上一次揭示动画尚未结束时，忽略本次切换，避免打断动效
+    if (transitioningRef.current) return;
 
     // 尊重「减少动效」偏好 / 非浏览器环境：直接切换，无任何过渡
     if (typeof document === "undefined" || prefersReducedMotion()) {
@@ -91,8 +97,15 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
       }
     ).startViewTransition?.bind(document);
 
-    // 现代浏览器 + 已知圆心：以开关为圆心做 clip-path 扩散揭示，最丝滑
+    // 现代浏览器 + 已知圆心：以圆心做 clip-path 扩散揭示，最丝滑
     if (startViewTransition && origin) {
+      transitioningRef.current = true;
+      // 动画结束（或异常）后解除防抖；兜底定时器避免 Promise 不兑现时永久卡死
+      const release = () => {
+        transitioningRef.current = false;
+      };
+      window.setTimeout(release, REVEAL_MS + 200);
+
       const transition = startViewTransition(() => {
         // 全部在快照回调内改 DOM：浏览器先捕获旧快照，再执行此回调，最后捕获新快照。
         // 放在这里可保证「旧主题」快照不被提前发生的 React 提交污染（否则会无揭示动画）。
@@ -105,7 +118,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
             Math.max(origin.x, window.innerWidth - origin.x),
             Math.max(origin.y, window.innerHeight - origin.y),
           );
-          root.animate(
+          const anim = root.animate(
             {
               clipPath: [
                 `circle(0px at ${origin.x}px ${origin.y}px)`,
@@ -114,14 +127,13 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
             },
             {
               duration: REVEAL_MS,
-              easing: "cubic-bezier(0.4, 0, 0.2, 1)",
+              easing: REVEAL_EASE,
               pseudoElement: "::view-transition-new(root)",
             } as KeyframeAnimationOptions,
           );
+          anim.finished.then(release).catch(release);
         })
-        .catch(() => {
-          /* 动画失败不影响主题已切换的事实 */
-        });
+        .catch(release);
       return;
     }
 

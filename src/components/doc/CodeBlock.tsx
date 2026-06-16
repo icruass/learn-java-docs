@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import {
   oneDark,
@@ -44,8 +44,29 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
   const [copied, setCopied] = useState(false);
   const [showAnswer, setShowAnswer] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
+  // 仅当容器高度 ≥ 视口高度的 50% 时才启用工具栏吸顶（矮代码块无需吸顶）
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const [stickyEnabled, setStickyEnabled] = useState(false);
 
   const prismStyle = theme === 'dark' ? oneDark : oneLight;
+
+  // 测量容器高度，按「≥ 50% 视口高度」决定是否吸顶；
+  // 折叠 / 展开 / 全屏切换、内容或窗口尺寸变化都会触发重新测量
+  useEffect(() => {
+    const el = wrapperRef.current;
+    if (!el || typeof window === 'undefined') return;
+    const measure = () => {
+      setStickyEnabled(el.offsetHeight >= window.innerHeight * 0.5);
+    };
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(el);
+    window.addEventListener('resize', measure);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener('resize', measure);
+    };
+  }, []);
 
   // 问答模式下，切换到答案时展示 answerCode（缺省则回退到 code）
   const displayedCode = qa && showAnswer ? answerCode ?? code : code;
@@ -77,9 +98,16 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
 
   return (
     <div
-      className={`${styles.wrapper} ${fullscreen ? styles.fullscreen : ''}`}
+      ref={wrapperRef}
+      className={`${styles.wrapper} ${fullscreen ? styles.fullscreen : ''} ${
+        stickyEnabled ? styles.stickyEnabled : ''
+      }`}
     >
-      <div className={styles.toolbar}>
+      <div
+        className={`${styles.toolbar} ${
+          collapsed ? styles.toolbarCollapsed : ''
+        }`}
+      >
         <div className={styles.meta}>
           <button
             type="button"

@@ -12,6 +12,8 @@
   height: 100vh;
   overflow-y: auto;
   position: relative;
+  /* 吸顶基准高度：供内容内的 sticky 元素（如代码块工具栏）对齐到全局顶栏下方 */
+  --doc-topbar-height: 52px;
 }
 
 /* 顶部条：主题切换开关固定在右侧，吸顶 */
@@ -22,6 +24,9 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  /* 用确定高度替代纯 padding 撑高，使 --doc-topbar-height 与实际高度一致 */
+  box-sizing: border-box;
+  min-height: var(--doc-topbar-height);
   padding: 10px 12px 10px 32px;
   background: color-mix(in srgb, var(--color-bg) 10%, transparent);
   backdrop-filter: saturate(100%) blur(2px);
@@ -119,6 +124,8 @@
     height: auto;
     flex: 1;
     min-height: 0;
+    /* 移动端无内容内顶栏（mobileTopbar 在滚动容器之外），代码块工具栏吸顶到容器顶部 */
+    --doc-topbar-height: 0px;
   }
 
   /* Desktop topbar is replaced by mobileTopbar */
