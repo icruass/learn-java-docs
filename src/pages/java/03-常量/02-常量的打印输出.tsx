@@ -1,4 +1,5 @@
 import React from 'react';
+import ChapterExercises from "@/pages/java/练习题/ChapterExercises";
 import {
   Title,
   Heading3,
@@ -317,6 +318,7 @@ O
    "x=" + 3 → "x=3"（字符串拼接），"x=3" + 4 → "x=34"
    输出：x=34`}
     />
+    <ChapterExercises categoryKey="constants" />
   </article>
 );
 

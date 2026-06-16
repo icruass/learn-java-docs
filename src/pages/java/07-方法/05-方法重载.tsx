@@ -1,4 +1,5 @@
 import React from 'react';
+import ChapterExercises from "@/pages/java/练习题/ChapterExercises";
 import {
   Title,
   Heading3,
@@ -410,6 +411,7 @@ public class Exercise03 {
       构成合法重载。调用时编译器根据实参数量自动匹配。
 */`}
     />
+    <ChapterExercises categoryKey="methods" />
   </article>
 );
 

@@ -44,29 +44,130 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
   const [copied, setCopied] = useState(false);
   const [showAnswer, setShowAnswer] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
-  // 仅当容器高度 ≥ 视口高度的 50% 时才启用工具栏吸顶（矮代码块无需吸顶）
   const wrapperRef = useRef<HTMLDivElement>(null);
-  const [stickyEnabled, setStickyEnabled] = useState(false);
+  const revealRef = useRef<HTMLDivElement>(null);
+  const firstRenderRef = useRef(true);
+  const animRef = useRef<number | null>(null);
+  // 仅当代码块容器高度 ≥ 视窗高度的 70% 时才展示底部收起按钮（矮代码块无需）
+  const [tall, setTall] = useState(false);
 
   const prismStyle = theme === 'dark' ? oneDark : oneLight;
 
-  // 测量容器高度，按「≥ 50% 视口高度」决定是否吸顶；
-  // 折叠 / 展开 / 全屏切换、内容或窗口尺寸变化都会触发重新测量
+  // 测量容器高度：≥ 70% 视窗高度则视为「高代码块」，展示底部收起按钮。
+  // 折叠/展开、问答切换、内容或窗口尺寸变化都会触发重新测量。
   useEffect(() => {
     const el = wrapperRef.current;
     if (!el || typeof window === 'undefined') return;
     const measure = () => {
-      setStickyEnabled(el.offsetHeight >= window.innerHeight * 0.5);
+      setTall(el.offsetHeight >= window.innerHeight * 0.7);
     };
     measure();
-    const ro = new ResizeObserver(measure);
-    ro.observe(el);
+    const ro =
+      typeof ResizeObserver !== 'undefined' ? new ResizeObserver(measure) : null;
+    ro?.observe(el);
     window.addEventListener('resize', measure);
     return () => {
-      ro.disconnect();
+      ro?.disconnect();
       window.removeEventListener('resize', measure);
     };
   }, []);
+
+  // 折叠/展开动画：用 rAF 同时驱动 max-height（保证「完整收起」）与滚动位置。
+  // 收起时仅本块及其下方内容上移，上方内容保持不变（不跳动）；
+  // 并把滚动位置收敛到「代码块顶部最多停在视窗顶部（顶栏下方）」，
+  // 避免滚到底部时收起导致下方内容越过视窗顶部。
+  useEffect(() => {
+    const el = revealRef.current;
+    if (!el) return;
+
+    // 首帧直接落到终态，不播放动画
+    if (firstRenderRef.current) {
+      firstRenderRef.current = false;
+      el.style.maxHeight = collapsed ? '0px' : 'none';
+      return;
+    }
+
+    if (animRef.current != null) cancelAnimationFrame(animRef.current);
+
+    const fullH = el.scrollHeight;
+    const fromH = collapsed ? fullH : 0;
+    const toH = collapsed ? 0 : fullH;
+
+    // 收起时计算目标滚动位置：min(当前, 让代码块顶部对齐到视窗顶部/顶栏下方)。
+    // 当前已在块顶部之上（min 命中当前值）时不动滚动，保留「下方内容顶上来」的观感。
+    let scroller: HTMLElement | null = null;
+    let fromScroll = 0;
+    let toScroll = 0;
+    if (collapsed) {
+      const getScrollParent = (
+        node: HTMLElement | null,
+      ): HTMLElement | null => {
+        let p = node?.parentElement ?? null;
+        while (p) {
+          const oy = getComputedStyle(p).overflowY;
+          if (oy === 'auto' || oy === 'scroll') return p;
+          p = p.parentElement;
+        }
+        return null;
+      };
+      scroller = getScrollParent(el);
+      const wrapper = wrapperRef.current;
+      if (scroller && wrapper) {
+        const topbarH =
+          parseInt(
+            getComputedStyle(scroller).getPropertyValue('--doc-topbar-height'),
+            10,
+          ) || 0;
+        const blockTop =
+          scroller.scrollTop +
+          (wrapper.getBoundingClientRect().top -
+            scroller.getBoundingClientRect().top);
+        const alignTop = Math.max(0, blockTop - topbarH);
+        fromScroll = scroller.scrollTop;
+        toScroll = Math.min(fromScroll, alignTop);
+      }
+    }
+    const scrollDelta = toScroll - fromScroll;
+
+    const prefersReduced =
+      typeof window !== 'undefined' &&
+      !!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+
+    const finish = () => {
+      animRef.current = null;
+      el.style.maxHeight = collapsed ? '0px' : 'none';
+      if (scroller && scrollDelta) scroller.scrollTop = toScroll;
+    };
+
+    if (prefersReduced) {
+      finish();
+      return;
+    }
+
+    const DURATION = 320;
+    const easeInOut = (t: number) =>
+      t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    const start = performance.now();
+    const step = (now: number) => {
+      const t = Math.min(1, (now - start) / DURATION);
+      const e = easeInOut(t);
+      el.style.maxHeight = `${fromH + (toH - fromH) * e}px`;
+      if (scroller && scrollDelta) scroller.scrollTop = fromScroll + scrollDelta * e;
+      if (t < 1) {
+        animRef.current = requestAnimationFrame(step);
+      } else {
+        finish();
+      }
+    };
+    animRef.current = requestAnimationFrame(step);
+
+    return () => {
+      if (animRef.current != null) {
+        cancelAnimationFrame(animRef.current);
+        animRef.current = null;
+      }
+    };
+  }, [collapsed]);
 
   // 问答模式下，切换到答案时展示 answerCode（缺省则回退到 code）
   const displayedCode = qa && showAnswer ? answerCode ?? code : code;
@@ -99,9 +200,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
   return (
     <div
       ref={wrapperRef}
-      className={`${styles.wrapper} ${fullscreen ? styles.fullscreen : ''} ${
-        stickyEnabled ? styles.stickyEnabled : ''
-      }`}
+      className={`${styles.wrapper} ${fullscreen ? styles.fullscreen : ''}`}
     >
       <div
         className={`${styles.toolbar} ${
@@ -164,7 +263,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
         </div>
       </div>
 
-      {!collapsed && (
+      <div ref={revealRef} className={styles.codeReveal}>
         <div className={styles.code}>
           <SyntaxHighlighter
             language={language}
@@ -184,6 +283,30 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
           >
             {displayedCode}
           </SyntaxHighlighter>
+        </div>
+      </div>
+
+      {!collapsed && tall && (
+        <div className={styles.collapseFloat}>
+          <button
+            type="button"
+            className={styles.collapseFloatBtn}
+            onClick={() => setCollapsed(true)}
+            title="收起代码块"
+            aria-label="收起代码块"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M18 15l-6-6-6 6" />
+            </svg>
+          </button>
         </div>
       )}
     </div>

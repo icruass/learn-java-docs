@@ -169,6 +169,22 @@
   z-index: 1;
 }
 
+// 主题开关拥有自己的 view-transition 组（见 ThemeSwitch/index.less 的
+// view-transition-name），因此不会被中心扩散裁剪、也不会被冻结成 root 快照的一部分。
+// 让它在切换时以柔和的交叉淡变独立呈现，恢复「点击开关有切换反馈」的观感。
+// 画在 root 之上，保证开关切换时始终可见。
+::view-transition-group(theme-switch) {
+  z-index: 2;
+  animation-duration: var(--theme-transition-duration);
+  animation-timing-function: var(--theme-transition-ease);
+}
+::view-transition-old(theme-switch),
+::view-transition-new(theme-switch) {
+  animation-duration: var(--theme-transition-duration);
+  animation-timing-function: var(--theme-transition-ease);
+  mix-blend-mode: normal;
+}
+
 // 尊重「减少动效」：彻底关闭主题切换的所有过渡 / 揭示动画
 @media (prefers-reduced-motion: reduce) {
   :root.theme-transition *,
@@ -177,7 +193,9 @@
     transition: none !important;
   }
   ::view-transition-old(root),
-  ::view-transition-new(root) {
+  ::view-transition-new(root),
+  ::view-transition-old(theme-switch),
+  ::view-transition-new(theme-switch) {
     animation: none !important;
   }
 }

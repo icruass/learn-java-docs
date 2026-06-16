@@ -1,12 +1,33 @@
 import type { DocRoute } from "./types";
 import javaDocRoutes from "./java";
 import mysqlDocRoutes from "./mysql";
+import mavenDocRoutes from "./Maven";
 import mybatisDocRoutes from "./MyBatis";
 import springBootDocRoutes from "./SpringBoot";
 
+/**
+ * 「Java 基础练习」作为 Java 分类下的一个子菜单（叶子），挂在 Java 章节列表末尾。
+ * 不改动自动生成的 java.ts，而是在这里把它注入到 Java 根节点的 routes 里。
+ */
+const [javaSection, ...restJava] = javaDocRoutes;
+const javaWithExercises: DocRoute = {
+  ...javaSection,
+  routes: [
+    ...(javaSection.routes ?? []),
+    {
+      path: "/java/exercises",
+      name: "Java 基础练习",
+      icon: "✍️",
+      component: "@/pages/Exercises",
+    },
+  ],
+};
+
 export const docRoutes: DocRoute[] = [
-  ...javaDocRoutes,
+  javaWithExercises,
+  ...restJava,
   ...mysqlDocRoutes,
+  ...mavenDocRoutes,
   ...mybatisDocRoutes,
   ...springBootDocRoutes,
 ];

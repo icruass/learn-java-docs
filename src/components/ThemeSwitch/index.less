@@ -22,6 +22,10 @@
   --circle-transition: 0.3s cubic-bezier(0, -0.02, 0.35, 1.17);
 
   display: inline-block;
+  /* 独立的 view-transition 组：把开关从 root 快照里抽离出来，使主题切换的中心扩散
+     不会把开关连同页面一起「冻结」成静态快照，从而保留开关本身的切换动效。
+     与 theme.less 中 ::view-transition-*(theme-switch) 规则配合。 */
+  view-transition-name: theme-switch;
 }
 
 .themeSwitch,

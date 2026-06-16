@@ -1,0 +1,249 @@
+/* ============================================================
+ * 练习题组件样式（全站共享）
+ * 供 ProblemCard / ExerciseList / ExerciseBrowser / CategoryExercises 共用。
+ * 既用于「专门练习页」，也用于「文档章节底部内嵌练习」。全部走主题 CSS 变量。
+ * ============================================================ */
+
+.page {
+  width: 100%;
+}
+
+/* ---- 页头（ExerciseBrowser） ---- */
+.pageHeader {
+  margin-bottom: 18px;
+}
+
+.pageTitle {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+  margin: 0 0 6px;
+}
+
+/* ---- 顶部横向滚动分类条（ExerciseBrowser） ---- */
+.catScroller {
+  /* 滚动时吸顶：贴在内容区顶栏（--doc-topbar-height）下方，背景不透明遮住下方滚动内容 */
+  position: sticky;
+  top: 0px;
+  z-index: 999;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 6px 2px 9px;
+  margin-bottom: 18px;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  scroll-snap-type: x proximity;
+}
+
+.catScroller::-webkit-scrollbar {
+  height: 8px;
+}
+.catScroller::-webkit-scrollbar-thumb {
+  background: var(--color-scrollbar-thumb);
+  border-radius: 4px;
+}
+.catScroller::-webkit-scrollbar-track {
+  background: var(--color-scrollbar-track);
+}
+
+.catCard {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 100px;
+  padding: 7px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  text-align: left;
+  transition: border-color var(--transition-fast),
+    background var(--transition-fast), color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.catCard:hover {
+  border-color: var(--color-accent);
+  background: var(--color-hover-bg);
+  transform: translateY(-1px);
+}
+
+.catCardActive,
+.catCardActive:hover {
+  border-color: transparent;
+  background: var(--color-accent);
+  color: var(--color-text-inverse);
+  box-shadow: var(--shadow-sm);
+}
+
+.catName {
+  font-size: 0.9rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.catCount {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+}
+
+.catCardActive .catCount {
+  color: var(--color-text-inverse);
+  opacity: 0.82;
+}
+
+/* ---- 文档章节底部内嵌练习（CategoryExercises） ---- */
+.embed {
+  margin: 36px 0 8px;
+}
+
+.embedTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* ---- 题目列表 ---- */
+.problems {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  padding: 18px 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.cardIndex {
+  flex: 0 0 auto;
+  width: 26px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--color-accent-soft);
+  color: var(--color-accent);
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.cardTitle {
+  flex: 1 1 auto;
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.diff {
+  flex: 0 0 auto;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.diffEasy {
+  color: #16a34a;
+  background: color-mix(in srgb, #22c55e 14%, transparent);
+}
+.diffMedium {
+  color: #d97706;
+  background: color-mix(in srgb, #f59e0b 16%, transparent);
+}
+.diffHard {
+  color: #dc2626;
+  background: color-mix(in srgb, #ef4444 14%, transparent);
+}
+
+.question {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--color-text-primary);
+  margin: 0 0 12px;
+  white-space: pre-wrap;
+}
+
+.hint {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  margin: 10px 0;
+}
+
+.answerToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 4px;
+  padding: 6px 14px;
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-accent);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.answerToggle:hover {
+  background: var(--color-accent-soft);
+}
+
+.answer {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--color-border-strong);
+}
+
+.answerText {
+  font-size: 0.96rem;
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+  margin: 0 0 12px;
+  white-space: pre-wrap;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.tag {
+  font-size: 0.78rem;
+  color: var(--color-tag-text);
+  background: var(--color-tag-bg);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+}
+
+.empty {
+  padding: 48px;
+  text-align: center;
+  color: var(--color-text-muted);
+}

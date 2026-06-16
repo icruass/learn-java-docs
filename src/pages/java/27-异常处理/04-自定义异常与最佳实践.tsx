@@ -1,4 +1,5 @@
 import React from 'react';
+import ChapterExercises from "@/pages/java/练习题/ChapterExercises";
 import {
   Title,
   Heading3,
@@ -784,6 +785,7 @@ Bob 的成绩设置为：92
 学生：Bob，成绩：-5
 */`}
     />
+    <ChapterExercises categoryKey="exceptions" />
   </article>
 );
 

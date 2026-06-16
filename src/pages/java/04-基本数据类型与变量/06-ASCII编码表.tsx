@@ -1,4 +1,5 @@
 import React from 'react';
+import ChapterExercises from "@/pages/java/练习题/ChapterExercises";
 import {
   Title,
   Heading3,
@@ -385,6 +386,7 @@ public class CharCheck {
         <Text bold>char 参与运算结果是 int</Text>：<InlineCode>'a' + 1 = 98</InlineCode>（int），要得字符需 <InlineCode>(char)('a' + 1)</InlineCode>。
       </ListItem>
     </UnorderedList>
+    <ChapterExercises categoryKey="datatypes" />
   </article>
 );
 

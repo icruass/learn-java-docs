@@ -12,7 +12,7 @@
   height: 100vh;
   overflow-y: auto;
   position: relative;
-  /* 吸顶基准高度：供内容内的 sticky 元素（如代码块工具栏）对齐到全局顶栏下方 */
+  /* 顶栏高度基准（供 .topbar 的 min-height 使用，保证与实际高度一致） */
   --doc-topbar-height: 52px;
 }
 
@@ -124,7 +124,7 @@
     height: auto;
     flex: 1;
     min-height: 0;
-    /* 移动端无内容内顶栏（mobileTopbar 在滚动容器之外），代码块工具栏吸顶到容器顶部 */
+    /* 移动端无内容内顶栏（mobileTopbar 在滚动容器之外） */
     --doc-topbar-height: 0px;
   }
 

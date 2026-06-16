@@ -1,4 +1,5 @@
 import React from 'react';
+import ChapterExercises from "@/pages/java/练习题/ChapterExercises";
 import {
   Title,
   Heading3,
@@ -198,6 +199,7 @@ x % 2 == 0 ? "偶" : "奇"，x=6
   6 % 2 == 0 为 true，取值1
   → 打印 偶`}
     />
+    <ChapterExercises categoryKey="operators" />
   </article>
 );
 

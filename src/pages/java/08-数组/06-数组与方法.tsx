@@ -1,4 +1,5 @@
 import React from 'react';
+import ChapterExercises from "@/pages/java/练习题/ChapterExercises";
 import {
   Title,
   Heading3,
@@ -508,6 +509,7 @@ public class Exercise03 {
       因此 original 保持不变。返回 result 的地址给调用方，main 用 result 接收。
 */`}
     />
+    <ChapterExercises categoryKey="arrays" />
   </article>
 );
 

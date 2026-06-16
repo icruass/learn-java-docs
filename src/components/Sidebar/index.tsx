@@ -24,26 +24,46 @@ const LeafItem: React.FC<{
 }> = ({ node, active, level }) => {
   const ref = useRef<HTMLAnchorElement>(null);
 
-  // 激活项：刷新进入 / 跳转后，把自身滚动到侧边栏可视区顶部（避开吸顶分组标题）
+  // 激活项：刷新进入 / 跳转（含「最近浏览」跳转）后，把自身滚动到侧边栏可视区顶部
+  // （避开吸顶分组标题）。用双 rAF 等父级分组展开后的布局稳定，再计算位置。
   useEffect(() => {
     if (!active || !ref.current) return;
     const el = ref.current;
-    // 向上找到可滚动的祖先（侧边栏 nav）
-    let scroller: HTMLElement | null = el.parentElement;
-    while (scroller && scroller.scrollHeight <= scroller.clientHeight) {
-      scroller = scroller.parentElement;
-    }
-    if (!scroller) return;
-    // 等布局稳定（父级分组展开完成）后再计算位置
-    const id = requestAnimationFrame(() => {
-      const target =
-        el.getBoundingClientRect().top -
-        scroller!.getBoundingClientRect().top +
-        scroller!.scrollTop -
-        STICKY_OFFSET;
-      scroller!.scrollTop = Math.max(0, target);
+    // 向上找到「真正可滚动」的祖先（侧边栏 nav）：必须是 overflow auto/scroll 且当前确有溢出。
+    // 旧实现仅按 scrollHeight<=clientHeight 向上找，nav 内容恰好不溢出时会越过它取到 null，
+    // 导致跳转后不滚动定位。
+    const getScroller = (node: HTMLElement): HTMLElement | null => {
+      let p: HTMLElement | null = node.parentElement;
+      while (p) {
+        const oy = getComputedStyle(p).overflowY;
+        if ((oy === "auto" || oy === "scroll") && p.scrollHeight > p.clientHeight)
+          return p;
+        p = p.parentElement;
+      }
+      return null;
+    };
+
+    let raf2 = 0;
+    const raf1 = requestAnimationFrame(() => {
+      raf2 = requestAnimationFrame(() => {
+        const scroller = getScroller(el);
+        if (!scroller) return;
+        // 仅当激活项不在侧边栏可视区内时才滚动定位（刷新进入 /「最近浏览」跳转）。
+        // 点击侧边栏菜单时该项本就可见，无需再滚到顶部，避免点击时的跳动。
+        const elRect = el.getBoundingClientRect();
+        const scRect = scroller.getBoundingClientRect();
+        const visible =
+          elRect.top >= scRect.top + STICKY_OFFSET && elRect.bottom <= scRect.bottom;
+        if (visible) return;
+        const target =
+          elRect.top - scRect.top + scroller.scrollTop - STICKY_OFFSET;
+        scroller.scrollTop = Math.max(0, target);
+      });
     });
-    return () => cancelAnimationFrame(id);
+    return () => {
+      cancelAnimationFrame(raf1);
+      cancelAnimationFrame(raf2);
+    };
   }, [active]);
 
   return (
@@ -67,12 +87,16 @@ const GroupItem: React.FC<{
   level: number;
   initiallyOpen?: boolean;
 }> = ({ node, pathname, level, initiallyOpen = false }) => {
-  const [open, setOpen] = useState(initiallyOpen);
-  // 路由变化导致本组「包含激活项」时自动展开（刷新进入 / 跳转皆生效）；
-  // 不主动收起，保留用户手动折叠的选择。
+  // 本组子树是否包含当前激活路由
+  const hasActive = containsActivePath(node, pathname);
+  const [open, setOpen] = useState(initiallyOpen || hasActive);
+  // 每次路由变化都重新判定：只要子树包含当前激活项就自动展开（刷新进入 / 侧边栏点击 /
+  // 「最近浏览」跳转皆生效，且在同组内不同页之间切换也会再次确保展开）。
+  // 依赖里带上 pathname，使「同组内换页 / 之前被手动折叠」时也能重新展开定位。
+  // 不主动收起，保留用户在其它分组上的手动折叠选择。
   useEffect(() => {
-    if (initiallyOpen) setOpen(true);
-  }, [initiallyOpen]);
+    if (hasActive) setOpen(true);
+  }, [hasActive, pathname]);
   return (
     <div className={styles.group}>
       <button
@@ -119,8 +143,8 @@ const RouteNode: React.FC<{
         node={node}
         pathname={pathname}
         level={level}
-        // 子树包含当前路由则展开；显式传入的 initiallyOpen 作为兜底默认
-        initiallyOpen={initiallyOpen || containsActivePath(node, pathname)}
+        // 是否包含当前激活项由 GroupItem 自行判定；这里仅透传「默认展开」兜底（如第一组）
+        initiallyOpen={initiallyOpen}
       />
     );
   }

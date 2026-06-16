@@ -1,4 +1,5 @@
 import React from 'react';
+import ChapterExercises from "@/pages/java/练习题/ChapterExercises";
 import {
   Title,
   Heading3,
@@ -412,6 +413,7 @@ hash = h ^ (h >>> 16)
       低位被翻成了 0（1 ^ 1 = 0），下标从 15 变成了 0。
       这再次说明：扰动让高位的信息真正影响了最终落桶。`}
     />
+    <ChapterExercises categoryKey="collections" />
   </article>
 );
 

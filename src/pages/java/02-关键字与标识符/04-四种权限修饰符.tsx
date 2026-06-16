@@ -1,4 +1,5 @@
 import React from 'react';
+import ChapterExercises from "@/pages/java/练习题/ChapterExercises";
 import {
   Title,
   Heading3,
@@ -569,6 +570,7 @@ public class Counter {
       外部无法调用，这正是「最小暴露原则」的体现。
 */`}
     />
+    <ChapterExercises categoryKey="keywords" />
   </article>
 );
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import ChapterExercises from "@/pages/java/练习题/ChapterExercises";
 import {
   Title,
   Heading3,
@@ -337,6 +338,7 @@ public class MultiTable {
   · 内层上限用 i 而非 9，使第 i 行只有 i 项，形成三角形排列
 */`}
     />
+    <ChapterExercises categoryKey="flow" />
   </article>
 );
 

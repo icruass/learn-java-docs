@@ -1,4 +1,5 @@
 import React from 'react';
+import ChapterExercises from "@/pages/java/练习题/ChapterExercises";
 import {
   Title,
   Heading3,
@@ -462,6 +463,7 @@ public class Exercise03 {
   等等——精确验证：H-e-l-l-o（2个l）、W-o-r-l-d（1个l），共 3 个。
 */`}
     />
+    <ChapterExercises categoryKey="string" />
   </article>
 );
 

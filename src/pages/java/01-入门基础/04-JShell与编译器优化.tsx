@@ -1,4 +1,5 @@
 import React from 'react';
+import ChapterExercises from "@/pages/java/练习题/ChapterExercises";
 import {
   Title,
   Heading3,
@@ -349,6 +350,7 @@ public class Quiz {
 
 总结：第①②③行报错，第④行通过。`}
     />
+    <ChapterExercises categoryKey="basics" />
   </article>
 );
 

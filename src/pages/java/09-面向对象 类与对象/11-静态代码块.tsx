@@ -1,4 +1,5 @@
 import React from 'react';
+import ChapterExercises from "@/pages/java/练习题/ChapterExercises";
 import {
   Title,
   Heading3,
@@ -500,6 +501,7 @@ public class Robot {
   nextId 是静态变量，三个对象共享，依次递增，所以编号分别是 1、2、3。
 */`}
     />
+    <ChapterExercises categoryKey="oop" />
   </article>
 );
 

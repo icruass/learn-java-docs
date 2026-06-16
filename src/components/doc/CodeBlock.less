@@ -3,9 +3,11 @@
   border: 1px solid var(--color-code-border);
   border-radius: var(--radius-md);
   background: var(--color-code-bg);
-  /* 注意：不能用 overflow:hidden 裁剪圆角——它会成为工具栏 sticky 的滚动容器，
-     使吸顶失效（见 .toolbar 注释）。改为在子元素上分别做圆角裁剪。 */
-  transition: background-color var(--transition-base), border-color var(--transition-base);
+  /* 不能用 overflow:hidden——它会成为底部浮动收起按钮 sticky 的容器，使其无法贴在视窗底部。
+     改为在子元素（toolbar 顶部、code 底部）上分别裁剪圆角。 */
+  position: relative;
+  transition: background-color var(--transition-base),
+    border-color var(--transition-base);
 }
 
 /* 全屏：覆盖整个视口 */
@@ -27,17 +29,9 @@
   padding: 8px 12px;
   background: var(--color-bg-elevated);
   border-bottom: 1px solid var(--color-code-border);
-  /* 顶部圆角（内嵌于 1px 边框内）——替代原先 .wrapper 的 overflow 裁剪 */
+  /* 顶部圆角（内嵌于 1px 边框内）——替代 .wrapper 的 overflow 裁剪 */
   border-top-left-radius: calc(var(--radius-md) - 1px);
   border-top-right-radius: calc(var(--radius-md) - 1px);
-}
-
-/* 吸顶：仅当容器高度 ≥ 视口 50%（由 JS 加 .stickyEnabled）时启用。
-   相对页面滚动容器(.content)粘附在全局顶栏下方；依赖祖先链上无 overflow≠visible。 */
-.stickyEnabled .toolbar {
-  position: sticky;
-  top: var(--doc-topbar-height, 0px);
-  z-index: 5;
 }
 
 /* 折叠态：工具栏成为唯一子元素，补齐底部圆角并去掉分隔线 */
@@ -47,9 +41,8 @@
   border-bottom-right-radius: calc(var(--radius-md) - 1px);
 }
 
-/* 全屏：固定覆盖层自身即顶部，无需吸顶偏移；由 flex 布局保证工具栏在上 */
+/* 全屏：固定覆盖层自身即顶部，工具栏无需圆角 */
 .fullscreen .toolbar {
-  position: static;
   border-radius: 0;
 }
 
@@ -133,20 +126,84 @@
   border-color: var(--color-accent-strong);
 }
 
+/* 折叠动画容器：max-height 与滚动位置均由 JS 用 rAF 驱动（见 CodeBlock.tsx），
+   故此处不设 CSS transition，避免与 JS 动画相互打架。
+   overflow:hidden 保证「完整收起」（含横向滚动条也一并裁掉），不留残影。 */
+.codeReveal {
+  overflow: hidden;
+}
+
 /* 代码区：高度自适应，无纵向滚动；仅在超长行时允许横向滚动 */
 .code {
   overflow-x: auto;
   overflow-y: hidden;
-  /* 底部圆角裁剪——替代原先 .wrapper 的 overflow:hidden */
+  /* 底部圆角裁剪——替代 .wrapper 的 overflow 裁剪 */
   border-bottom-left-radius: calc(var(--radius-md) - 1px);
   border-bottom-right-radius: calc(var(--radius-md) - 1px);
 }
 
 /* 全屏时代码区占满剩余空间，此时允许纵向滚动以容纳超长代码 */
-.fullscreen .code {
+.fullscreen .codeReveal {
   flex: 1;
+  min-height: 0;
+  max-height: none !important;
+}
+
+.fullscreen .code {
   overflow-y: auto;
   border-radius: 0;
+}
+
+/* 底部「向上箭头」收起按钮：在视窗底部、相对代码块水平居中。
+   仅当代码块容器高度 ≥ 70% 视窗高度时由 JS 渲染（见 CodeBlock.tsx 的测量逻辑）；
+   只要该高代码块还在视窗内就显示，整块滚出视窗后随容器一并移出（每块各自一个，互不重叠）。
+   高度为 0 的居中层避免在代码块底部额外撑高，仅按钮本身接收指针事件。 */
+.collapseFloat {
+  position: relative;
+  bottom: 16px;
+  z-index: 4;
+  height: 0;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.collapseFloatBtn {
+  pointer-events: auto;
+  /* 抬到 sticky 锚线之上，完整露出按钮 */
+  transform: translateY(-100%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: var(--color-text-secondary);
+  background: color-mix(in srgb, var(--color-surface) 88%, transparent);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--color-border-strong);
+  border-radius: 999px;
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  transition: color var(--transition-fast),
+    background-color var(--transition-fast), border-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.collapseFloatBtn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.collapseFloatBtn:hover {
+  color: #fff;
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  transform: translateY(-100%) scale(1.08);
+}
+
+.collapseFloatBtn:active {
+  transform: translateY(-100%) scale(1);
 }
 
 /* 顶部左侧折叠按钮 */
