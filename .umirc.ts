@@ -14,7 +14,7 @@ const docPageRoutes = [
 
 export default defineConfig({
   npmClient: "pnpm",
-  title: "Learn Java · 文档",
+  title: "☕ Java",
   // 关闭 umi 内置的 mfsu 以外的复杂特性，保持框架清爽
   // 关键修改：设置静态资源的基础路径
   base: "/learn-java-docs/",
