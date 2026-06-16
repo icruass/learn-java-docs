@@ -150,10 +150,17 @@
 
 // 现代浏览器：用 View Transitions 做「以开关为圆心扩散」的揭示（动画由 JS 用
 // clip-path 驱动，见 ThemeProvider）。关掉默认淡入淡出，让新主题层干净地扩散展开。
+// 揭示动画期间整个 View Transition 覆盖层不拦截指针事件，
+// 否则约 500ms 内点击会被快照层吃掉（例如连续点击主题开关 / 其它按钮）。
+::view-transition {
+  pointer-events: none;
+}
+
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation: none;
   mix-blend-mode: normal;
+  pointer-events: none;
 }
 ::view-transition-old(root) {
   z-index: 0;

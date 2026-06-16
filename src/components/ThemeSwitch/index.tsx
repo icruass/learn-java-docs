@@ -72,11 +72,11 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = ({
       onChange(e.target.checked);
       return;
     }
-    // 以开关中心为圆心做扩散揭示（取自身包围盒，键盘触发也有合理圆心）
-    const rect = labelRef.current?.getBoundingClientRect();
-    const origin = rect
-      ? { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 }
-      : undefined;
+    // 以视口中心为圆心做扩散揭示（从屏幕中央向四周展开）
+    const origin =
+      typeof window !== "undefined"
+        ? { x: window.innerWidth / 2, y: window.innerHeight / 2 }
+        : undefined;
     toggleTheme(origin);
   };
 
