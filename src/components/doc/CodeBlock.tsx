@@ -12,8 +12,6 @@ export interface CodeBlockProps {
   code: string;
   /** 语言，默认 java */
   language?: string;
-  /** 非全屏时代码区最大高度（px），超出滚动；默认 420 */
-  maxHeight?: number;
   /** 是否显示行号 */
   showLineNumbers?: boolean;
   /** 代码块标题（如文件名） */
@@ -27,7 +25,8 @@ export interface CodeBlockProps {
 /**
  * 代码块组件：
  *  - 基于 react-syntax-highlighter（Prism），随主题在 oneDark / oneLight 间切换
- *  - 超出 maxHeight 自动出现滚动条
+ *  - 高度自适应，无纵向滚动条
+ *  - 支持顶部左侧折叠按钮收起 / 展开代码
  *  - 支持全屏展示
  *  - 支持一键复制
  *  - 支持问答模式（qa）：默认展示问题代码，点击右侧按钮切换查看答案
@@ -35,7 +34,6 @@ export interface CodeBlockProps {
 const CodeBlock: React.FC<CodeBlockProps> = ({
   code,
   language = 'java',
-  maxHeight = 420,
   showLineNumbers = true,
   title,
   qa = false,
@@ -45,6 +43,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
   const [fullscreen, setFullscreen] = useState(false);
   const [copied, setCopied] = useState(false);
   const [showAnswer, setShowAnswer] = useState(false);
+  const [collapsed, setCollapsed] = useState(false);
 
   const prismStyle = theme === 'dark' ? oneDark : oneLight;
 
@@ -82,6 +81,21 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
     >
       <div className={styles.toolbar}>
         <div className={styles.meta}>
+          <button
+            type="button"
+            className={styles.collapseBtn}
+            onClick={() => setCollapsed((v) => !v)}
+            aria-expanded={!collapsed}
+            title={collapsed ? '展开' : '折叠'}
+          >
+            <span
+              className={`${styles.collapseIcon} ${
+                collapsed ? styles.collapseIconClosed : ''
+              }`}
+            >
+              ▾
+            </span>
+          </button>
           <span className={styles.lang}>{title ?? language}</span>
           {qa && (
             <span
@@ -122,29 +136,28 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
         </div>
       </div>
 
-      <div
-        className={styles.scroll}
-        style={fullscreen ? undefined : { maxHeight }}
-      >
-        <SyntaxHighlighter
-          language={language}
-          style={prismStyle}
-          showLineNumbers={showLineNumbers}
-          wrapLongLines={false}
-          customStyle={{
-            margin: 0,
-            padding: '16px 18px',
-            background: 'transparent',
-            fontSize: '13.5px',
-            lineHeight: 1.6,
-          }}
-          codeTagProps={{
-            style: { fontFamily: 'var(--font-mono)' },
-          }}
-        >
-          {displayedCode}
-        </SyntaxHighlighter>
-      </div>
+      {!collapsed && (
+        <div className={styles.code}>
+          <SyntaxHighlighter
+            language={language}
+            style={prismStyle}
+            showLineNumbers={showLineNumbers}
+            wrapLongLines={false}
+            customStyle={{
+              margin: 0,
+              padding: '16px 18px',
+              background: 'transparent',
+              fontSize: '13.5px',
+              lineHeight: 1.6,
+            }}
+            codeTagProps={{
+              style: { fontFamily: 'var(--font-mono)' },
+            }}
+          >
+            {displayedCode}
+          </SyntaxHighlighter>
+        </div>
+      )}
     </div>
   );
 };

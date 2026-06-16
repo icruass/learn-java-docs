@@ -108,12 +108,48 @@
   border-color: var(--color-accent-strong);
 }
 
-.scroll {
-  overflow: auto;
+/* 代码区：高度自适应，无纵向滚动；仅在超长行时允许横向滚动 */
+.code {
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
-/* 全屏时代码区占满剩余空间 */
-.fullscreen .scroll {
+/* 全屏时代码区占满剩余空间，此时允许纵向滚动以容纳超长代码 */
+.fullscreen .code {
   flex: 1;
-  max-height: none !important;
+  overflow-y: auto;
+}
+
+/* 顶部左侧折叠按钮 */
+.collapseBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  color: var(--color-text-secondary);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.collapseBtn:hover {
+  color: var(--color-text-primary);
+  border-color: var(--color-border-strong);
+  background: var(--color-hover-bg);
+}
+
+.collapseIcon {
+  display: inline-block;
+  font-size: 11px;
+  line-height: 1;
+  transition: transform var(--transition-fast);
+}
+
+/* 折叠时箭头指向右侧 */
+.collapseIconClosed {
+  transform: rotate(-90deg);
 }
