@@ -19,6 +19,8 @@ export interface Exercise {
   question: string;
   /** 可选：题目给出的代码（如「写出下列代码的输出」「找出错误」） */
   code?: string;
+  /** 可选：代码语言（如 "sql"、"java"、"text"；缺省按 java 高亮，对 code 与 answerCode 同时生效） */
+  language?: string;
   /** 可选：解题提示 */
   hint?: string;
   /** 参考答案 / 解析（文字） */

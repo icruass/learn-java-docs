@@ -23,10 +23,25 @@ const javaWithExercises: DocRoute = {
   ],
 };
 
+const [mysqlSection, ...restMysql] = mysqlDocRoutes;
+const mysqlWithExercises: DocRoute = {
+  ...mysqlSection,
+  routes: [
+    ...(mysqlSection.routes ?? []),
+    {
+      path: "/mysql/exercises",
+      name: "MySQL 基础练习",
+      icon: "✍️",
+      component: "@/pages/MysqlExercises",
+    },
+  ],
+};
+
 export const docRoutes: DocRoute[] = [
   javaWithExercises,
   ...restJava,
-  ...mysqlDocRoutes,
+  mysqlWithExercises,
+  ...restMysql,
   ...mavenDocRoutes,
   ...mybatisDocRoutes,
   ...springBootDocRoutes,

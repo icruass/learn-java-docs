@@ -33,7 +33,9 @@ const ProblemCard: React.FC<ProblemCardProps> = ({ problem, index }) => {
       </div>
 
       <p className={styles.question}>{problem.question}</p>
-      {problem.code && <CodeBlock code={problem.code} />}
+      {problem.code && (
+        <CodeBlock code={problem.code} language={problem.language} />
+      )}
 
       {problem.hint && <p className={styles.hint}>💡 提示：{problem.hint}</p>}
 
@@ -50,7 +52,11 @@ const ProblemCard: React.FC<ProblemCardProps> = ({ problem, index }) => {
         <div className={styles.answer}>
           {problem.answer && <p className={styles.answerText}>{problem.answer}</p>}
           {problem.answerCode && (
-            <CodeBlock title="参考答案" code={problem.answerCode} />
+            <CodeBlock
+              title="参考答案"
+              code={problem.answerCode}
+              language={problem.language}
+            />
           )}
         </div>
       )}
