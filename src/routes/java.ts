@@ -930,6 +930,37 @@ export default [
           },
         ],
       },
+      {
+        path: "/java/28",
+        name: "设计模式",
+        routes: [
+          {
+            path: "/java/28/01",
+            name: "建造者模式",
+            component: "@/pages/java/28-设计模式/01-建造者模式",
+          },
+          {
+            path: "/java/28/02",
+            name: "适配器模式",
+            component: "@/pages/java/28-设计模式/02-适配器模式",
+          },
+          {
+            path: "/java/28/03",
+            name: "代理模式",
+            component: "@/pages/java/28-设计模式/03-代理模式",
+          },
+          {
+            path: "/java/28/04",
+            name: "单例模式",
+            component: "@/pages/java/28-设计模式/04-单例模式",
+          },
+          {
+            path: "/java/28/05",
+            name: "策略模式",
+            component: "@/pages/java/28-设计模式/05-策略模式",
+          },
+        ],
+      },
     ],
   },
 ];
