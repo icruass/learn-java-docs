@@ -1,0 +1,41 @@
+.fab {
+  position: fixed;
+  right: 28px;
+  bottom: 32px;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  transition: background var(--transition-fast), color var(--transition-fast),
+    border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.fab:hover {
+  background: var(--color-hover-bg);
+  transform: translateY(-2px);
+}
+
+.fab svg {
+  transition: transform var(--transition-base);
+}
+
+/* 向下滚动方向：箭头翻转朝下 */
+.flipped {
+  transform: rotate(180deg);
+}
+
+@media (max-width: 768px) {
+  .fab {
+    right: 16px;
+    bottom: 20px;
+  }
+}

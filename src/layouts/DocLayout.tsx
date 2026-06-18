@@ -5,6 +5,7 @@ import ThemeSwitch from "@/components/ThemeSwitch";
 import PrevNextNav from "@/components/PrevNextNav";
 import RecentHistory from "@/components/RecentHistory";
 import UiSettings from "@/components/UiSettings";
+import ScrollToggle from "@/components/ScrollToggle";
 import { getDocByPath } from "@/routes/docRoutes";
 import { recordDoc } from "@/utils/recentDocs";
 import { setLastDocPath } from "@/utils/lastDoc";
@@ -87,6 +88,7 @@ const DocLayout: React.FC = () => {
           <Outlet />
           <PrevNextNav />
         </div>
+        <ScrollToggle scrollRef={contentRef} />
       </main>
     </div>
   );
