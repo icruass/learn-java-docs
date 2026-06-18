@@ -5,6 +5,7 @@ import {
   oneLight,
 } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { useTheme } from '@/hooks/useTheme';
+import AiChatDialog from '@/components/AiChatDialog';
 import styles from './CodeBlock.less';
 
 export interface CodeBlockProps {
@@ -44,6 +45,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
   const [copied, setCopied] = useState(false);
   const [showAnswer, setShowAnswer] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
+  const [aiOpen, setAiOpen] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const revealRef = useRef<HTMLDivElement>(null);
   const firstRenderRef = useRef(true);
@@ -248,6 +250,14 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
           )}
           <button
             type="button"
+            className={`${styles.action} ${styles.aiBtn}`}
+            onClick={() => setAiOpen(true)}
+            title="对这段代码做 AI 问答"
+          >
+            AI 🤖
+          </button>
+          <button
+            type="button"
             className={styles.action}
             onClick={handleCopy}
           >
@@ -309,6 +319,13 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
           </button>
         </div>
       )}
+
+      <AiChatDialog
+        open={aiOpen}
+        onClose={() => setAiOpen(false)}
+        code={displayedCode}
+        language={language}
+      />
     </div>
   );
 };

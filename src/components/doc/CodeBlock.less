@@ -77,6 +77,19 @@
   background: var(--color-hover-bg);
 }
 
+/* AI 问答按钮：强调色，区别于复制 / 全屏 */
+.aiBtn {
+  color: var(--color-accent);
+  background: var(--color-accent-soft);
+  border-color: color-mix(in srgb, var(--color-accent) 40%, transparent);
+}
+
+.aiBtn:hover {
+  color: #fff;
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
 /* 问答模式：左侧 meta 容器，承载 lang 与状态徽标 */
 .meta {
   display: flex;
