@@ -144,6 +144,47 @@ export default [
           },
         ],
       },
+      {
+        path: "/SpringBoot/07",
+        name: "从零搭建与数据库连接",
+        routes: [
+          {
+            path: "/SpringBoot/07/01",
+            name: "核心概念厘清",
+            component: "@/pages/SpringBoot/07-从零搭建与数据库连接/01-核心概念厘清",
+          },
+          {
+            path: "/SpringBoot/07/02",
+            name: "工具链安装",
+            component: "@/pages/SpringBoot/07-从零搭建与数据库连接/02-工具链安装",
+          },
+          {
+            path: "/SpringBoot/07/03",
+            name: "Maven构建与运行",
+            component: "@/pages/SpringBoot/07-从零搭建与数据库连接/03-Maven构建与运行",
+          },
+          {
+            path: "/SpringBoot/07/04",
+            name: "数据库连接原理",
+            component: "@/pages/SpringBoot/07-从零搭建与数据库连接/04-数据库连接原理",
+          },
+          {
+            path: "/SpringBoot/07/05",
+            name: "从H2切换到MySQL",
+            component: "@/pages/SpringBoot/07-从零搭建与数据库连接/05-从H2切换到MySQL",
+          },
+          {
+            path: "/SpringBoot/07/06",
+            name: "验证与排错",
+            component: "@/pages/SpringBoot/07-从零搭建与数据库连接/06-验证与排错",
+          },
+          {
+            path: "/SpringBoot/07/07",
+            name: "常用命令速查",
+            component: "@/pages/SpringBoot/07-从零搭建与数据库连接/07-常用命令速查",
+          },
+        ],
+      },
     ],
   },
 ];
