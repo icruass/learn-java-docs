@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!--
+      父 POM：继承 Spring Boot 的依赖版本管理与默认插件配置。
+      选用 2.7.18 是因为本机是 JDK 11（Spring Boot 3.x 需要 JDK 17+）。
+      2.7.x 是支持 Java 8/11 的最后一条产品线，使用 javax.* 命名空间。
+      若日后升级到 JDK 17，可把版本改成 3.x，并把代码里的 javax.* 换成 jakarta.*。
+    -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.7.18</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>com.example</groupId>
+    <artifactId>sms-spring</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>sms-spring</name>
+    <description>基于 Spring Boot 的企业级学生管理系统（学习示例，功能参照同目录 sms）</description>
+
+    <properties>
+        <java.version>11</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <!-- Web：提供内嵌 Tomcat + Spring MVC，用来写 REST 接口 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- Data JPA：用 Hibernate 把领域对象映射到数据库表，自动生成仓储实现 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <!-- Validation：在请求 DTO 上用 @NotBlank/@Min 等注解做入参校验 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+
+        <!-- H2：内存数据库，零配置即可启动，默认用它（开发/演示） -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- MySQL 驱动：切到 mysql profile 时使用。
+             注意：Spring Boot 2.7 的 BOM 并未管理这个坐标的版本，必须显式写版本号。
+             8.0.33 是 mysql:mysql-connector-java 这一坐标的最后稳定版（之后迁到 com.mysql:mysql-connector-j）。 -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.33</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- 测试：JUnit5 + Spring Test + Mockito 一站式 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- 打成可执行 jar，并支持 mvn spring-boot:run 直接启动 -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>
