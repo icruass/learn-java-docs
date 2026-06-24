@@ -51,6 +51,8 @@ const Text: React.FC<TextProps> = ({
     typeof size === 'number' ? `${size}em` : size || undefined;
 
   const computedStyle: React.CSSProperties = {
+    // 单词过长时强制换行，避免超出屏幕
+    wordBreak: 'break-all',
     color: resolvedColor,
     fontWeight: bold ? 700 : undefined,
     fontStyle: italic ? 'italic' : undefined,

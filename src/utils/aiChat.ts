@@ -68,7 +68,7 @@ async function openStream(
       /* ignore */
     }
     const err: HttpError = new Error(
-      `Gemini 请求失败（HTTP ${res.status}）${detail}`.trim()
+      `DeepSeek 请求失败（HTTP ${res.status}）${detail}`.trim()
     );
     err.status = res.status;
     throw err;
@@ -89,7 +89,7 @@ export async function streamChat(
 ): Promise<void> {
   const apiKey = getApiKey();
   if (!apiKey) {
-    throw new Error("尚未配置 Gemini API Key");
+    throw new Error("尚未配置 DeepSeek API Key");
   }
 
   // 重试计划：主模型先试 2 次，仍失败则降级到备用模型再试 2 次。
@@ -122,7 +122,7 @@ export async function streamChat(
   }
 
   if (!res || !res.body) {
-    throw lastErr ?? new Error("Gemini 请求失败");
+    throw lastErr ?? new Error("DeepSeek 请求失败");
   }
 
   // 已建立连接，开始流式读取（此后不再重试，避免重复内容）
