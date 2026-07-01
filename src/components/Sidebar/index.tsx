@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "umi";
 import type { DocRoute } from "@/routes/types";
 import { docRoutes } from "@/routes/docRoutes";
+import AiChatDialog from "@/components/AiChatDialog";
 import styles from "./index.less";
 
 /** 按层级取样式类（1→3 字体由大到小、颜色由深到浅，超过 3 级按 3 级处理） */
@@ -157,6 +158,7 @@ const Sidebar: React.FC<{
   onClose?: () => void;
 }> = ({ drawerOpen = false, onClose }) => {
   const { pathname } = useLocation();
+  const [pageAiOpen, setPageAiOpen] = useState(false);
 
   return (
     <aside
@@ -164,6 +166,15 @@ const Sidebar: React.FC<{
     >
       <div className={styles.brand}>
         <span className={styles.brandText}>Java Docs</span>
+        <button
+          type="button"
+          className={styles.aiEntryBtn}
+          onClick={() => setPageAiOpen(true)}
+          title="针对本页内容的 AI 问答"
+          aria-label="打开 AI 问答"
+        >
+          AI 🤖
+        </button>
         {/* Close button: only visible inside the mobile drawer */}
         <button
           className={styles.closeBtn}
@@ -185,6 +196,12 @@ const Sidebar: React.FC<{
           />
         ))}
       </nav>
+
+      <AiChatDialog
+        open={pageAiOpen}
+        onClose={() => setPageAiOpen(false)}
+        scope="page"
+      />
     </aside>
   );
 };

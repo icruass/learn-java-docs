@@ -26,6 +26,29 @@
   letter-spacing: -0.01em;
 }
 
+/* 顶部 AI 入口：针对当前整篇文档页问答，视觉复用代码块工具栏里 AI 按钮的强调色风格 */
+.aiEntryBtn {
+  display: inline-flex;
+  align-items: center;
+  margin-left: auto;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-accent);
+  background: var(--color-accent-soft);
+  border: 1px solid color-mix(in srgb, var(--color-accent) 40%, transparent);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color var(--transition-fast), background-color var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.aiEntryBtn:hover {
+  color: #fff;
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
 /* ---- 导航主体 ---- */
 .nav {
   flex: 1;
