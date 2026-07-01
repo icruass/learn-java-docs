@@ -121,13 +121,13 @@
   background: var(--color-hover-bg);
 }
 
-/* 已展开的分组：自动高亮（不透明背景，吸顶时遮住下方内容）。
-   背景按层级递减：一级最重，二级淡一些，三级更淡（但仍不透明，不透字）。 */
+/* 已展开的分组：自动高亮，颜色与平时悬浮色同一色系，但用不透明加深版
+   （--color-hover-bg-solid），因为吸顶时要完全遮住下方滚动内容，半透明会透字。 */
 .groupHeaderOpen {
-  background: var(--color-hover-bg);
+  background: var(--color-hover-bg-solid);
 }
 .groupHeaderOpen:hover {
-  background: var(--color-hover-bg);
+  background: var(--color-hover-bg-solid-hover);
 }
 
 .groupHeaderOpen .groupTitle {

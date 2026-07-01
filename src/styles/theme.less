@@ -31,6 +31,11 @@
   --color-hover-bg: rgba(0, 0, 0, 0.045);
   --color-active-bg: rgba(124, 58, 237, 0.1);
 
+  // 悬浮色的不透明版本：用于吸顶展开的分组标题（需要完全遮住下方滚动内容，
+  // 半透明的 --color-hover-bg 会透出下方文字），颜色仍是同一色系，只是更深更不透明。
+  --color-hover-bg-solid: color-mix(in srgb, black 12%, var(--color-sidebar-bg));
+  --color-hover-bg-solid-hover: color-mix(in srgb, black 18%, var(--color-sidebar-bg));
+
   // 强调色（accent）
   --color-accent: #7c3aed;
   --color-accent-strong: #6d28d9;
@@ -73,6 +78,9 @@
 
   --color-hover-bg: rgba(255, 255, 255, 0.09);
   --color-active-bg: rgba(167, 139, 250, 0.26);
+
+  --color-hover-bg-solid: color-mix(in srgb, white 20%, var(--color-sidebar-bg));
+  --color-hover-bg-solid-hover: color-mix(in srgb, white 28%, var(--color-sidebar-bg));
 
   --color-accent: #a78bfa;
   --color-accent-strong: #c4b5fd;
