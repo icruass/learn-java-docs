@@ -11,6 +11,12 @@
  *  - 仅在「尚未产生任何输出」前重试，开始流式后不再重试，避免重复内容。
  */
 import { AI_CONFIG, getApiKey } from "@/config/ai";
+import {
+  hasQuota,
+  addUsage,
+  estimateTokens,
+  QUOTA_EXCEEDED_MESSAGE,
+} from "@/utils/aiUsage";
 
 export interface ChatMessage {
   role: "system" | "user" | "assistant";
@@ -56,7 +62,12 @@ async function openStream(
       "Content-Type": "application/json",
       Authorization: `Bearer ${apiKey}`,
     },
-    body: JSON.stringify({ model, messages, stream: true }),
+    body: JSON.stringify({
+      model,
+      messages,
+      stream: true,
+      stream_options: { include_usage: true },
+    }),
     signal,
   });
 
@@ -91,6 +102,11 @@ export async function streamChat(
   if (!apiKey) {
     throw new Error("尚未配置 DeepSeek API Key");
   }
+  if (!hasQuota()) {
+    throw new Error(QUOTA_EXCEEDED_MESSAGE);
+  }
+
+  const promptChars = messages.reduce((sum, m) => sum + m.content.length, 0);
 
   // 重试计划：主模型先试 2 次，仍失败则降级到备用模型再试 2 次。
   const fallback = AI_CONFIG.fallbackModel;
@@ -125,32 +141,44 @@ export async function streamChat(
     throw lastErr ?? new Error("DeepSeek 请求失败");
   }
 
-  // 已建立连接，开始流式读取（此后不再重试，避免重复内容）
+  // 已建立连接：无论正常结束 / 用户中断 / 读取报错，都要按实际消耗记账，
+  // 所以整段读取放进 try/finally，此后不再重试（避免重复内容）。
   const reader = res.body.getReader();
   const decoder = new TextDecoder();
   let buffer = "";
+  let completionChars = 0;
+  let usageTokens: number | null = null;
 
-  while (true) {
-    const { done, value } = await reader.read();
-    if (done) break;
-    buffer += decoder.decode(value, { stream: true });
+  try {
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      buffer += decoder.decode(value, { stream: true });
 
-    // 按行切分，最后一段可能不完整，留到下一轮
-    const lines = buffer.split("\n");
-    buffer = lines.pop() ?? "";
+      // 按行切分，最后一段可能不完整，留到下一轮
+      const lines = buffer.split("\n");
+      buffer = lines.pop() ?? "";
 
-    for (const line of lines) {
-      const trimmed = line.trim();
-      if (!trimmed.startsWith("data:")) continue;
-      const data = trimmed.slice(5).trim();
-      if (data === "[DONE]") return;
-      try {
-        const json = JSON.parse(data);
-        const delta: string | undefined = json?.choices?.[0]?.delta?.content;
-        if (delta) onDelta(delta);
-      } catch {
-        /* 不完整的 JSON 分片，忽略 */
+      for (const line of lines) {
+        const trimmed = line.trim();
+        if (!trimmed.startsWith("data:")) continue;
+        const data = trimmed.slice(5).trim();
+        if (data === "[DONE]") return;
+        try {
+          const json = JSON.parse(data);
+          const delta: string | undefined = json?.choices?.[0]?.delta?.content;
+          if (delta) {
+            completionChars += delta.length;
+            onDelta(delta);
+          }
+          const total = json?.usage?.total_tokens;
+          if (typeof total === "number") usageTokens = total;
+        } catch {
+          /* 不完整的 JSON 分片，忽略 */
+        }
       }
     }
+  } finally {
+    addUsage(usageTokens ?? estimateTokens(promptChars + completionChars));
   }
 }
