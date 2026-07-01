@@ -9,6 +9,12 @@ import { createPortal } from "react-dom";
 import { useLocation } from "umi";
 import { marked } from "marked";
 import { streamChat, type ChatMessage } from "@/utils/aiChat";
+import {
+  hasQuota,
+  unlockQuota,
+  UNLOCK_PASSPHRASE,
+  QUOTA_EXCEEDED_MESSAGE,
+} from "@/utils/aiUsage";
 import styles from "./index.less";
 
 marked.setOptions({ breaks: true, gfm: true });
@@ -83,7 +89,7 @@ function parseQuestions(text: string): string[] {
 }
 
 interface UiMessage {
-  role: "user" | "assistant";
+  role: "user" | "assistant" | "system";
   content: string;
 }
 
@@ -111,6 +117,8 @@ const AiChatDialog: React.FC<AiChatDialogProps> = ({
   // 标签条里的问题标签（内置 + 「发现问题」生成的，均可删除）；动作标签固定在末尾
   const [chips, setChips] = useState<string[]>(defaultSuggestions);
   const [discovering, setDiscovering] = useState(false);
+  // 今日 token 额度是否已用尽（打开时 / 每次请求结束后重新检查）
+  const [quotaExceeded, setQuotaExceeded] = useState(() => !hasQuota());
 
   const abortRef = useRef<AbortController | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -135,6 +143,7 @@ const AiChatDialog: React.FC<AiChatDialogProps> = ({
   useEffect(() => {
     if (!open) return;
     stickToBottomRef.current = true;
+    setQuotaExceeded(!hasQuota());
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
     };
@@ -217,6 +226,24 @@ const AiChatDialog: React.FC<AiChatDialogProps> = ({
     async (text: string) => {
       const content = text.trim();
       if (!content || loading) return;
+
+      // 限流解除口令：不经过 AI，不受限流 / 页面知识边界约束
+      if (content === UNLOCK_PASSPHRASE) {
+        unlockQuota();
+        setQuotaExceeded(false);
+        setInput("");
+        setMessages((prev) => [
+          ...prev,
+          { role: "system", content: "✅ 限流已解除" },
+        ]);
+        return;
+      }
+
+      if (!hasQuota()) {
+        setQuotaExceeded(true);
+        return;
+      }
+
       setError(null);
       setInput("");
       stickToBottomRef.current = true;
@@ -232,7 +259,9 @@ const AiChatDialog: React.FC<AiChatDialogProps> = ({
 
       const payload: ChatMessage[] = [
         { role: "system", content: systemPrompt },
-        ...history.map((m) => ({ role: m.role, content: m.content })),
+        ...history
+          .filter((m) => m.role !== "system")
+          .map((m) => ({ role: m.role, content: m.content })),
         { role: "user", content },
       ];
 
@@ -270,6 +299,7 @@ const AiChatDialog: React.FC<AiChatDialogProps> = ({
       } finally {
         setLoading(false);
         abortRef.current = null;
+        setQuotaExceeded(!hasQuota());
       }
     },
     [loading, messages, systemPrompt]
@@ -286,7 +316,7 @@ const AiChatDialog: React.FC<AiChatDialogProps> = ({
   // 「发现问题」：让模型基于本页 / 代码知识点生成若干问题，解析成标签追加进 chips。
   // 不写入对话区（这是元操作），只把结果变成可点击的标签。
   const discoverQuestions = useCallback(async () => {
-    if (discovering || loading) return;
+    if (discovering || loading || !hasQuota()) return;
     setError(null);
     setDiscovering(true);
 
@@ -331,6 +361,7 @@ const AiChatDialog: React.FC<AiChatDialogProps> = ({
     } finally {
       setDiscovering(false);
       abortRef.current = null;
+      setQuotaExceeded(!hasQuota());
     }
   }, [discovering, loading, scope, systemPrompt]);
 
@@ -381,11 +412,17 @@ const AiChatDialog: React.FC<AiChatDialogProps> = ({
               <div
                 key={i}
                 className={`${styles.msg} ${
-                  m.role === "user" ? styles.msgUser : styles.msgAi
+                  m.role === "user"
+                    ? styles.msgUser
+                    : m.role === "system"
+                    ? styles.msgSystem
+                    : styles.msgAi
                 }`}
               >
                 {m.role === "user" ? (
                   <div className={styles.bubbleUser}>{m.content}</div>
+                ) : m.role === "system" ? (
+                  <div className={styles.systemNote}>{m.content}</div>
                 ) : (
                   <div
                     className={styles.bubbleAi}
@@ -410,7 +447,7 @@ const AiChatDialog: React.FC<AiChatDialogProps> = ({
               <button
                 type="button"
                 className={styles.chipMain}
-                disabled={loading || discovering}
+                disabled={loading || discovering || quotaExceeded}
                 onClick={() => send(s)}
               >
                 {s}
@@ -429,12 +466,16 @@ const AiChatDialog: React.FC<AiChatDialogProps> = ({
           <button
             type="button"
             className={styles.chipAction}
-            disabled={loading || discovering}
+            disabled={loading || discovering || quotaExceeded}
             onClick={discoverQuestions}
           >
             {discovering ? "分析中…" : "✨ 发现问题"}
           </button>
         </div>
+
+        {quotaExceeded && (
+          <div className={styles.quotaNotice}>{QUOTA_EXCEEDED_MESSAGE}</div>
+        )}
 
         <form className={styles.composer} onSubmit={handleSubmit}>
             <textarea
@@ -464,7 +505,10 @@ const AiChatDialog: React.FC<AiChatDialogProps> = ({
               <button
                 type="submit"
                 className={styles.sendBtn}
-                disabled={!input.trim()}
+                disabled={
+                  !input.trim() ||
+                  (quotaExceeded && input.trim() !== UNLOCK_PASSPHRASE)
+                }
               >
                 发送
               </button>
