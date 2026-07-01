@@ -176,7 +176,10 @@ const AiChatDialog: React.FC<AiChatDialogProps> = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
-  // 监听消息区滚动：用户主动上滚超过阈值则停止自动跟随，滚回底部附近再恢复
+  // 监听消息区滚动：用户主动上滚超过阈值则停止自动跟随，滚回底部附近再恢复。
+  // 依赖 mounted：弹窗关闭时组件会 return null（DOM 销毁），首次挂载时 open 还是
+  // false、scrollRef.current 还是 null，必须等 mounted 变 true、真实 DOM 出现后
+  // 重新绑定监听，否则永远绑不上，stickToBottomRef 就会一直卡在初始值 true。
   useEffect(() => {
     const el = scrollRef.current;
     if (!el) return;
@@ -187,7 +190,7 @@ const AiChatDialog: React.FC<AiChatDialogProps> = ({
     };
     el.addEventListener("scroll", onScroll, { passive: true });
     return () => el.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [mounted]);
 
   // 新内容到达时，仅在「跟随到底部」状态下才自动滚动，不打断用户查看历史
   useEffect(() => {
