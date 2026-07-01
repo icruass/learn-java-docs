@@ -15,6 +15,12 @@ export const AI_CONFIG = {
   fallbackModel: "deepseek-chat",
 } as const;
 
+/**
+ * 每日 token 限额（客户端本地计数，见 src/utils/aiUsage.ts）。
+ * 只是防止误用透支下面这个共享 Key 的软限流，不是精确计费 / 安全防刷。
+ */
+export const DAILY_TOKEN_LIMIT = 1000;
+
 /** 👉 在此填入你的 DeepSeek API Key（写死，直接生效）。 */
 export const API_KEY = "sk-6b712fa6e8734ccdaa2692247fc51ed7";
 
