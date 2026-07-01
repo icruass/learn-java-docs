@@ -40,6 +40,13 @@
   transform: translateY(0);
 }
 
+/* 页面级问答（scope='page'）：全屏展示，而不是 80% 高度的抽屉 */
+.fullscreen {
+  height: 100%;
+  border-radius: 0;
+  border-top: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .mask,
   .drawer {
