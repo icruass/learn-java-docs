@@ -61,12 +61,36 @@ language?: string; // 同上
 
 此修复对 `scope='snippet'` 和 `scope='page'` 两种场景都生效（同一份滚动逻辑），随第 1 点的改造一起在 `AiChatDialog/index.tsx` 里完成，不需要新增文件。
 
+### 5. 每日 token 限流（客户端本地，非精确防刷）
+
+- `src/config/ai.ts` 新增 `DAILY_TOKEN_LIMIT = 1000`。
+- 新建 `src/utils/aiUsage.ts`，风格与 `recentDocs.ts`/原 `scrollMemory.ts` 一致的 localStorage 读写：
+  - 按日期字符串记账，跨天自动归零。
+  - 导出 `hasQuota(): boolean`、`addUsage(tokens: number): void`。
+- 计数方式：优先用 API 真实用量——请求体加 `stream_options: { include_usage: true }`，若流式响应中收到带 `usage.total_tokens` 的分片就直接采用；拿不到时按「本次发出的 prompt 字符数 + 收到的回复字符数」之和 ÷ 1.7（经验系数）估算。只是防误用的软限流，不追求精确计费。
+- 拦截时机：`streamChat()`（`src/utils/aiChat.ts`）开头检查 `hasQuota()`，已超限直接抛错、不发网络请求；未超限时允许这一次跑完（哪怕跑完后累计超过 1000，下一次才拦）。
+- 记账时机：只要成功建立了流式连接就记账（包括被用户「停止」中断的部分），建连阶段失败（如 401）不记账。
+- UI 表现（`AiChatDialog`）：额度用尽时禁用发送按钮、建议标签、「发现问题」，并常驻提示「今日 AI 问答额度已用完，请明天再来」；额度状态在弹窗打开时、以及每次请求结束后重新检查。
+- 范围：全站共享一份计数，代码问答（`CodeBlock`）和页面问答共用，不分入口。
+- 已知限制：纯客户端计数，可被清缓存/换浏览器绕过，只防误刷共享 Key 额度，不是安全机制。
+
+### 6. 限流解除口令（本地暗号，不经过 AI / 不受边界约束）
+
+- `src/utils/aiUsage.ts` 再新增常量 `UNLOCK_PASSPHRASE = "我的限流key是jiangjie"` 和函数 `unlockQuota()`：命中后往 localStorage 写永久标记；此后 `hasQuota()` 永远返回 `true`，不再受每日 1000 token 限制，直到用户手动清空该浏览器的 localStorage。
+- `AiChatDialog.send()` 最前面判断 `content.trim() === UNLOCK_PASSPHRASE`（精确匹配，不做大小写/模糊容错）：
+  - 命中：**不调用 `streamChat`，完全不经过 AI**（因此天然不受第 1 点里的页面知识边界约束）。直接调用 `unlockQuota()`、清空输入框、把本地 `quotaExceeded` state 置为 `false`，并往 `messages` 里追加一条新的 `role: "system"` 消息「✅ 限流已解除」。
+  - 未命中：按原逻辑继续走（正常发给 AI，仍受第 5 点的限流与第 1 点的边界约束）。
+- 新增 `role: "system"` 消息类型：在消息列表渲染时走单独分支，展示成居中的提示条样式（区别于用户气泡和 AI 气泡），不做 Markdown 解析。
+- 为了让用户在「额度已用尽」状态下还能把这句口令打出来并发送：输入框本身始终可编辑（不因 `quotaExceeded` 禁用）；发送按钮的禁用条件里加一个例外——`disabled={!input.trim() || (quotaExceeded && input.trim() !== UNLOCK_PASSPHRASE) || loading}`，保证口令即使在额度用尽时也能点击发送；Enter 键提交走同一个 `send()` 函数，天然享受同样的例外。
+
 ## 改动范围
 
-- 修改：`src/components/AiChatDialog/index.tsx`、`src/components/AiChatDialog/index.less`、`src/components/Sidebar/index.tsx`、`src/components/Sidebar/index.less`
-- 不改动：`src/utils/aiChat.ts`、`src/config/ai.ts`、`src/components/doc/CodeBlock.tsx`、`src/components/doc/CodeBlock.less`
+- 修改：`src/components/AiChatDialog/index.tsx`、`src/components/AiChatDialog/index.less`、`src/components/Sidebar/index.tsx`、`src/components/Sidebar/index.less`、`src/utils/aiChat.ts`、`src/config/ai.ts`
+- 新增：`src/utils/aiUsage.ts`
+- 不改动：`src/components/doc/CodeBlock.tsx`、`src/components/doc/CodeBlock.less`
 
 ## 风险 / 已知限制
 
 - 「边界约束」是系统提示词层面的软约束（依赖模型遵循指令），不是硬性的技术过滤——与现有代码问答功能的约束方式一致，非本次新增风险。
 - `src/config/ai.ts` 中的 API Key 是写死在前端产物里的（纯静态站点、无后端），这是既有风险，本次改动不放大也不缩小该风险（新增入口会增加调用频次，但额度控制仍靠现有的 Key 本身限额）。
+- 每日 token 限流与解除口令都只是客户端本地的「防误用」软措施：会写进公开仓库/前端产物，任何打开开发者工具的人都能看到 `UNLOCK_PASSPHRASE` 源码并绕过限流；不能当作真正的访问控制。
