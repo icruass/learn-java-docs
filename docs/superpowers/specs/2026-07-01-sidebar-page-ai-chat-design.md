@@ -48,6 +48,19 @@ language?: string; // 同上
 - 渲染：`<AiChatDialog open={pageAiOpen} onClose={() => setPageAiOpen(false)} scope="page" />`（不传 `code`/`language`）。
 - 移动端：抽屉式侧边栏本身会被这个全屏问答盖住，不需要额外处理（弹窗用 `createPortal` 挂到 `document.body`，z-index 高于侧边栏抽屉）。
 
+### 4. 流式生成时不打断用户手动滚动
+
+现状问题：`AiChatDialog` 里有一个 `useEffect`，只要 `messages`/`loading` 变化（每收到一段流式增量都会变化）就无条件执行 `el.scrollTop = el.scrollHeight`。这会在 AI 还在生成答案时，持续把用户手动往上滚看历史的滚动条拽回底部，用户滚不动。
+
+修复为聊天类应用的标准「跟随到底部」模式：
+
+- 新增 `stickToBottomRef`（默认 `true`），并在消息容器（`scrollRef` 所在元素）上监听 `scroll` 事件：如果当前 `scrollTop` 与「底部」的距离超过一个阈值（如 48px），说明用户主动上滚，置 `stickToBottomRef.current = false`；如果又滚回阈值内，置回 `true`。
+- 原来「新内容到达时滚动到底部」的效果，改为仅当 `stickToBottomRef.current === true` 时才执行 `el.scrollTop = el.scrollHeight`；否则跳过，尊重用户当前滚动位置。
+- 用户主动发送新消息（调用 `send()`）时，视为明确意图，强制 `stickToBottomRef.current = true` 并立即滚到底部——这是唯一的强制滚动时机，其余情况都不打断用户滚动。
+- 弹窗重新打开（`open` 由 false→true）时，重置 `stickToBottomRef.current = true`，保证每次新会话默认跟随到底部。
+
+此修复对 `scope='snippet'` 和 `scope='page'` 两种场景都生效（同一份滚动逻辑），随第 1 点的改造一起在 `AiChatDialog/index.tsx` 里完成，不需要新增文件。
+
 ## 改动范围
 
 - 修改：`src/components/AiChatDialog/index.tsx`、`src/components/AiChatDialog/index.less`、`src/components/Sidebar/index.tsx`、`src/components/Sidebar/index.less`
