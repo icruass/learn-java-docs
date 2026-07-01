@@ -16,7 +16,7 @@ const DocLayout: React.FC = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const { pathname, hash } = useLocation();
 
-  // 内容区是真正的滚动容器（自身 overflow-y:auto），续看续读位置都基于它读写
+  // 内容区是真正的滚动容器（自身 overflow-y:auto），切页时对它归零
   const contentRef = useRef<HTMLElement>(null);
   useScrollRestoration(contentRef, pathname, hash);
 
